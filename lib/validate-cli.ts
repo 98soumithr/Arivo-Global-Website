@@ -6,7 +6,7 @@ import { categories } from '../content/categories';
 import { industries } from '../content/industries';
 import { home } from '../content/home';
 import { company } from '../content/company';
-import { site, contact, credentials } from '../content/site';
+import { site, contact } from '../content/site';
 import { validateContent, renderOutstanding } from './validate';
 
 const root = process.cwd();
@@ -20,7 +20,7 @@ const result = validateContent({
   products,
   categories,
   industries,
-  copy: { home, company, site, contact, credentials },
+  copy: { home, company, site, contact },
   imageExists,
 });
 
@@ -32,6 +32,8 @@ const notes = [
   'Source Serif 4 ships without the opsz axis (the opsz file is 122.4 kB on its own). Display sizes use the text master.',
   'IBM Plex Mono 500 dropped per the budget rule; labels use Mono 400.',
   "Three content-pack strings reworded to pass the origin-language scan: \"original system manufacturer's drawing\" → \"original system builder's drawing\" (filter candles); \"a manufactured inorganic material\" → \"a man-made inorganic material\" (gaskets); \"the burner manufacturer's data\" → \"the burner maker's data\" (burner shapes).",
+  'Decision (27 Sep 2026): the site does not publish CIN, GSTIN, IEC, registered address, phone/WhatsApp numbers or market counts. This overrides the build spec (footer credentials block, contact page) — do not reintroduce them.',
+  'Share images are generated per route (lib/og.tsx). A photograph dropped at public/images/og/[key].jpg replaces the generated card for that route.',
   'Home and company copy was written for this build (not in the content pack) — review before launch.',
   'Environment variables for Turnstile, Resend and Vercel Blob are listed in .env.example. Without them the RFQ endpoint accepts submissions in development only.',
 ];

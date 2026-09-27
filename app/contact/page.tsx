@@ -1,6 +1,6 @@
 import { categories, productsByCategory } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
-import { contact, credentials, site } from '@/content/site';
+import { contact, site } from '@/content/site';
 import { Container } from '@/components/layout/Container';
 import { Section, Sections } from '@/components/layout/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -20,7 +20,7 @@ const productOptions: ProductOption[] = categories.flatMap((c) =>
 
 const dt = 't-label text-slate';
 
-/** Surface sequence 1 · 3. The form page carries no navy enquiry band — it is the enquiry. */
+/** One level-1 section. The form page carries no navy enquiry band — it is the enquiry. */
 export default function Page() {
   return (
     <Sections>
@@ -59,18 +59,6 @@ export default function Page() {
                     </dd>
                   </div>
                   <div>
-                    <dt className={dt}>Phone</dt>
-                    <dd className="t-data mt-1">
-                      <Rich text={contact.phone} />
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className={dt}>WhatsApp</dt>
-                    <dd className="t-data mt-1">
-                      <Rich text={contact.whatsapp} />
-                    </dd>
-                  </div>
-                  <div>
                     <dt className={dt}>Office hours</dt>
                     <dd className="mt-1">
                       {contact.officeHours} <Rich text={contact.officeHoursConfirm} />
@@ -90,43 +78,6 @@ export default function Page() {
         </Container>
       </Section>
 
-      <Section level={3} labelledBy="registered-heading">
-        <Container>
-          <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-5">
-              <Eyebrow>Registered details</Eyebrow>
-              <h2 id="registered-heading" className="t-h2 mt-5 text-navy">
-                {site.legalName}
-              </h2>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-              <div className="rounded-brand border border-border bg-white p-5 lg:p-6">
-                <h3 className={dt}>Registered office</h3>
-                <address className="t-body mt-3 not-italic">
-                  {contact.address.map((line) => (
-                    <span key={line} className="block">
-                      <Rich text={line} />
-                    </span>
-                  ))}
-                </address>
-              </div>
-              <div className="rounded-brand border border-border bg-white p-5 lg:p-6">
-                <h3 className={dt}>Registrations</h3>
-                <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-5 gap-y-2.5">
-                  {credentials.map((c) => (
-                    <div key={c.label} className="contents">
-                      <dt className="t-label pt-0.5 text-slate">{c.label}</dt>
-                      <dd className="t-data break-words">
-                        <Rich text={c.value} />
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
     </Sections>
   );
 }

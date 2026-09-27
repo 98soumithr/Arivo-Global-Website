@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: PageProps<'/products/[slug]'>
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  return buildMetadata({ ...product.seo, path: `/products/${slug}`, ogKey: slug });
+  return buildMetadata({ ...product.seo, path: `/products/${slug}` });
 }
 
 export default async function Page({ params }: PageProps<'/products/[slug]'>) {

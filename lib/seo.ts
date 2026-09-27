@@ -1,32 +1,21 @@
 import type { Metadata } from 'next';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import { site } from '@/content/site';
 import type { FaqItem, ProductContent } from './schema';
 import { CONFIRM_PATTERN } from './validate';
 
 export const absoluteUrl = (path: string) => new URL(path, site.url).toString();
 
-/** OG image per route from /public/images/og/[key].jpg, falling back to the default until supplied. */
-function ogImage(key: string) {
-  const own = `/images/og/${key}.jpg`;
-  if (existsSync(join(process.cwd(), 'public', own))) return own;
-  const fallback = '/images/og/default.jpg';
-  return existsSync(join(process.cwd(), 'public', fallback)) ? fallback : undefined;
-}
-
 export function buildMetadata({
   title,
   description,
   path,
-  ogKey,
 }: {
   title: string;
   description: string;
   path: string;
-  ogKey?: string;
 }): Metadata {
-  const image = ogImage(ogKey ?? (path === '/' ? 'home' : path.split('/').filter(Boolean).pop()!));
+  // Share images come from each route's opengraph-image.tsx (lib/og.tsx), which uses a supplied
+  // /public/images/og/[key].jpg when present.
   return {
     title,
     description,
@@ -38,7 +27,6 @@ export function buildMetadata({
       siteName: site.legalName,
       type: 'website',
       locale: 'en_GB',
-      ...(image && { images: [{ url: image, width: 1200, height: 630 }] }),
     },
     twitter: { card: 'summary_large_image', title, description },
   };

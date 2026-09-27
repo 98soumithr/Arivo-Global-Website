@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { categories, industries, productsByCategory } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
 import { home } from '@/content/home';
@@ -7,7 +8,6 @@ import { Section, Sections } from '@/components/layout/Section';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Figure } from '@/components/ui/Figure';
-import { Rich } from '@/components/ui/Rich';
 import { Chip } from '@/components/product/Chip';
 import { ProductCard } from '@/components/product/ProductCard';
 import { EnquiryBand } from '@/components/product/EnquiryBand';
@@ -119,28 +119,30 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* 5 · Markets and credentials */}
+      {/* 5 · Markets */}
       <Section level={2} labelledBy="markets-heading">
         <Container>
-          <SectionHeading id="markets-heading" eyebrow={home.markets.eyebrow}>
-            {home.markets.heading}
-          </SectionHeading>
-          <dl className="mt-(--space-group) grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {home.markets.stats.map((s) => (
-              <div key={s.label} className="flex flex-col-reverse justify-end rounded-brand border border-border bg-white p-5">
-                <dt className="t-small mt-2 text-slate">{s.label}</dt>
-                <dd className="font-mono text-[34px] leading-[40px] text-navy lg:text-[44px] lg:leading-[52px] [&_.confirm]:text-[13px] [&_.confirm]:leading-5">
-                  <Rich text={s.value} />
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <p className="t-small mt-6 max-w-(--container-prose) text-slate">
-            {home.markets.credentialsNote}{' '}
-            <a href="/company#quality" className="link">
-              Quality and documentation
-            </a>
-          </p>
+          <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-7 lg:pr-10">
+              <SectionHeading id="markets-heading" eyebrow={home.markets.eyebrow}>
+                {home.markets.heading}
+              </SectionHeading>
+              <p className="t-body mt-(--space-group) max-w-(--container-prose) text-ink">{home.markets.body}</p>
+              <p className="t-small mt-5">
+                <Link href={home.markets.link.href} className="link">
+                  {home.markets.link.label}
+                </Link>
+              </p>
+            </div>
+            <ul className="self-end lg:col-span-5">
+              {home.markets.regions.map((region, n) => (
+                <li key={region} className="flex items-baseline gap-5 border-b border-border py-5 first:border-t">
+                  <span className="t-data text-slate">{String(n + 1).padStart(2, '0')}</span>
+                  <span className="t-h3 text-navy">{region}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </Section>
 

@@ -1,5 +1,8 @@
-/** Sitewide data: identity, navigation, contact and credentials.
- *  Anything that commits Arivo to a fact is a [CONFIRM] marker until signed off. */
+/** Sitewide data: identity, navigation and contact.
+ *  Anything that commits Arivo to a fact is a [CONFIRM] marker until signed off.
+ *  By decision, the site publishes no registration numbers (CIN, GSTIN, IEC), no registered
+ *  address, no phone or WhatsApp number and no market counts — enquiries go through the form
+ *  and the enquiries mailbox. */
 
 export const site = {
   name: 'Arivo Global',
@@ -16,23 +19,11 @@ export const site = {
 export const contact = {
   email: 'enquiries@arivoglobal.com',
   emailConfirm: '[CONFIRM: enquiries email address]',
-  phone: '[CONFIRM: phone with country code]',
-  phoneHref: '',
-  whatsapp: '[CONFIRM: WhatsApp number with country code]',
-  whatsappHref: '',
   officeHours: 'Monday to Saturday, 09:30–18:30',
   officeHoursConfirm: '[CONFIRM: office hours]',
   timezone: 'IST, UTC+05:30',
   timezoneConfirm: '[CONFIRM: timezone]',
-  address: ['[CONFIRM: registered office address line 1]', '[CONFIRM: city, postcode]', '[CONFIRM: country]'],
 };
-
-export const credentials = [
-  { label: 'CIN', value: '[CONFIRM: CIN]' },
-  { label: 'GSTIN', value: '[CONFIRM: GSTIN]' },
-  { label: 'IEC', value: '[CONFIRM: IEC]' },
-  { label: 'ISO', value: '[CONFIRM: ISO certification marks and certificate numbers]' },
-];
 
 export interface NavItem {
   label: string;

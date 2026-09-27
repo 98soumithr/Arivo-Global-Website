@@ -42,16 +42,11 @@ export const home = {
     ],
   },
   markets: {
-    eyebrow: 'Markets and credentials',
+    eyebrow: 'Markets',
     heading: 'Supplying industrial buyers across three regions',
-    stats: [
-      { value: '[CONFIRM: number]', label: 'countries supplied' },
-      { value: '[CONFIRM: number]', label: 'customers served' },
-      { value: '3', label: 'regions — Europe, the Gulf, Southeast Asia' },
-      { value: '10', label: 'product lines across three families' },
-    ],
-    credentialsNote:
-      'Registered company with export registration. Certificates and registration numbers are listed in full on the company page and in the footer.',
+    body: 'Production orders travel by sea and urgent replacements by air. Every consignment is export-packed, marked to its packing list and shipped with its documentation set, so it can be received and cleared without follow-up requests.',
+    regions: ['Europe', 'The Gulf', 'Southeast Asia'],
+    link: { label: 'Inspection and documentation', href: '/company#quality' },
   },
   enquiry: {
     heading: 'Send a drawing, a sample or a part number',
