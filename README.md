@@ -39,6 +39,7 @@ The script crops to the slot's shape (keeping the product in frame), resizes, re
 | `hero` | 4:5 portrait, 1600 × 2000 | `public/images/products/[slug]/hero.jpg` |
 | `detail` | 1:1 square, 1400 × 1400 | `public/images/products/[slug]/detail.jpg` |
 | `context` | 3:2 landscape, 1800 × 1200 | `public/images/products/[slug]/context.jpg` |
+| home `hero` | 16:9 backdrop, 2400 × 1350 | `public/images/home/hero.jpg` — dark process photograph behind the headline (licensed stock acceptable) |
 | `og` | 1.91:1, 1200 × 630 | `public/images/og/[key].jpg` — replaces the generated share card |
 
 The build rejects images under 1000 px wide. Product photographs must be of the product Arivo supplies — no stock, AI-generated or competitor images (see design system §9).

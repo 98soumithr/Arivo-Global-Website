@@ -28,12 +28,12 @@ const result = validateContent({
 });
 
 if (!imageExists(home.hero.image.src))
-  result.missingImages.unshift({ product: 'home', slot: 'hero', src: home.hero.image.src, shot: home.hero.image.shot });
+  result.missingImages.unshift({ product: 'home', slot: 'backdrop', src: home.hero.image.src, shot: home.hero.image.shot });
 
 /* Supplied photographs: resolution must be adequate (error); ratio should match the slot (warning — it will crop). */
 const imageChecks: { src: string; slot: keyof typeof SLOT_TARGET }[] = [
   ...products.flatMap((p) => p.images.filter((i) => i.slot !== 'diagram').map((i) => ({ src: i.src, slot: i.slot }))),
-  { src: home.hero.image.src, slot: 'hero' as const },
+  { src: home.hero.image.src, slot: 'backdrop' as const },
   ...(existsSync(join(root, 'public/images/og'))
     ? readdirSync(join(root, 'public/images/og'))
         .filter((f) => f.endsWith('.jpg'))

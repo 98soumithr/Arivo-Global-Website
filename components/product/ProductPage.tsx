@@ -15,7 +15,7 @@ import { SectionHeading } from './SectionHeading';
 
 /**
  * Renders any ProductContent. All product pages are this one component — no per-product code.
- * Surface sequence: 1 · 3 · 1 · 2 · 1 · 2 · 4. The spec's name block and role-in-process are merged
+ * Surface sequence: 1 · 3 · 5 · 1 · 2 · 1 · 2 · 4 (5 = blueprint diagram section). The spec's name block and role-in-process are merged
  * into one level-1 opening (as are "What's available" and extra sections) so no two consecutive
  * sections share a level.
  */
@@ -123,14 +123,22 @@ export function ProductPage({ product }: { product: ProductContent }) {
               </div>
             )}
           </div>
-          {diagram && (
-            <div data-reveal className="mt-(--space-block)">
-              <h3 className="t-h4 mb-5 text-navy">How it fits the process</h3>
-              <Figure image={diagram} sizes="100vw" caption={diagram.shot} />
-            </div>
-          )}
         </Container>
       </Section>
+
+      {/* Process diagram — blueprint section */}
+      {diagram && (
+        <Section level={5} labelledBy="process">
+          <Container>
+            <div data-reveal>
+              <SectionHeading id="process" eyebrow="Process" onNavy>
+                How it fits the process
+              </SectionHeading>
+              <Figure image={diagram} sizes="100vw" caption={diagram.shot} className="mt-(--space-group)" />
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {/* 4–5 · What's available, plus extra sections */}
       <Section level={1} labelledBy="available">

@@ -34,8 +34,8 @@ if (target === 'og') {
   if (!/^[a-z0-9-]+$/.test(slotArg)) fail('OG key must be a route key, e.g. home, products, crucibles');
   out = `public/images/og/${slotArg}.jpg`;
 } else if (target === 'home') {
-  if (slotArg !== 'hero') fail('The home page has one image slot: hero');
-  slot = 'hero';
+  if (slotArg !== 'hero') fail('The home page has one image slot: hero (a wide, dark backdrop photograph)');
+  slot = 'backdrop';
   out = 'public/images/home/hero.jpg';
 } else {
   const product = products.find((p) => p.slug === target) ?? fail(`No product with slug "${target}". Slugs: ${products.map((p) => p.slug).join(', ')}`);

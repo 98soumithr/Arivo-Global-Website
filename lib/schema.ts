@@ -25,7 +25,7 @@ export interface FaqItem {
 }
 
 export interface ImageSlot {
-  slot: 'hero' | 'detail' | 'context' | 'diagram';
+  slot: 'hero' | 'detail' | 'context' | 'diagram' | 'backdrop'; // backdrop: full-bleed dark photograph behind text
   src: string;
   ratio: '4:5' | '1:1' | '3:2' | '16:9';
   shot: string; // required — describes the shot for the placeholder

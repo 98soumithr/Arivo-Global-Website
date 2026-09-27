@@ -45,10 +45,10 @@
   --breakpoint-lg: 1024px;
 }
 
-/* Space scale — desktop / mobile */
+/* Space scale — desktop / mobile (section and block tightened ~25% from design system §5 at the owner's request) */
 :root {
-  --space-section: 72px;
-  --space-block: 48px;
+  --space-section: 56px;
+  --space-block: 40px;
   --space-group: 28px;
   --space-element: 16px;
   --space-tight: 12px;
@@ -57,8 +57,8 @@
 }
 @media (min-width: 1024px) {
   :root {
-    --space-section: 128px;
-    --space-block: 80px;
+    --space-section: 96px;
+    --space-block: 64px;
     --space-group: 40px;
     --space-element: 20px;
     --gutter: 32px;
@@ -242,3 +242,23 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Blueprint sections (level 5): navy ground, faint drawing grid, diagrams in light line-work ── */
+.blueprint {
+  background-color: var(--color-navy-section);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M24 0V120M48 0V120M72 0V120M96 0V120M0 24H120M0 48H120M0 72H120M0 96H120' stroke='%239DB8CF' stroke-opacity='.05'/%3E%3Cpath d='M.5 0V120M0 .5H120' stroke='%239DB8CF' stroke-opacity='.11'/%3E%3C/svg%3E");
+  background-position: center top;
+}
+.blueprint .diagram-scroll { background: transparent; border-color: var(--color-navy-border); }
+.blueprint figcaption { color: var(--color-light-steel); }
+.blueprint svg .fill-white { fill: var(--color-navy-section); }
+.blueprint svg .fill-mist { fill: color-mix(in oklch, var(--color-light-steel) 14%, transparent); }
+.blueprint svg .fill-paper { fill: color-mix(in oklch, var(--color-light-steel) 8%, transparent); }
+.blueprint svg .fill-navy, .blueprint svg .fill-slate, .blueprint svg .fill-harbour { fill: var(--color-light-steel); }
+.blueprint svg .fill-ink { fill: var(--color-white); }
+.blueprint svg .fill-burgundy { fill: var(--color-paper); } /* never burgundy on navy */
+.blueprint svg .stroke-navy, .blueprint svg .stroke-harbour { stroke: var(--color-light-steel); }
+.blueprint svg .stroke-slate { stroke: var(--color-steel); }
+.blueprint svg .stroke-burgundy { stroke: var(--color-white); }
+.blueprint svg .stroke-border { stroke: var(--color-navy-border); }
+.blueprint svg .dg-label.fill-burgundy { font-weight: 600; }

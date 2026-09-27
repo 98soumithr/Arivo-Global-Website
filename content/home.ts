@@ -6,12 +6,13 @@ export const home = {
     headline: 'Ceramic fibre and foundry consumables, specified to the process',
     standfirst:
       'Filter candles, boards, burner shapes, gaskets, pipe sections and foundry consumables for industrial plants in Europe, the USA, the Gulf, Southeast Asia and beyond. Quoted from your drawing, your sample or the part already in service.',
+    /** Full-bleed backdrop behind the headline: the dark, hot "context" register — never a studio product shot. */
     image: {
-      slot: 'hero',
+      slot: 'backdrop',
       src: '/images/home/hero.jpg',
-      ratio: '4:5',
-      shot: 'A single ceramic fibre filter candle standing upright beside a stack of board, edge-on, on seamless off-white ground. Soft key light from above left.',
-      alt: 'A ceramic fibre filter candle beside a stack of ceramic fibre board',
+      ratio: '16:9',
+      shot: 'Dark melt-shop scene: molten metal pouring from a ladle, or a furnace mouth glowing. Deep shadows, cool grade, the bright point right of centre so the left third stays dark for the headline. Licensed stock is acceptable.',
+      alt: 'Molten metal pouring in a dark foundry melt shop',
     } satisfies ImageSlot,
   },
   categories: {

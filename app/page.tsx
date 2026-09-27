@@ -7,7 +7,7 @@ import { Container } from '@/components/layout/Container';
 import { Section, Sections } from '@/components/layout/Section';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Figure } from '@/components/ui/Figure';
+import { HeroBackdrop } from '@/components/ui/HeroBackdrop';
 import { Chip } from '@/components/product/Chip';
 import { ProductCard } from '@/components/product/ProductCard';
 import { EnquiryBand } from '@/components/product/EnquiryBand';
@@ -21,36 +21,31 @@ export const metadata = buildMetadata({
 
 const i = (n: number) => ({ '--i': n }) as React.CSSProperties;
 
-/** Surface sequence 1 · 2 · 3 · 1 · 2 · 4. */
+/** Surface sequence 5 (dark photographic hero) · 2 · 3 · 5 (blueprint) · 2 · 4. */
 export default function Home() {
   return (
     <Sections>
-      {/* 1 · Hero — typographic, one product photograph, no carousel */}
-      <Section level={1} labelledBy="hero-heading" className="relative overflow-hidden !pt-(--space-block)">
-        <Meridians />
+      {/* 1 · Hero — dark, full-bleed process photograph behind the headline; no carousel */}
+      <Section level={5} labelledBy="hero-heading" className="relative flex min-h-[560px] items-center overflow-hidden !bg-deep-navy !bg-none lg:min-h-[min(84vh,760px)]">
+        <HeroBackdrop image={home.hero.image} />
         <Container className="relative">
-          <div className="grid gap-(--space-block) lg:grid-cols-12 lg:items-center lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
-              <div className="reveal" style={i(0)}>
-                <Eyebrow>{home.hero.eyebrow}</Eyebrow>
-                <h1 id="hero-heading" className="t-display mt-6 text-navy">
-                  {home.hero.headline}
-                </h1>
-              </div>
-              <p className="reveal t-lead mt-6 max-w-[40ch] text-slate" style={i(1)}>
-                {home.hero.standfirst}
-              </p>
-              <div className="reveal mt-(--space-group) flex flex-wrap gap-3" style={i(2)}>
-                <Button href="/products" variant="secondary">
-                  View products
-                </Button>
-                <Button href="/contact#rfq" variant="outline">
-                  Send a drawing
-                </Button>
-              </div>
+          <div className="max-w-[760px]">
+            <div className="reveal" style={i(0)}>
+              <Eyebrow onNavy>{home.hero.eyebrow}</Eyebrow>
+              <h1 id="hero-heading" className="t-display mt-6 text-white">
+                {home.hero.headline}
+              </h1>
             </div>
-            <div className="lg:col-span-5">
-              <Figure image={home.hero.image} eager sizes="(min-width: 1024px) 490px, calc(100vw - 40px)" />
+            <p className="reveal t-lead mt-6 max-w-[46ch] text-on-navy" style={i(1)}>
+              {home.hero.standfirst}
+            </p>
+            <div className="reveal mt-(--space-group) flex flex-wrap gap-3" style={i(2)}>
+              <Button href="/products" variant="primary-navy">
+                View products
+              </Button>
+              <Button href="/contact#rfq" variant="ghost-navy">
+                Send a drawing
+              </Button>
             </div>
           </div>
         </Container>
@@ -102,17 +97,18 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* 4 · What we do */}
-      <Section level={1} labelledBy="work-heading">
+      {/* 4 · What we do — blueprint section */}
+      <Section level={5} labelledBy="work-heading">
         <Container>
-          <SectionHeading id="work-heading" eyebrow={home.whatWeDo.eyebrow} reveal>
+          <SectionHeading id="work-heading" eyebrow={home.whatWeDo.eyebrow} onNavy reveal>
             {home.whatWeDo.heading}
           </SectionHeading>
           <div className="mt-(--space-group) grid gap-(--space-group) md:grid-cols-3 md:gap-6">
             {home.whatWeDo.columns.map((col, n) => (
-              <div key={col.title} data-reveal style={{ '--i': n } as React.CSSProperties} className="border-t border-navy pt-5">
-                <h3 className="t-h4 text-navy">{col.title}</h3>
-                <p className="t-body mt-3 text-ink">{col.body}</p>
+              <div key={col.title} data-reveal style={{ '--i': n } as React.CSSProperties} className="border-t border-light-steel/35 pt-5">
+                <p className="t-data text-light-steel">{String(n + 1).padStart(2, '0')}</p>
+                <h3 className="t-h3 mt-3 text-white">{col.title}</h3>
+                <p className="t-body mt-3 text-on-navy">{col.body}</p>
               </div>
             ))}
           </div>
@@ -152,25 +148,5 @@ export default function Home() {
       {/* 6 · Enquiry band */}
       <EnquiryBand heading={home.enquiry.heading} body={home.enquiry.body} />
     </Sections>
-  );
-}
-
-/** Hairline meridian arcs in Steel Blue, cropped off the right edge. Never behind body text. */
-function Meridians() {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 600 800"
-      preserveAspectRatio="xMaxYMid slice"
-      className="pointer-events-none absolute top-0 right-0 hidden h-full w-[46%] opacity-35 lg:block"
-      fill="none"
-    >
-      {[120, 220, 320, 420, 520].map((rx) => (
-        <ellipse key={rx} cx="640" cy="400" rx={rx} ry="520" className="stroke-steel" strokeWidth="1" vectorEffect="non-scaling-stroke" />
-      ))}
-      {[160, 300, 440, 580, 720].map((y) => (
-        <line key={y} x1="0" x2="600" y1={y} y2={y} className="stroke-steel" strokeWidth="1" vectorEffect="non-scaling-stroke" opacity="0.6" />
-      ))}
-    </svg>
   );
 }

@@ -86,7 +86,7 @@ Placeholders render at the final aspect ratio, so layout will not shift when the
 
 ### home
 
-- [ ] **hero** `public/images/home/hero.jpg` — A single ceramic fibre filter candle standing upright beside a stack of board, edge-on, on seamless off-white ground. Soft key light from above left.
+- [ ] **backdrop** `public/images/home/hero.jpg` — Dark melt-shop scene: molten metal pouring from a ladle, or a furnace mouth glowing. Deep shadows, cool grade, the bright point right of centre so the left third stays dark for the headline. Licensed stock is acceptable.
 
 ### ceramic-fibre-filter-candles
 
