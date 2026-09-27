@@ -55,10 +55,10 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
   }, [openMenu]);
 
   return (
-    <header className="relative z-40 h-(--header-h) border-b border-border bg-white">
+    <header className="on-navy relative z-40 h-(--header-h) border-b border-navy-border bg-deep-navy">
       <div className="mx-auto flex h-full w-full max-w-[calc(var(--container-page)_+_2*var(--gutter))] items-center px-(--gutter)">
         <Link href="/" className="shrink-0">
-          <Wordmark />
+          <Wordmark onNavy />
           <span className="sr-only"> — home</span>
         </Link>
 
@@ -78,7 +78,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
                   <Link
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
-                    className={`flex h-full items-center px-3 text-[15px] font-medium text-navy decoration-1 underline-offset-[6px] transition-[text-decoration-thickness] duration-150 hover:underline ${active ? 'underline decoration-2' : ''}`}
+                    className={`flex h-full items-center px-3 text-[15px] font-medium text-on-navy decoration-1 underline-offset-[6px] transition-[text-decoration-thickness,color] duration-150 hover:text-white hover:underline ${active ? 'text-white underline decoration-2 decoration-light-steel' : ''}`}
                   >
                     {item.label}
                   </Link>
@@ -91,14 +91,14 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
                         aria-controls={panelId}
                         aria-label={`${item.label} menu`}
                         onClick={() => setMenu(isOpen ? null : { label: item.label, path: pathname })}
-                        className="-ml-2 flex size-7 items-center justify-center rounded-brand text-slate hover:text-navy"
+                        className="-ml-2 flex size-7 items-center justify-center rounded-brand text-light-steel hover:text-white"
                       >
                         <Chevron className={`size-3.5 transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}`} />
                       </button>
                       <div
                         id={panelId}
                         hidden={!isOpen}
-                        className="absolute top-full left-0 w-[400px] border border-border bg-white p-2"
+                        className="on-light absolute top-full left-0 w-[400px] border border-border bg-white p-2"
                       >
                         <ul>
                           {item.children.map((child) => (
@@ -127,7 +127,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
 
         <div className="ml-auto flex items-center gap-3">
           <span className="hidden sm:block">
-            <Link href={quoteHref} className={buttonClass('primary', '!min-h-11 !px-5 !py-2.5')}>
+            <Link href={quoteHref} className={buttonClass('primary-navy', '!min-h-11 !px-5 !py-2.5')}>
               Request a quote
             </Link>
           </span>
@@ -136,7 +136,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
             aria-expanded={drawerOpen}
             aria-controls="mobile-drawer"
             onClick={() => setDrawerPath(pathname)}
-            className="flex h-11 items-center gap-2 rounded-brand border border-border px-3.5 text-[15px] font-medium text-navy lg:hidden"
+            className="flex h-11 items-center gap-2 rounded-brand border border-navy-border px-3.5 text-[15px] font-medium text-on-navy lg:hidden"
           >
             <svg aria-hidden viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M3 6h14M3 10h14M3 14h14" />
@@ -205,14 +205,14 @@ function MobileDrawer({
       role="dialog"
       aria-modal="true"
       aria-label="Menu"
-      className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden"
+      className="on-light fixed inset-0 z-50 flex flex-col bg-white lg:hidden"
     >
-      <div className="flex h-(--header-h) shrink-0 items-center justify-between border-b border-border px-(--gutter)">
-        <Wordmark />
+      <div className="on-navy flex h-(--header-h) shrink-0 items-center justify-between border-b border-navy-border bg-deep-navy px-(--gutter)">
+        <Wordmark onNavy />
         <button
           type="button"
           onClick={onClose}
-          className="flex h-11 items-center gap-2 rounded-brand border border-border px-3.5 text-[15px] font-medium text-navy"
+          className="flex h-11 items-center gap-2 rounded-brand border border-navy-border px-3.5 text-[15px] font-medium text-on-navy"
         >
           <svg aria-hidden viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="m5 5 10 10M15 5 5 15" />

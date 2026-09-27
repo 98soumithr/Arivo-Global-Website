@@ -60,7 +60,7 @@ export default function Page() {
                     {company.intro.standfirst}
                   </p>
                   <div className="reveal mt-(--space-block) border-t border-border pt-(--space-group)" style={{ '--i': 2 } as React.CSSProperties}>
-                    <h2 className="t-h3 text-navy">{about!.heading}</h2>
+                    <h2 className="t-h2 text-navy">{about!.heading}</h2>
                     <Prose className="flow t-body mt-5 text-ink">
                       {about!.body.map((p) => (
                         <p key={p.slice(0, 32)}>

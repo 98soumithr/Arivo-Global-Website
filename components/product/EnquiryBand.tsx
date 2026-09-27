@@ -25,7 +25,7 @@ export function EnquiryBand({
             </h2>
             <p className="t-lead mt-4 text-on-navy">{body}</p>
           </div>
-          <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+          <div data-reveal-item className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
             <Button href={href} variant="primary-navy">
               Request a quote
             </Button>

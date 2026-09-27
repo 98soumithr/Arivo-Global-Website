@@ -142,7 +142,7 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
           <circle cx="16" cy="16" r="13" />
           <path d="m10.5 16.5 3.5 3.5 7.5-8" />
         </svg>
-        <h3 className="t-h3 mt-4 text-navy">Thank you — your enquiry has been sent</h3>
+        <h2 className="t-h3 mt-4 text-navy">Thank you — your enquiry has been sent</h2>
         <p className="t-body mt-3 text-ink">{responseCommitment} A copy has gone to your email address.</p>
       </div>
     );
@@ -153,7 +153,7 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
       <div ref={summary} tabIndex={-1} className="outline-none" aria-live="assertive">
         {(errorList.length > 0 || formError) && (
           <div role="alert" className="rounded-brand border-2 border-burgundy bg-white p-5">
-            <h3 className="t-h4 text-burgundy">{formError || 'Please correct the following'}</h3>
+            <h2 className="t-h4 text-burgundy">{formError || 'Please correct the following'}</h2>
             {errorList.length > 0 && (
               <ul className="mt-3 space-y-1">
                 {errorList.map(([field, msg]) => (

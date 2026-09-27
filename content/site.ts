@@ -17,8 +17,7 @@ export const site = {
 } as const;
 
 export const contact = {
-  email: 'enquiries@arivoglobal.com',
-  emailConfirm: '[CONFIRM: enquiries email address]',
+  email: 'soumith@arivoglobal.com',
   officeHours: 'Monday to Saturday, 09:30–18:30',
   officeHoursConfirm: '[CONFIRM: office hours]',
   timezone: 'IST, UTC+05:30',

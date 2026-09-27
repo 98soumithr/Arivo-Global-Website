@@ -54,8 +54,7 @@ export default function Page() {
                     <dd className="mt-1">
                       <a href={`mailto:${contact.email}`} className="link">
                         {contact.email}
-                      </a>{' '}
-                      <Rich text={contact.emailConfirm} />
+                      </a>
                     </dd>
                   </div>
                   <div>

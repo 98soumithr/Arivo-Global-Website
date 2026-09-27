@@ -74,7 +74,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
               className="reveal border-t border-border pt-(--space-group) lg:col-span-7 lg:mt-(--space-block) lg:pr-10"
               style={{ '--i': 3 } as React.CSSProperties}
             >
-              <h2 className="t-h3 text-navy">Role in the process</h2>
+              <h2 className="t-h2 text-navy">Role in the process</h2>
               <Prose className="flow t-body mt-5 text-ink">
                 {product.roleInProcess.map((p) => (
                   <p key={p.slice(0, 32)}>
@@ -149,7 +149,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
               </Prose>
               {product.extraSections?.map((s) => (
                 <div key={s.heading} className="mt-(--space-block) border-t border-border pt-(--space-group)">
-                  <h2 className="t-h3 text-navy">{s.heading}</h2>
+                  <h3 className="t-h3 text-navy">{s.heading}</h3>
                   <Prose className="flow t-body mt-5 text-ink">
                     {s.body.map((p) => (
                       <p key={p.slice(0, 32)}>
@@ -184,7 +184,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
               </Prose>
             </div>
             <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5 lg:self-end">
-              <div className="rounded-brand border border-border bg-white p-5 lg:p-6">
+              <div data-reveal-item className="rounded-brand border border-border bg-white p-5 lg:p-6">
                 <p className="t-h4 text-navy">Send what you have</p>
                 <p className="t-small mt-2 text-slate">Drawings, specifications, photographs or a sample — PDF, DWG, DXF, STEP or images.</p>
                 <Button href={enquireHref} variant="outline" className="mt-5">

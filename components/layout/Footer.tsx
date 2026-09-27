@@ -71,8 +71,7 @@ export function Footer() {
                   <dd>
                     <a href={`mailto:${contact.email}`} className={link}>
                       {contact.email}
-                    </a>{' '}
-                    <Rich text={contact.emailConfirm} />
+                    </a>
                   </dd>
                 </div>
                 <div>
