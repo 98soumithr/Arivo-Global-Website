@@ -243,15 +243,56 @@
   }
 }
 
-/* ── Dark feature surfaces: layered gradients + fine grain (owner override of design system "no gradients") ── */
+/* ── Surfaces: every ground is a brand-colour gradient (owner override of design system "no gradients") ──
+ * Light grounds stay subtle so body text keeps its contrast (darkest stops checked against Slate text).
+ * Dark grounds carry a fine grain (.grain) to prevent banding. */
+
+/* Level 1 — White: white easing to a faint cool grey, soft Steel tint top-right */
+.surface-1 {
+  background-color: var(--color-white);
+  background-image:
+    radial-gradient(60% 80% at 100% 0%, rgb(107 147 180 / 0.09) 0%, rgb(107 147 180 / 0) 70%),
+    linear-gradient(180deg, #FFFFFF 0%, #F7F8FA 100%);
+}
+/* Level 2 — Paper: paper to a deeper paper, faint Harbour tint top-left */
+.surface-2 {
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(55% 80% at 0% 0%, rgb(64 101 162 / 0.06) 0%, rgb(64 101 162 / 0) 70%),
+    linear-gradient(180deg, #F6F6F5 0%, #EFEFEE 100%);
+}
+/* Level 3 — Mist: mist to a touch deeper, soft Steel tint bottom-right */
+.surface-3 {
+  background-color: var(--color-mist);
+  background-image:
+    radial-gradient(60% 90% at 100% 100%, rgb(107 147 180 / 0.14) 0%, rgb(107 147 180 / 0) 70%),
+    linear-gradient(160deg, #E8E7E6 0%, #E1E0DF 100%);
+}
+/* Level 4 — Navy enquiry band: Harbour bloom top-right */
+.surface-4 {
+  background-color: var(--color-navy);
+  background-image:
+    radial-gradient(60% 120% at 100% 0%, rgb(64 101 162 / 0.45) 0%, rgb(64 101 162 / 0) 70%),
+    linear-gradient(160deg, #1E3669 0%, #192E5D 50%, #132550 100%);
+}
+/* Footer and header — Deep Navy */
+.surface-footer {
+  background-color: var(--color-deep-navy);
+  background-image:
+    radial-gradient(50% 70% at 0% 0%, rgb(64 101 162 / 0.16) 0%, rgb(64 101 162 / 0) 70%),
+    linear-gradient(180deg, #111F40 0%, #0F1C3A 40%, #0A142D 100%);
+}
+.surface-header {
+  background-color: var(--color-deep-navy);
+  background-image: linear-gradient(90deg, #0F1C3A 0%, #13234A 55%, #0F1C3A 100%);
+}
+
 :root {
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* Level 5 feature sections: navy with one soft Harbour highlight */
 .blueprint {
-  position: relative;
-  isolation: isolate;
   background-color: var(--color-navy-section);
   background-image:
     radial-gradient(70% 90% at 100% 0%, rgb(64 101 162 / 0.32) 0%, rgb(64 101 162 / 0) 65%),
@@ -266,7 +307,11 @@
     linear-gradient(160deg, #15264F 0%, #0F1C3A 55%, #0A142D 100%);
 }
 /* Grain sits above the gradient, below content; removes banding */
-.blueprint::before {
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::before {
   content: '';
   position: absolute;
   inset: 0;

@@ -55,7 +55,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
   }, [openMenu]);
 
   return (
-    <header className="on-navy relative z-40 h-(--header-h) border-b border-navy-border bg-deep-navy">
+    <header className="on-navy surface-header relative z-40 h-(--header-h) border-b border-navy-border">
       <div className="mx-auto flex h-full w-full max-w-[calc(var(--container-page)_+_2*var(--gutter))] items-center px-(--gutter)">
         <Link href="/" className="shrink-0">
           <Wordmark onNavy />

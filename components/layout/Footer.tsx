@@ -12,7 +12,7 @@ const link = 'text-on-navy decoration-1 underline-offset-4 hover:underline';
 /** Deep Navy. Products · Industries · Company · Contact. No registration numbers, address or phone by decision. */
 export function Footer() {
   return (
-    <footer className="on-navy bg-deep-navy pt-(--space-block) pb-10 text-on-navy">
+    <footer className="on-navy surface-footer grain pt-(--space-block) pb-10 text-on-navy">
       <Container>
         <Wordmark onNavy />
         <p className="t-small mt-5 max-w-[46ch] text-light-steel">{site.tagline}.</p>

@@ -4,11 +4,11 @@ import { Children, isValidElement } from 'react';
 export type Level = 1 | 2 | 3 | 4 | 5;
 
 const grounds: Record<Level, string> = {
-  1: 'bg-white text-ink',
-  2: 'bg-paper text-ink border-t border-border',
-  3: 'bg-mist text-ink',
-  4: 'on-navy bg-navy text-mist',
-  5: 'on-navy blueprint text-on-navy',
+  1: 'surface-1 text-ink',
+  2: 'surface-2 text-ink border-t border-border',
+  3: 'surface-3 text-ink',
+  4: 'on-navy surface-4 grain text-mist',
+  5: 'on-navy blueprint grain text-on-navy',
 };
 
 interface SectionProps {
