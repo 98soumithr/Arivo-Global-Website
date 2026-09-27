@@ -40,17 +40,20 @@ export async function renderOg({ key, eyebrow, title, subtitle }: { key: string;
 
   return new ImageResponse(
     (
-      <div style={{ display: 'flex', width: '100%', height: '100%', background: C.navy, position: 'relative', padding: '72px 80px', flexDirection: 'column' }}>
-        {/* Meridian lines, cropped off the right edge */}
-        <svg width="560" height="630" viewBox="0 0 560 630" style={{ position: 'absolute', right: 0, top: 0 }}>
-          {[110, 200, 290, 380, 470].map((rx) => (
-            <ellipse key={rx} cx="600" cy="315" rx={rx} ry="420" fill="none" stroke={C.steel} strokeWidth="1.5" opacity="0.4" />
-          ))}
-          {[130, 250, 370, 490].map((y) => (
-            <line key={y} x1="0" x2="560" y1={y} y2={y} stroke={C.steel} strokeWidth="1.5" opacity="0.22" />
-          ))}
-        </svg>
-
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          padding: '72px 80px',
+          flexDirection: 'column',
+          backgroundColor: C.deepNavy,
+          // Same surface as the home hero: cool bloom top-right, faint warm glow bottom-left
+          backgroundImage:
+            'radial-gradient(circle at 88% 12%, rgba(64,101,162,0.55) 0%, rgba(64,101,162,0) 55%), radial-gradient(circle at 0% 100%, rgba(126,8,39,0.32) 0%, rgba(126,8,39,0) 45%), linear-gradient(160deg, #15264F 0%, #0F1C3A 55%, #0A142D 100%)',
+        }}
+      >
         <div style={{ display: 'flex', fontFamily: 'Mono', fontSize: 22, letterSpacing: 3, color: C.lightSteel, textTransform: 'uppercase' }}>{eyebrow}</div>
 
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 44, maxWidth: 820 }}>

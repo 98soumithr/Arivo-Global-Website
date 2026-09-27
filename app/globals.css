@@ -243,11 +243,38 @@
   }
 }
 
-/* ── Blueprint sections (level 5): navy ground, faint drawing grid, diagrams in light line-work ── */
+/* ── Dark feature surfaces: layered gradients + fine grain (owner override of design system "no gradients") ── */
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Level 5 feature sections: navy with one soft Harbour highlight */
 .blueprint {
+  position: relative;
+  isolation: isolate;
   background-color: var(--color-navy-section);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M24 0V120M48 0V120M72 0V120M96 0V120M0 24H120M0 48H120M0 72H120M0 96H120' stroke='%239DB8CF' stroke-opacity='.05'/%3E%3Cpath d='M.5 0V120M0 .5H120' stroke='%239DB8CF' stroke-opacity='.11'/%3E%3C/svg%3E");
-  background-position: center top;
+  background-image:
+    radial-gradient(70% 90% at 100% 0%, rgb(64 101 162 / 0.32) 0%, rgb(64 101 162 / 0) 65%),
+    linear-gradient(180deg, #172A57 0%, #13234A 60%, #101E41 100%);
+}
+/* Hero: deeper, with a cool light bloom and a faint warm glow — furnace heat, not decoration */
+.surface-hero {
+  background-color: var(--color-deep-navy);
+  background-image:
+    radial-gradient(55% 75% at 88% 18%, rgb(64 101 162 / 0.5) 0%, rgb(64 101 162 / 0) 70%),
+    radial-gradient(45% 60% at 4% 100%, rgb(126 8 39 / 0.3) 0%, rgb(126 8 39 / 0) 70%),
+    linear-gradient(160deg, #15264F 0%, #0F1C3A 55%, #0A142D 100%);
+}
+/* Grain sits above the gradient, below content; removes banding */
+.blueprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--grain);
+  opacity: 0.07;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 .blueprint .diagram-scroll { background: transparent; border-color: var(--color-navy-border); }
 .blueprint figcaption { color: var(--color-light-steel); }

@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <Sections>
       {/* 1 · Hero — dark, full-bleed process photograph behind the headline; no carousel */}
-      <Section level={5} labelledBy="hero-heading" className="relative flex min-h-[560px] items-center overflow-hidden !bg-deep-navy !bg-none lg:min-h-[min(84vh,760px)]">
+      <Section level={5} labelledBy="hero-heading" className="surface-hero flex min-h-[560px] items-center overflow-hidden lg:min-h-[min(84vh,760px)]">
         <HeroBackdrop image={home.hero.image} />
         <Container className="relative">
           <div className="max-w-[760px]">
