@@ -94,10 +94,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="t-small mt-(--space-group) border-t border-navy-border pt-6 text-light-steel">
+        <div className="t-small mt-(--space-group) flex flex-col gap-2 border-t border-navy-border pt-6 text-light-steel sm:flex-row sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}
           </p>
+          <Link href="/privacy" className="text-light-steel decoration-1 underline-offset-4 hover:underline">
+            Privacy notice
+          </Link>
         </div>
       </Container>
     </footer>

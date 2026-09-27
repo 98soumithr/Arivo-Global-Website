@@ -30,7 +30,7 @@ export function ListingPage({
               {title}
             </h1>
           </div>
-          <Prose className="reveal flow t-lead mt-5 text-slate" >
+          <Prose className="reveal flow t-lead mt-5 text-slate" style={{ '--i': 1 } as React.CSSProperties}>
             {intro.map((p) => (
               <p key={p.slice(0, 32)}>
                 <Rich text={p} />

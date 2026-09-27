@@ -25,6 +25,8 @@ const diagrams: Record<string, ComponentType<DiagramProps>> = {
   'ceramic-fibre-sampling-spoons': SamplingSpoons,
 };
 
+export const hasDiagram = (slug: string) => slug in diagrams;
+
 export function Diagram({ slug, title, description }: { slug: string } & DiagramProps) {
   const Component = diagrams[slug];
   if (!Component) throw new Error(`No diagram registered for "${slug}"`);

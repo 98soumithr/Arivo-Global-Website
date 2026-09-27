@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...industries.map((i) => `/industries/${i.slug}`),
     '/company',
     '/contact',
+    '/privacy',
   ];
   return paths.map((path) => ({
     url: absoluteUrl(path),

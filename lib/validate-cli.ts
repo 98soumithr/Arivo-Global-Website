@@ -1,13 +1,16 @@
 /* Build-time content validation. Runs as `prebuild`; a non-zero exit fails the build. */
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, writeFileSync } from 'node:fs';
+import sharp from 'sharp';
 import { join } from 'node:path';
 import { products } from '../content/products';
 import { categories } from '../content/categories';
 import { industries } from '../content/industries';
 import { home } from '../content/home';
 import { company } from '../content/company';
+import { privacy } from '../content/privacy';
 import { site, contact } from '../content/site';
 import { validateContent, renderOutstanding } from './validate';
+import { RATIO_TOLERANCE, SLOT_TARGET } from './image-spec';
 
 const root = process.cwd();
 
@@ -20,14 +23,38 @@ const result = validateContent({
   products,
   categories,
   industries,
-  copy: { home, company, site, contact },
+  copy: { home, company, privacy, site, contact },
   imageExists,
 });
 
 if (!imageExists(home.hero.image.src))
   result.missingImages.unshift({ product: 'home', slot: 'hero', src: home.hero.image.src, shot: home.hero.image.shot });
 
+/* Supplied photographs: resolution must be adequate (error); ratio should match the slot (warning — it will crop). */
+const imageChecks: { src: string; slot: keyof typeof SLOT_TARGET }[] = [
+  ...products.flatMap((p) => p.images.filter((i) => i.slot !== 'diagram').map((i) => ({ src: i.src, slot: i.slot }))),
+  { src: home.hero.image.src, slot: 'hero' as const },
+  ...(existsSync(join(root, 'public/images/og'))
+    ? readdirSync(join(root, 'public/images/og'))
+        .filter((f) => f.endsWith('.jpg'))
+        .map((f) => ({ src: `/images/og/${f}`, slot: 'og' as const }))
+    : []),
+];
+const imageWarnings: string[] = [];
+for (const { src, slot } of imageChecks) {
+  const file = join(root, 'public', src);
+  if (!existsSync(file)) continue;
+  const { width = 0, height = 0 } = await sharp(file).metadata();
+  const target = SLOT_TARGET[slot];
+  if (width < target.minWidth)
+    result.errors.push(`${src}: ${width}×${height}px is below the ${target.minWidth}px minimum width for a ${slot} image. Run npm run images:prepare on the original.`);
+  const ratio = width / height;
+  if (Math.abs(ratio - target.ratio) / target.ratio > RATIO_TOLERANCE)
+    imageWarnings.push(`${src}: ratio ${ratio.toFixed(3)} differs from the ${slot} slot (${target.ratio.toFixed(3)}); it will be cropped to fit.`);
+}
+
 const notes = [
+  ...imageWarnings,
   'Font payload is 111.2 kB (Source Serif 4 wght 50.8 kB + IBM Plex Sans wght 45.7 kB + IBM Plex Mono 400 14.7 kB), over the 90 kB budget. Accepted at build time; revisit by tighter subsetting.',
   'Source Serif 4 ships without the opsz axis (the opsz file is 122.4 kB on its own). Display sizes use the text master.',
   'IBM Plex Mono 500 dropped per the budget rule; labels use Mono 400.',

@@ -27,7 +27,7 @@ export default function Page() {
               All products
             </h1>
           </div>
-          <Prose className="reveal t-lead mt-5 text-slate">
+          <Prose className="reveal t-lead mt-5 text-slate" style={{ '--i': 1 } as React.CSSProperties}>
             <p>
               Ten product lines in three families. Most parts are supplied to drawing — if you have a sample, a drawing or the part
               currently in service, that is enough to quote from.

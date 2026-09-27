@@ -25,8 +25,8 @@ export default function Page() {
               Products by industry
             </h1>
           </div>
-          <Prose className="reveal t-lead mt-5 text-slate" >
-            <p style={{ '--i': 1 } as React.CSSProperties}>Each view lists only the products relevant to that industry.</p>
+          <Prose className="reveal t-lead mt-5 text-slate" style={{ '--i': 1 } as React.CSSProperties}>
+            <p>Each view lists only the products relevant to that industry.</p>
           </Prose>
         </Container>
       </Section>

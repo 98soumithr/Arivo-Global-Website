@@ -4,6 +4,10 @@ export function Container({ children, className = '' }: { children: React.ReactN
 }
 
 /** Prose variant — clamps to 680px for 60–75 characters per line. */
-export function Prose({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return <div className={`max-w-(--container-prose) ${className}`}>{children}</div>;
+export function Prose({ children, className = '', style }: { children: React.ReactNode; className?: string; style?: React.CSSProperties }) {
+  return (
+    <div className={`max-w-(--container-prose) ${className}`} style={style}>
+      {children}
+    </div>
+  );
 }

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ImageSlot } from '@/lib/schema';
-import { Diagram } from '@/components/diagrams';
+import { Diagram, hasDiagram } from '@/components/diagrams';
 
 const ratioClass: Record<ImageSlot['ratio'], string> = {
   '4:5': 'aspect-[4/5]',
@@ -12,6 +12,7 @@ const ratioClass: Record<ImageSlot['ratio'], string> = {
 };
 
 function assetExists(src: string) {
+  if (src.startsWith('diagram:')) return false; // unregistered diagram → placeholder
   return existsSync(join(process.cwd(), 'public', src));
 }
 
@@ -39,7 +40,7 @@ interface FigureProps {
 export function Figure({ image, sizes, eager = false, frame, compact = false, caption, className = '', hoverScale = false }: FigureProps) {
   const ratio = ratioClass[frame ?? image.ratio];
 
-  if (image.src.startsWith('diagram:')) {
+  if (image.src.startsWith('diagram:') && hasDiagram(image.src.slice(8))) {
     return (
       <figure className={className}>
         <Diagram slug={image.src.slice(8)} title={image.alt} description={image.shot} />
@@ -49,6 +50,8 @@ export function Figure({ image, sizes, eager = false, frame, compact = false, ca
   }
 
   const exists = assetExists(image.src);
+  const isDiagram = image.src.startsWith('diagram:');
+  const target = isDiagram ? `components/diagrams/${image.src.slice(8)}.tsx` : image.src.replace(/^\//, 'public/');
 
   return (
     <figure className={className}>
@@ -73,12 +76,12 @@ export function Figure({ image, sizes, eager = false, frame, compact = false, ca
             <MeridianMark />
             {!compact && (
               <p className="t-small relative max-w-[42ch] text-slate">
-                <span className="t-label mb-2 block text-slate">Photograph to supply</span>
+                <span className="t-label mb-2 block text-slate">{isDiagram ? 'Diagram to draw' : 'Photograph to supply'}</span>
                 {image.shot}
               </p>
             )}
             <p className={`t-data relative break-all text-slate ${compact ? '' : 'mt-2'}`} style={{ fontSize: 12, lineHeight: '18px' }}>
-              {image.src.replace(/^\//, 'public/')}
+              {target}
             </p>
           </div>
         )}

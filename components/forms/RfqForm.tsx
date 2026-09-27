@@ -224,7 +224,13 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
       <Turnstile onToken={setToken} resetKey={turnstileReset} />
 
       <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="t-small text-slate">{responseCommitment}</p>
+        <p className="t-small text-slate">
+          {responseCommitment} We use these details only to answer your enquiry —{' '}
+          <a href="/privacy" className="link">
+            privacy notice
+          </a>
+          .
+        </p>
         <button type="submit" disabled={busy} aria-disabled={busy} className={buttonClass('primary', 'shrink-0 disabled:cursor-progress disabled:opacity-80')}>
           {busy && (
             <svg aria-hidden viewBox="0 0 16 16" className="size-4 animate-spin" fill="none" stroke="currentColor" strokeWidth="1.5">
