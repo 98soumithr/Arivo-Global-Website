@@ -1,0 +1,41 @@
+/** Sitewide data: identity, navigation, contact and credentials.
+ *  Anything that commits Arivo to a fact is a [CONFIRM] marker until signed off. */
+
+export const site = {
+  name: 'Arivo Global',
+  legalName: 'Arivo Global Private Limited',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arivoglobal.com',
+  tagline: 'Refractory ceramic fibre products and foundry consumables for export',
+  description:
+    'Refractory ceramic fibre products and foundry consumables for industrial buyers in Europe, the Gulf and Southeast Asia — filter candles, boards, gaskets, burner shapes, pipe sections and foundry consumables.',
+  /** Response-time commitment, stated on the form, the confirmation and the acknowledgement email. */
+  responseCommitment: 'We reply to every enquiry within one working day.',
+  responseCommitmentConfirm: '[CONFIRM: one working day response commitment]',
+} as const;
+
+export const contact = {
+  email: 'enquiries@arivoglobal.com',
+  emailConfirm: '[CONFIRM: enquiries email address]',
+  phone: '[CONFIRM: phone with country code]',
+  phoneHref: '',
+  whatsapp: '[CONFIRM: WhatsApp number with country code]',
+  whatsappHref: '',
+  officeHours: 'Monday to Saturday, 09:30–18:30',
+  officeHoursConfirm: '[CONFIRM: office hours]',
+  timezone: 'IST, UTC+05:30',
+  timezoneConfirm: '[CONFIRM: timezone]',
+  address: ['[CONFIRM: registered office address line 1]', '[CONFIRM: city, postcode]', '[CONFIRM: country]'],
+};
+
+export const credentials = [
+  { label: 'CIN', value: '[CONFIRM: CIN]' },
+  { label: 'GSTIN', value: '[CONFIRM: GSTIN]' },
+  { label: 'IEC', value: '[CONFIRM: IEC]' },
+  { label: 'ISO', value: '[CONFIRM: ISO certification marks and certificate numbers]' },
+];
+
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string; description?: string }[];
+}

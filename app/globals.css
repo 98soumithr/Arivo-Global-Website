@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core */
+  --color-navy: oklch(31.2% 0.088 263.9);            /* #192E5D */
+  --color-harbour: oklch(50.8% 0.106 259.9);         /* #4065A2 */
+  --color-steel: oklch(64.6% 0.066 244.0);           /* #6B93B4 */
+  --color-mist: oklch(91.0% 0.002 67.8);             /* #E2E1E0 */
+  --color-burgundy: oklch(38.1% 0.146 15.7);         /* #7E0827 */
+
+  /* Supporting */
+  --color-burgundy-hover: oklch(31.1% 0.118 14.6);   /* #5E061D */
+  --color-ink: oklch(21.8% 0.025 263.8);             /* #141A26 */
+  --color-slate: oklch(50.2% 0.029 263.2);           /* #5B6475 */
+  --color-light-steel: oklch(77.0% 0.044 244.1);     /* #9DB8CF */
+  --color-deep-navy: oklch(23.3% 0.061 264.5);       /* #0F1C3A */
+  --color-paper: oklch(96.7% 0.001 106.4);           /* #F4F4F3 */
+  --color-white: oklch(100% 0 0);                    /* #FFFFFF */
+  --color-border: oklch(90.3% 0.006 264.5);          /* #DDDFE3 */
+  --color-navy-section: oklch(26.7% 0.076 264.9);    /* #13234A */
+  --color-navy-border: oklch(35.7% 0.084 264.8);     /* #263A68 */
+  --color-on-navy: oklch(94.2% 0.007 260.7);         /* #E9ECF1 */
+
+  /* Pairing contract */
+  --color-burgundy-font: var(--color-white);
+  --color-navy-font: var(--color-mist);
+  --color-navy-hover: oklch(26.7% 0.076 264.9);
+  --color-mist-font: var(--color-navy);
+  --color-paper-font: var(--color-ink);
+  --color-harbour-hover: var(--color-navy);
+
+  /* Type — the loaded faces come first, named fallbacks after */
+  --font-display: var(--font-display-loaded), "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-sans-loaded), "IBM Plex Sans", Arial, "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-mono-loaded), "IBM Plex Mono", Consolas, Menlo, monospace;
+
+  /* Radius */
+  --radius-brand: 2px;
+
+  /* Layout */
+  --container-page: 1240px;
+  --container-prose: 680px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+/* Space scale — desktop / mobile */
+:root {
+  --space-section: 72px;
+  --space-block: 48px;
+  --space-group: 28px;
+  --space-element: 16px;
+  --space-tight: 12px;
+  --gutter: 20px;
+  --header-h: 72px;
+}
+@media (min-width: 1024px) {
+  :root {
+    --space-section: 128px;
+    --space-block: 80px;
+    --space-group: 40px;
+    --space-element: 20px;
+    --gutter: 32px;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-h) + 72px);
+  }
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 26px;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (min-width: 1024px) {
+    body { font-size: 17px; line-height: 28px; }
+  }
+
+  /* Focus: 2px Harbour ring on every interactive element, never removed */
+  :focus-visible {
+    outline: 2px solid var(--color-harbour);
+    outline-offset: 2px;
+  }
+  .on-navy :focus-visible { outline-color: var(--color-light-steel); }
+
+  ::selection { background: var(--color-mist); color: var(--color-navy); }
+}
+
+/* ── Type scale (design system §4.3) ─────────────────────────── */
+@layer components {
+  .t-display, .t-h1, .t-h2, .t-h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+  .t-display { font-size: 40px; line-height: 44px; letter-spacing: -0.01em; }
+  .t-h1 { font-size: 34px; line-height: 40px; letter-spacing: -0.01em; }
+  .t-h2 { font-size: 28px; line-height: 34px; letter-spacing: -0.005em; }
+  .t-h3 { font-size: 22px; line-height: 28px; }
+  .t-h4 { font-family: var(--font-sans); font-weight: 600; font-size: 18px; line-height: 26px; }
+  .t-lead { font-size: 17px; line-height: 28px; }
+  .t-body { font-size: 16px; line-height: 26px; }
+  .t-small { font-size: 14px; line-height: 22px; }
+  .t-label {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .t-data { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-variant-numeric: tabular-nums; }
+
+  @media (min-width: 1024px) {
+    .t-display { font-size: 64px; line-height: 68px; }
+    .t-h1 { font-size: 48px; line-height: 54px; }
+    .t-h2 { font-size: 36px; line-height: 42px; }
+    .t-h3 { font-size: 26px; line-height: 32px; }
+    .t-h4 { font-size: 20px; line-height: 28px; }
+    .t-lead { font-size: 19px; line-height: 30px; }
+    .t-body { font-size: 17px; line-height: 28px; }
+    .t-label { font-size: 12px; }
+    .t-data { font-size: 14px; line-height: 22px; }
+  }
+
+  /* Prose rhythm inside content columns */
+  .flow > * + * { margin-top: 1em; }
+
+  /* Text links */
+  .link {
+    color: var(--color-harbour);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-thickness 150ms ease-out, color 150ms ease-out;
+  }
+  .link:hover { text-decoration-thickness: 2px; color: var(--color-navy); }
+
+  /* [CONFIRM] placeholders — visible, never silently published */
+  .confirm {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    background: color-mix(in oklch, var(--color-burgundy) 8%, transparent);
+    color: var(--color-burgundy);
+    padding: 0 0.3em;
+    border-radius: var(--radius-brand);
+  }
+  .on-navy .confirm {
+    background: color-mix(in oklch, var(--color-light-steel) 16%, transparent);
+    color: var(--color-light-steel);
+  }
+}
+
+/* ── Diagrams: SVG text in viewBox units (960 × 540) ──────────── */
+@layer components {
+  .dg-head { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .dg-label { font-family: var(--font-sans); font-size: 18px; font-weight: 500; }
+  .dg-note { font-family: var(--font-sans); font-size: 15px; }
+}
+
+/* ── Motion (design system §7)────────────────────────────────── */
+/* 1. One page-load reveal: fade up 12px over 500ms, 60ms stagger. Once. */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.reveal {
+  animation: reveal 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; }
+  *, *::before, *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

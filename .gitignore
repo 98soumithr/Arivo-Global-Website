@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env
+.env*.local
+.claude-flow/data/
+*.log
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+/screenshots/
+.claude-flow/neural/
+.claude-flow/policy/
