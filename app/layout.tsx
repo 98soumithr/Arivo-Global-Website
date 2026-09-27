@@ -8,6 +8,7 @@ import { categories, industries, productsByCategory } from '@/lib/content';
 import { site, type NavItem } from '@/content/site';
 import { organizationJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/ui/JsonLd';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header nav={nav} mobileProducts={mobileProducts} quoteHref="/contact#rfq" />
         <main id="main">{children}</main>
         <Footer />
+        <ScrollReveal />
         <JsonLd data={organizationJsonLd()} />
         {process.env.VERCEL && <Analytics />}
       </body>

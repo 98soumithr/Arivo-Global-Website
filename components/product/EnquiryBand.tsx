@@ -17,7 +17,7 @@ export function EnquiryBand({
   return (
     <Section level={4} labelledBy="enquiry-heading">
       <Container>
-        <div className="grid gap-(--space-group) lg:grid-cols-12 lg:items-end lg:gap-6">
+        <div data-reveal className="grid gap-(--space-group) lg:grid-cols-12 lg:items-end lg:gap-6">
           <div className="lg:col-span-7">
             <Eyebrow onNavy>Enquiries</Eyebrow>
             <h2 id="enquiry-heading" className="t-h2 mt-5 text-white">

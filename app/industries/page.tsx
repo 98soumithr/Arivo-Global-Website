@@ -36,8 +36,8 @@ export default function Page() {
             Industries
           </h2>
           <ul className="grid grid-cols-1 gap-6 sm:grid-cols-[repeat(2,minmax(0,1fr))] lg:grid-cols-[repeat(3,minmax(0,1fr))]">
-            {industries.map((i) => (
-              <li key={i.slug}>
+            {industries.map((i, n) => (
+              <li key={i.slug} data-reveal style={{ '--i': n % 3 } as React.CSSProperties}>
                 <Link
                   href={`/industries/${i.slug}`}
                   className="group flex h-full flex-col rounded-brand border border-border bg-white p-5 transition-colors duration-150 ease-out hover:border-harbour"

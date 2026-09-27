@@ -47,7 +47,7 @@ export default function Page() {
           <div className="space-y-(--space-block)">
             {groups.map(({ category, products }) => (
               <div key={category.slug} id={category.slug} className="scroll-mt-8">
-                <div className="mb-(--space-group) flex flex-col gap-2 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
+                <div data-reveal className="mb-(--space-group) flex flex-col gap-2 border-b border-border pb-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <h2 className="t-h2 text-navy">{category.name}</h2>
                     <p className="t-body mt-2 text-slate">{category.summary}</p>

@@ -51,10 +51,7 @@ export async function renderOg({ key, eyebrow, title, subtitle }: { key: string;
           ))}
         </svg>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
-          <div style={{ width: 36, height: 3, background: C.steel }} />
-          <div style={{ fontFamily: 'Mono', fontSize: 22, letterSpacing: 3, color: C.lightSteel, textTransform: 'uppercase' }}>{eyebrow}</div>
-        </div>
+        <div style={{ display: 'flex', fontFamily: 'Mono', fontSize: 22, letterSpacing: 3, color: C.lightSteel, textTransform: 'uppercase' }}>{eyebrow}</div>
 
         <div style={{ display: 'flex', flexDirection: 'column', marginTop: 44, maxWidth: 820 }}>
           <div style={{ fontFamily: 'Serif', fontSize: title.length > 34 ? 64 : 76, lineHeight: 1.08, color: '#FFFFFF', letterSpacing: -1 }}>{title}</div>

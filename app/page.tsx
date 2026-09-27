@@ -59,14 +59,14 @@ export default function Home() {
       {/* 2 · Three categories */}
       <Section level={2} labelledBy="categories-heading">
         <Container>
-          <SectionHeading id="categories-heading" eyebrow={home.categories.eyebrow}>
+          <SectionHeading id="categories-heading" eyebrow={home.categories.eyebrow} reveal>
             {home.categories.heading}
           </SectionHeading>
           <ul className="mt-(--space-group) grid grid-cols-1 gap-6 sm:grid-cols-[repeat(2,minmax(0,1fr))] lg:grid-cols-[repeat(3,minmax(0,1fr))]">
-            {categories.map((c) => {
+            {categories.map((c, n) => {
               const lead = productsByCategory(c.slug)[0];
               return (
-                <li key={c.slug}>
+                <li key={c.slug} data-reveal style={{ '--i': n } as React.CSSProperties}>
                   <ProductCard
                     href={`/categories/${c.slug}`}
                     name={c.name}
@@ -85,13 +85,13 @@ export default function Home() {
       <Section level={3} labelledBy="industries-heading">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-5">
+            <div data-reveal className="lg:col-span-5">
               <SectionHeading id="industries-heading" eyebrow={home.industries.eyebrow}>
                 {home.industries.heading}
               </SectionHeading>
               <p className="t-body mt-5 text-ink">{home.industries.body}</p>
             </div>
-            <ul className="flex flex-wrap content-start gap-2 lg:col-span-7 lg:pt-12">
+            <ul data-reveal style={{ '--i': 1 } as React.CSSProperties} className="flex flex-wrap content-start gap-2 lg:col-span-7 lg:pt-12">
               {industries.map((ind) => (
                 <li key={ind.slug}>
                   <Chip href={`/industries/${ind.slug}`}>{ind.name}</Chip>
@@ -105,12 +105,12 @@ export default function Home() {
       {/* 4 · What we do */}
       <Section level={1} labelledBy="work-heading">
         <Container>
-          <SectionHeading id="work-heading" eyebrow={home.whatWeDo.eyebrow}>
+          <SectionHeading id="work-heading" eyebrow={home.whatWeDo.eyebrow} reveal>
             {home.whatWeDo.heading}
           </SectionHeading>
           <div className="mt-(--space-group) grid gap-(--space-group) md:grid-cols-3 md:gap-6">
-            {home.whatWeDo.columns.map((col) => (
-              <div key={col.title} className="border-t border-navy pt-5">
+            {home.whatWeDo.columns.map((col, n) => (
+              <div key={col.title} data-reveal style={{ '--i': n } as React.CSSProperties} className="border-t border-navy pt-5">
                 <h3 className="t-h4 text-navy">{col.title}</h3>
                 <p className="t-body mt-3 text-ink">{col.body}</p>
               </div>
@@ -123,7 +123,7 @@ export default function Home() {
       <Section level={2} labelledBy="markets-heading">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
+            <div data-reveal className="lg:col-span-7 lg:pr-10">
               <SectionHeading id="markets-heading" eyebrow={home.markets.eyebrow}>
                 {home.markets.heading}
               </SectionHeading>
@@ -134,14 +134,17 @@ export default function Home() {
                 </Link>
               </p>
             </div>
-            <ul className="self-end lg:col-span-5">
+            <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="self-end lg:col-span-5">
+              <p className="t-label mb-4 text-slate">{home.markets.regionsLabel}</p>
+              <ul>
               {home.markets.regions.map((region, n) => (
                 <li key={region} className="flex items-baseline gap-5 border-b border-border py-5 first:border-t">
                   <span className="t-data text-slate">{String(n + 1).padStart(2, '0')}</span>
                   <span className="t-h3 text-navy">{region}</span>
                 </li>
               ))}
-            </ul>
+              </ul>
+            </div>
           </div>
         </Container>
       </Section>

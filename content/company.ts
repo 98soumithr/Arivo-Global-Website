@@ -3,7 +3,7 @@ export const company = {
     eyebrow: 'Company',
     heading: 'Arivo Global',
     standfirst:
-      'Arivo Global Private Limited supplies refractory ceramic fibre products and foundry consumables to industrial buyers in Europe, the Gulf and Southeast Asia.',
+      'Arivo Global Private Limited supplies refractory ceramic fibre products and foundry consumables to industrial buyers worldwide, including Europe, the USA, the Gulf and Southeast Asia.',
   },
   sections: [
     {
@@ -62,12 +62,12 @@ export const company = {
       eyebrow: 'Markets',
       heading: 'Markets and logistics',
       body: [
-        'We supply buyers in Europe, the Gulf and Southeast Asia, by sea freight for production orders and by air for urgent replacements.',
+        'We supply industrial buyers wherever the order is — including Europe, the USA, the Gulf and Southeast Asia — by sea freight for production orders and by air for urgent replacements.',
         'Goods are export-packed for the voyage — crated or palletised, protected against moisture, and marked to the packing list so each item can be identified on arrival. Commercial terms and freight are agreed per order and stated on the quotation.',
       ],
       list: {
-        heading: 'Regions served',
-        items: ['Europe', 'The Gulf', 'Southeast Asia'],
+        heading: 'Markets include',
+        items: ['Europe', 'USA', 'The Gulf', 'Southeast Asia'],
       },
     },
   ],

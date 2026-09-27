@@ -91,7 +91,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       <Section level={3} labelledBy="where-used">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
+            <div data-reveal className="lg:col-span-7 lg:pr-10">
               <SectionHeading id="where-used" eyebrow="Applications">
                 Where it’s used
               </SectionHeading>
@@ -118,13 +118,13 @@ export function ProductPage({ product }: { product: ProductContent }) {
               </div>
             </div>
             {context && (
-              <div className="lg:col-span-5">
+              <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5">
                 <Figure image={context} sizes="(min-width: 1024px) 490px, calc(100vw - 40px)" />
               </div>
             )}
           </div>
           {diagram && (
-            <div className="mt-(--space-block)">
+            <div data-reveal className="mt-(--space-block)">
               <h3 className="t-h4 mb-5 text-navy">How it fits the process</h3>
               <Figure image={diagram} sizes="100vw" caption={diagram.shot} />
             </div>
@@ -136,7 +136,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       <Section level={1} labelledBy="available">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
+            <div data-reveal className="lg:col-span-7 lg:pr-10">
               <SectionHeading id="available" eyebrow="Range">
                 What’s available
               </SectionHeading>
@@ -161,7 +161,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
               ))}
             </div>
             {detail && (
-              <div className="lg:col-span-5">
+              <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5">
                 <Figure image={detail} sizes="(min-width: 1024px) 490px, calc(100vw - 40px)" />
               </div>
             )}
@@ -173,7 +173,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       <Section level={2} labelledBy="custom">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
+            <div data-reveal className="lg:col-span-7 lg:pr-10">
               <SectionHeading id="custom" eyebrow="Made to drawing">
                 Custom sizes and geometries
               </SectionHeading>
@@ -183,7 +183,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
                 </p>
               </Prose>
             </div>
-            <div className="lg:col-span-5 lg:self-end">
+            <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5 lg:self-end">
               <div className="rounded-brand border border-border bg-white p-5 lg:p-6">
                 <p className="t-h4 text-navy">Send what you have</p>
                 <p className="t-small mt-2 text-slate">Drawings, specifications, photographs or a sample — PDF, DWG, DXF, STEP or images.</p>
@@ -200,7 +200,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       <Section level={1} id="questions" labelledBy="faq">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div className="lg:col-span-7 lg:pr-10">
+            <div data-reveal className="lg:col-span-7 lg:pr-10">
               <SectionHeading id="faq" eyebrow="Questions">
                 Common questions
               </SectionHeading>
@@ -215,7 +215,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       {/* 8 · Related products */}
       <Section level={2} labelledBy="related">
         <Container>
-          <SectionHeading id="related" eyebrow="Related">
+          <SectionHeading id="related" eyebrow="Related" reveal>
             Related products
           </SectionHeading>
           <div className="mt-(--space-group)">

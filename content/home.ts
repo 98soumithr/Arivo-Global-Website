@@ -5,7 +5,7 @@ export const home = {
     eyebrow: 'Refractory and foundry products',
     headline: 'Ceramic fibre and foundry consumables, specified to the process',
     standfirst:
-      'Filter candles, boards, burner shapes, gaskets, pipe sections and foundry consumables for plants in Europe, the Gulf and Southeast Asia. Quoted from your drawing, your sample or the part already in service.',
+      'Filter candles, boards, burner shapes, gaskets, pipe sections and foundry consumables for industrial plants in Europe, the USA, the Gulf, Southeast Asia and beyond. Quoted from your drawing, your sample or the part already in service.',
     image: {
       slot: 'hero',
       src: '/images/home/hero.jpg',
@@ -43,9 +43,10 @@ export const home = {
   },
   markets: {
     eyebrow: 'Markets',
-    heading: 'Supplying industrial buyers across three regions',
-    body: 'Production orders travel by sea and urgent replacements by air. Every consignment is export-packed, marked to its packing list and shipped with its documentation set, so it can be received and cleared without follow-up requests.',
-    regions: ['Europe', 'The Gulf', 'Southeast Asia'],
+    heading: 'Supplying industrial buyers worldwide',
+    regionsLabel: 'Markets we supply include',
+    body: 'We supply wherever the order is. Production orders travel by sea and urgent replacements by air. Every consignment is export-packed, marked to its packing list and shipped with its documentation set, so it can be received and cleared without follow-up requests.',
+    regions: ['Europe', 'USA', 'The Gulf', 'Southeast Asia'],
     link: { label: 'Inspection and documentation', href: '/company#quality' },
   },
   enquiry: {

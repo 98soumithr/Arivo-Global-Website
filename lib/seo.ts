@@ -43,7 +43,6 @@ export function organizationJsonLd() {
     alternateName: site.name,
     url: site.url,
     description: site.description,
-    areaServed: ['Europe', 'Middle East', 'Southeast Asia'],
   };
 }
 

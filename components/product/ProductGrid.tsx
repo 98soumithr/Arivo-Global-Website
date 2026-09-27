@@ -14,8 +14,8 @@ export function ProductGrid({
 }) {
   return (
     <ul className="grid grid-cols-1 gap-6 sm:grid-cols-[repeat(2,minmax(0,1fr))] lg:grid-cols-[repeat(3,minmax(0,1fr))]">
-      {products.map((p) => (
-        <li key={p.slug}>
+      {products.map((p, n) => (
+        <li key={p.slug} data-reveal style={{ '--i': n % 3 } as React.CSSProperties}>
           <ProductCard
             href={`/products/${p.slug}`}
             name={p.name}

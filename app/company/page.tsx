@@ -12,7 +12,7 @@ import { SectionHeading } from '@/components/product/SectionHeading';
 export const metadata = buildMetadata({
   title: 'Company',
   description:
-    'Arivo Global Private Limited — refractory ceramic fibre products and foundry consumables for industrial buyers in Europe, the Gulf and Southeast Asia. Quality, compliance and markets.',
+    'Arivo Global Private Limited — refractory ceramic fibre products and foundry consumables for industrial buyers worldwide, including Europe, the USA, the Gulf and Southeast Asia. Quality, compliance and markets.',
   path: '/company',
 });
 
@@ -78,7 +78,7 @@ export default function Page() {
             <Section key={s.id} level={levels[idx + 1]!} id={s.id} labelledBy={`${s.id}-heading`}>
               <Container>
                 <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-                  <div className="lg:col-span-7 lg:pr-10">
+                  <div data-reveal className="lg:col-span-7 lg:pr-10">
                     <SectionHeading id={`${s.id}-heading`} eyebrow={s.eyebrow}>
                       {s.heading}
                     </SectionHeading>
@@ -90,7 +90,7 @@ export default function Page() {
                       ))}
                     </Prose>
                   </div>
-                  <div className="lg:col-span-5">
+                  <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5">
                     {'list' in s && s.list && (
                       <div className="rounded-brand border border-border bg-white p-5 lg:p-6">
                         <h3 className="t-label text-slate">{s.list.heading}</h3>
