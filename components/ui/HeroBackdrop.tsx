@@ -5,6 +5,7 @@ import type { ImageSlot } from '@/lib/schema';
 import { HeroVideo, type VideoSource } from './HeroVideo';
 
 const inPublic = (src: string) => existsSync(join(process.cwd(), 'public', src));
+const basePath = process.env.NEXT_EXPORT === '1' ? '/Arivo-Global-Website' : '';
 
 /**
  * Full-bleed backdrop for a dark hero, in layers:
@@ -15,7 +16,7 @@ const inPublic = (src: string) => existsSync(join(process.cwd(), 'public', src))
  */
 export function HeroBackdrop({ image, video }: { image: ImageSlot; video?: VideoSource[] }) {
   if (inPublic(image.src)) {
-    const sources = video?.filter((s) => inPublic(s.src)) ?? [];
+    const sources = video?.filter((s) => inPublic(s.src)).map((s) => ({ ...s, src: `${basePath}${s.src}` })) ?? [];
     return (
       <div className="absolute inset-0 overflow-hidden">
         <Image src={image.src} alt="" fill sizes="100vw" quality={70} loading="eager" fetchPriority="high" className="object-cover" />
