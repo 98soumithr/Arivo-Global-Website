@@ -34,7 +34,7 @@ const securityHeaders = [
 const isExport = process.env.NEXT_EXPORT === '1';
 
 const nextConfig: NextConfig = {
-  ...(isExport ? { output: 'export' } : {}),
+  ...(isExport ? { output: 'export', basePath: '/Arivo-Global-Website' } : {}),
   images: {
     ...(isExport ? { unoptimized: true } : {}),
     formats: ['image/avif', 'image/webp'],
