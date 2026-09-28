@@ -168,6 +168,16 @@
   .dg-note { font-family: var(--font-sans); font-size: 15px; }
 }
 
+/* ── Scroll indicator animation ──────────────────────────────── */
+@keyframes scrollDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ── Timeline direction utility ─────────────────────────────── */
+.direction-rtl { direction: rtl; }
+.direction-ltr { direction: ltr; }
+
 /* ── Motion (design system §7)────────────────────────────────── */
 /* 1. One page-load reveal: fade up 12px over 500ms, 60ms stagger. Once. */
 @keyframes reveal {
