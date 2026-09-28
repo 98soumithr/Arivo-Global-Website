@@ -19,8 +19,6 @@ export const metadata = buildMetadata({
 
 const i = (n: number) => ({ '--i': n }) as React.CSSProperties;
 
-/** Surface sequence: 5 hero · 1 why · 5 process · 2 range · 3 markets · 4 enquiry.
- *  Images use <figure> wrappers so the choreographed curtain-unveil reveals fire automatically. */
 export default function Home() {
   return (
     <Sections>
@@ -47,7 +45,7 @@ export default function Home() {
                 View products
               </Button>
               <Button href="/contact#rfq" variant="ghost-navy">
-                Send a drawing
+                Get a quote
               </Button>
             </div>
           </div>
@@ -57,7 +55,6 @@ export default function Home() {
       {/* ── 2 · Why Arivo — heading + large editorial image + pillars ── */}
       <Section level={1} labelledBy="why-heading">
         <Container>
-          {/* Top: heading left, large image right */}
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
             <div data-reveal className="flex flex-col justify-center lg:col-span-5">
               <SectionHeading id="why-heading" eyebrow={home.intro.eyebrow}>
@@ -79,7 +76,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom: 3 pillars spanning full width */}
           <ul className="mt-(--space-block) grid gap-6 sm:grid-cols-3">
             {home.intro.pillars.map((p, n) => (
               <li key={p.title} data-reveal style={i(n + 2)} className="border-t border-border pt-5">
@@ -91,66 +87,52 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* ── 3 · How an order works — process steps + editorial images ── */}
+      {/* ── 3 · How it works — 3 steps in a clean row ── */}
       <Section level={5} labelledBy="process-heading">
         <Container>
           <SectionHeading id="process-heading" eyebrow={home.process.eyebrow} onNavy reveal>
             {home.process.heading}
           </SectionHeading>
 
-          <div className="mt-(--space-group) grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            {/* Left: 4 steps in a 2×2 grid */}
-            <div className="grid gap-(--space-group) sm:grid-cols-2 sm:gap-6 lg:col-span-7">
-              {home.process.steps.map((step, n) => (
-                <div key={step.title} data-reveal style={i(n)} className="border-t border-light-steel/35 pt-5">
-                  <p className="t-data text-light-steel">{String(n + 1).padStart(2, '0')}</p>
-                  <h3 className="t-h3 mt-3 text-white">{step.title}</h3>
-                  <p className="t-body mt-3 text-on-navy">{step.body}</p>
-                </div>
-              ))}
-            </div>
+          <div className="mt-(--space-group) grid gap-(--space-group) sm:grid-cols-3 sm:gap-6">
+            {home.process.steps.map((step, n) => (
+              <div key={step.title} data-reveal style={i(n)} className="border-t border-light-steel/35 pt-5">
+                <p className="t-data text-light-steel">{String(n + 1).padStart(2, '0')}</p>
+                <h3 className="t-h3 mt-3 text-white">{step.title}</h3>
+                <p className="t-body mt-3 text-on-navy">{step.body}</p>
+              </div>
+            ))}
+          </div>
 
-            {/* Right: stacked editorial images with curtain reveal */}
-            <div className="hidden gap-6 lg:col-span-5 lg:flex lg:flex-col">
-              <div data-reveal style={i(2)}>
-                <figure className="overflow-hidden rounded-brand">
-                  <Image
-                    src="/images/home/export-documents.jpg"
-                    alt="Export shipping documents — bill of lading, certificate of origin and packing list on a navy desk"
-                    width={1600}
-                    height={894}
-                    className="aspect-[4/3] w-full object-cover"
-                    sizes="40vw"
-                  />
-                </figure>
-              </div>
-              <div data-reveal style={i(3)}>
-                <figure className="overflow-hidden rounded-brand">
-                  <Image
-                    src="/images/home/warehouse-inspection.jpg"
-                    alt="Quality inspector reviewing cargo documentation in an export warehouse"
-                    width={1600}
-                    height={894}
-                    className="aspect-[4/3] w-full object-cover"
-                    sizes="40vw"
-                  />
-                </figure>
-              </div>
+          {/* Supporting images below the steps — desktop only */}
+          <div className="mt-(--space-block) hidden gap-6 sm:grid sm:grid-cols-2">
+            <div data-reveal style={i(3)}>
+              <figure className="overflow-hidden rounded-brand">
+                <Image
+                  src="/images/home/export-documents.jpg"
+                  alt="Export shipping documents on a desk"
+                  width={1600}
+                  height={894}
+                  className="aspect-[16/9] w-full object-cover"
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                />
+              </figure>
+            </div>
+            <div data-reveal style={i(4)}>
+              <figure className="overflow-hidden rounded-brand">
+                <Image
+                  src="/images/home/warehouse-inspection.jpg"
+                  alt="Quality inspector reviewing cargo in an export warehouse"
+                  width={1600}
+                  height={894}
+                  className="aspect-[16/9] w-full object-cover"
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                />
+              </figure>
             </div>
           </div>
         </Container>
       </Section>
-
-      {/* ── Full-bleed image break — ship at sea ── */}
-      <div className="image-break" aria-hidden>
-        <Image
-          src="/images/home/ship-at-sea.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
 
       {/* ── 4 · What we supply — product lines ── */}
       <Section level={2} labelledBy="range-heading">
@@ -181,7 +163,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* ── 5 · Markets — region list + large cranes-at-twilight figure ── */}
+      {/* ── 5 · Markets — regions + ship image as "worldwide reach" visual ── */}
       <Section level={3} labelledBy="markets-heading">
         <Container>
           <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
@@ -209,8 +191,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Large cinematic image — full container width, curtain reveal */}
+          {/* Ship at sea — full-width, properly contained, represents global reach */}
           <div data-reveal style={i(2)} className="mt-(--space-block)">
+            <figure className="overflow-hidden rounded-brand">
+              <Image
+                src="/images/home/ship-at-sea.jpg"
+                alt="Loaded container ship crossing open ocean — representing worldwide delivery"
+                width={1600}
+                height={894}
+                className="aspect-[21/9] w-full object-cover object-[center_40%]"
+                sizes="(min-width: 1024px) 80vw, 100vw"
+              />
+            </figure>
+          </div>
+
+          {/* Cranes at twilight — second visual below */}
+          <div data-reveal style={i(3)} className="mt-6">
             <figure className="overflow-hidden rounded-brand">
               <Image
                 src="/images/home/cranes-twilight.jpg"

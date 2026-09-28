@@ -43,23 +43,19 @@ export const home = {
   },
   process: {
     eyebrow: 'How it works',
-    heading: 'Four steps, one point of contact',
+    heading: 'Three steps to delivery',
     steps: [
       {
-        title: 'Specify',
-        body: 'Send us a drawing, a sample, a part number or a description of what you need. We confirm the requirement and ask what we need to know.',
+        title: 'Share your requirement',
+        body: 'Tell us what you need — a product name, a specification, a sample reference or simply a description. We confirm the details and come back with a quote.',
       },
       {
-        title: 'Source',
-        body: 'We identify the right product from the right source, and quote with the price, lead time and delivery terms.',
+        title: 'We manage the rest',
+        body: 'From sourcing and quality checks to export packing and documentation — everything between your order and the shipment is handled by our team.',
       },
       {
-        title: 'Inspect',
-        body: 'Before dispatch, the goods are checked against the order — dimensions, grade, condition and marking.',
-      },
-      {
-        title: 'Ship',
-        body: 'Export packing, the full documentation set and freight by sea or air, with the consignment tracked to arrival.',
+        title: 'Delivered to your door',
+        body: 'Your consignment is shipped by sea or air, tracked end to end, and delivered with the complete documentation set.',
       },
     ],
   },
@@ -93,6 +89,6 @@ export const home = {
   },
   enquiry: {
     heading: 'Tell us what you need',
-    body: 'Send a drawing, a specification, a part number or a description — along with the destination. We will come back with a quote for the product and the delivery.',
+    body: 'Share your requirement — a product name, a specification or simply a description — along with the destination. We will come back with a quote and a delivery timeline.',
   },
 };
