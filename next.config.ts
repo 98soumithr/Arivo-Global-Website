@@ -36,7 +36,9 @@ const isExport = process.env.NEXT_EXPORT === '1';
 const nextConfig: NextConfig = {
   ...(isExport ? { output: 'export', basePath: '/Arivo-Global-Website' } : {}),
   images: {
-    ...(isExport ? { unoptimized: true } : {}),
+    ...(isExport
+      ? { loader: 'custom', loaderFile: './lib/image-loader.ts' }
+      : {}),
     formats: ['image/avif', 'image/webp'],
     qualities: [70, 80, 90],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
