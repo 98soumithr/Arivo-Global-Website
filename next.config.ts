@@ -31,17 +31,25 @@ const securityHeaders = [
   { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
 ];
 
+const isExport = process.env.NEXT_EXPORT === '1';
+
 const nextConfig: NextConfig = {
+  ...(isExport ? { output: 'export' } : {}),
   images: {
+    ...(isExport ? { unoptimized: true } : {}),
     formats: ['image/avif', 'image/webp'],
-    qualities: [70, 80, 90], // MUST be declared — allowlist, defaults to [75]
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // 16 dropped by default in v16
-    minimumCacheTTL: 14400, // 4h default in v16
+    qualities: [70, 80, 90],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 14400,
   },
   poweredByHeader: false,
-  async headers() {
-    return [{ source: '/:path*', headers: securityHeaders }];
-  },
+  ...(isExport
+    ? {}
+    : {
+        async headers() {
+          return [{ source: '/:path*', headers: securityHeaders }];
+        },
+      }),
   turbopack: { root: import.meta.dirname },
 };
 

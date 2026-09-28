@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { renderOg, ogContentType, ogSize } from '@/lib/og';
 import { site } from '@/content/site';
 

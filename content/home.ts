@@ -1,64 +1,98 @@
 import type { ImageSlot } from '@/lib/schema';
 import type { VideoSource } from '@/components/ui/HeroVideo';
 
+/** Home page — positioned as a global sourcing and export company.
+ *  No product-, industry- or sector-specific language here.
+ *  Product detail lives on the product pages; the homepage is about the capability. */
 export const home = {
   hero: {
-    eyebrow: 'Refractory and foundry products',
-    headline: 'Ceramic fibre and foundry consumables, specified to the process',
+    eyebrow: 'Global sourcing and export',
+    headline: 'Sourced to specification, shipped worldwide',
     standfirst:
-      'Filter candles, boards, burner shapes, gaskets, pipe sections and foundry consumables for industrial plants in Europe, the USA, the Gulf, Southeast Asia and beyond. Quoted from your drawing, your sample or the part already in service.',
-    /** Full-bleed backdrop behind the headline — trade and logistics, not a single product line.
-     *  The image is the video's poster (its first frame); licence record in docs/media-licences.md. */
+      'Arivo Global connects buyers with the right products from the right sources. We handle the sourcing, quality checks, export packing, documentation and shipping — so you deal with one partner, not a chain of intermediaries.',
     image: {
       slot: 'backdrop',
       src: '/images/home/hero.jpg',
       ratio: '16:9',
-      shot: 'Aerial view of a container ship guided into port by tugs, early light. Poster frame of the hero video.',
-      alt: 'A container ship being guided into port by tugs',
+      shot: 'Aerial drone view of a busy container yard — rows of colorful shipping containers stretching into the distance, gantry cranes in frame. Poster frame of the hero video.',
+      alt: 'Aerial view of a container yard with rows of colorful shipping containers',
     } satisfies ImageSlot,
-    /** Seamless 14 s loop. Desktop gets 1080p; phones get 720p. */
     video: [
       { src: '/videos/hero-1080.mp4', type: 'video/mp4', media: '(min-width: 768px)' },
       { src: '/videos/hero-720.mp4', type: 'video/mp4' },
     ] satisfies VideoSource[],
   },
-  categories: {
-    eyebrow: 'Products',
-    heading: 'Three product families, one enquiry',
-  },
-  industries: {
-    eyebrow: 'Industries',
-    heading: 'Where the products are used',
-    body: 'Each industry view shows only the products relevant to it.',
-  },
-  whatWeDo: {
-    eyebrow: 'How we work',
-    heading: 'Selection first, then supply',
-    columns: [
+  intro: {
+    eyebrow: 'Why Arivo',
+    heading: 'One export partner, from requirement to delivery',
+    body: 'Sourcing products from overseas usually means coordinating several parties — a supplier, an inspector, a packer and a freight forwarder, each with their own paperwork and timelines. We bring those steps under one roof, so you deal with a single company that understands your requirement and takes responsibility for the entire order.',
+    pillars: [
       {
-        title: 'Product knowledge',
-        body: 'A crucible, a feeder sleeve or a filter candle is chosen by duty, not by catalogue number. We ask about the metal, the gas stream, the bolt load or the support, and recommend the grade and form that suits it — including when the right answer is a different material.',
+        title: 'Specification-led sourcing',
+        body: 'Every order starts from your requirement. We work from a drawing, a sample, a data sheet or a description, and confirm the specification before we quote.',
       },
       {
-        title: 'Range',
-        body: 'Ten product lines across foundry consumables, hot gas filtration and thermal insulation, in alumino-silicate and bio-soluble AES chemistry. One supplier for the consumables a plant replaces every shift and the parts it replaces every outage.',
+        title: 'Documented quality',
+        body: 'Each consignment is checked against the order before dispatch and shipped with complete documentation — so goods can be received and cleared without follow-up.',
       },
       {
-        title: 'Service',
-        body: 'Most parts are supplied to drawing. A sample, a DXF file or a failed part is enough to quote from, and the pattern is held so repeat orders match the first. Enquiries are answered by someone who can discuss the application.',
+        title: 'Export-ready logistics',
+        body: 'Goods are packed for the voyage, marked to the packing list, and shipped by sea or air depending on the timeline.',
       },
     ],
   },
+  process: {
+    eyebrow: 'How it works',
+    heading: 'Four steps, one point of contact',
+    steps: [
+      {
+        title: 'Specify',
+        body: 'Send us a drawing, a sample, a part number or a description of what you need. We confirm the requirement and ask what we need to know.',
+      },
+      {
+        title: 'Source',
+        body: 'We identify the right product from the right source, and quote with the price, lead time and delivery terms.',
+      },
+      {
+        title: 'Inspect',
+        body: 'Before dispatch, the goods are checked against the order — dimensions, grade, condition and marking.',
+      },
+      {
+        title: 'Ship',
+        body: 'Export packing, the full documentation set and freight by sea or air, with the consignment tracked to arrival.',
+      },
+    ],
+  },
+  range: {
+    eyebrow: 'What we supply',
+    heading: 'A growing range of product lines',
+    body: 'Our catalogue is expanding as our sourcing network grows. If what you need is not listed yet, send us the requirement — if we can source it to your specification, we will quote it.',
+    lines: [
+      {
+        title: 'Refractory and insulation',
+        body: 'Ceramic fibre boards, gaskets, filter candles, burner shapes and pipe insulation for high-temperature applications.',
+      },
+      {
+        title: 'Foundry consumables',
+        body: 'Feeder sleeves, crucibles, tap-out cones, pouring cups and sampling spoons for the casting floor.',
+      },
+      {
+        title: 'New lines coming soon',
+        body: 'Our sourcing capability extends beyond our current catalogue. Tell us what you need and we will let you know if we can help.',
+      },
+    ],
+    cta: { label: 'Browse the catalogue', href: '/products' },
+  },
   markets: {
     eyebrow: 'Markets',
-    heading: 'Supplying industrial buyers worldwide',
+    heading: 'Serving buyers worldwide',
     regionsLabel: 'Markets we supply include',
-    body: 'We supply wherever the order is. Production orders travel by sea and urgent replacements by air. Every consignment is export-packed, marked to its packing list and shipped with its documentation set, so it can be received and cleared without follow-up requests.',
+    body: 'We supply wherever the order takes us. Production orders travel by sea and urgent orders by air. Every consignment is export-packed, marked to its packing list and shipped with its documentation set.',
     regions: ['Europe', 'USA', 'The Gulf', 'Southeast Asia'],
-    link: { label: 'Inspection and documentation', href: '/company#quality' },
+    link: { label: 'Quality and documentation', href: '/company#quality' },
   },
   enquiry: {
-    heading: 'Send a drawing, a sample or a part number',
-    body: 'Tell us the application and we will recommend the product and quote.',
+    heading: 'Tell us what you need',
+    body: 'Send a drawing, a specification, a part number or a description — along with the destination. We will come back with a quote for the product and the delivery.',
   },
 };

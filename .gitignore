@@ -12,3 +12,8 @@ next-env.d.ts
 /screenshots/
 .claude-flow/neural/
 .claude-flow/policy/
+.swarm/
+agentdb.rvf
+agentdb.rvf.lock
+ruvector.db
+Images/

@@ -306,6 +306,51 @@
     radial-gradient(45% 60% at 4% 100%, rgb(126 8 39 / 0.3) 0%, rgb(126 8 39 / 0) 70%),
     linear-gradient(160deg, #15264F 0%, #0F1C3A 55%, #0A142D 100%);
 }
+/* Hero legibility: stronger left-side tint so headline text reads over a busy video */
+.hero-legible::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgb(15 28 58 / 0.82) 0%,
+    rgb(15 28 58 / 0.55) 45%,
+    rgb(15 28 58 / 0.18) 100%
+  );
+}
+.hero-legible > * { position: relative; z-index: 2; }
+
+/* Full-bleed image break — a cinematic strip between sections */
+.image-break {
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  min-height: 280px;
+  max-height: 480px;
+}
+.image-break img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.image-break::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(15 28 58 / 0.3) 0%,
+    rgb(15 28 58 / 0.08) 40%,
+    rgb(15 28 58 / 0.25) 100%
+  );
+  pointer-events: none;
+}
+
 /* Grain sits above the gradient, below content; removes banding */
 .grain {
   position: relative;

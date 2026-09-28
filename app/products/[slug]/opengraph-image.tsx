@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import { getCategory, getProduct, products } from '@/lib/content';
 import { renderOg, ogContentType, ogSize } from '@/lib/og';
 

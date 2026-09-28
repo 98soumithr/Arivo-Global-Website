@@ -1,3 +1,4 @@
+export const dynamic = "force-static";
 import type { MetadataRoute } from 'next';
 import { categories, industries, products } from '@/lib/content';
 import { absoluteUrl } from '@/lib/seo';

@@ -8,9 +8,9 @@ export const site = {
   name: 'Arivo Global',
   legalName: 'Arivo Global Private Limited',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.arivoglobal.com',
-  tagline: 'Refractory ceramic fibre products and foundry consumables for export',
+  tagline: 'Sourced to specification, shipped worldwide',
   description:
-    'Refractory ceramic fibre products and foundry consumables for industrial buyers worldwide, including Europe, the USA, the Gulf and Southeast Asia — filter candles, boards, gaskets, burner shapes, pipe sections and foundry consumables.',
+    'Arivo Global is a sourcing and export company serving buyers across Europe, the USA, the Gulf, Southeast Asia and beyond. We handle sourcing, quality inspection, export packing, documentation and shipping — one point of contact from requirement to delivery.',
   /** Response-time commitment, stated on the form, the confirmation and the acknowledgement email. */
   responseCommitment: 'We reply to every enquiry within one working day.',
   responseCommitmentConfirm: '[CONFIRM: one working day response commitment]',
