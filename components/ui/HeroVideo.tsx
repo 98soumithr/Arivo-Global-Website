@@ -5,64 +5,43 @@ import { useEffect, useRef, useState } from 'react';
 export interface VideoSource {
   src: string;
   type: 'video/mp4' | 'video/webm';
-  /** Chosen by the browser in order; e.g. '(min-width: 768px)' for the 1080p files. */
   media?: string;
 }
 
 type NetworkInformation = { saveData?: boolean; effectiveType?: string };
 
-/**
- * Background video layered over its poster (the poster is rendered by the server as the LCP image).
- * - Loads only after hydration, and never under reduced motion, Save-Data or a 2G connection.
- * - Fades in once it is actually playing, so the swap from poster is invisible (poster = frame 0).
- * - Pauses while off-screen; a visible control pauses it for good (WCAG 2.2.2 Pause, Stop, Hide).
- */
 export function HeroVideo({ sources }: { sources: VideoSource[] }) {
   const ref = useRef<HTMLVideoElement>(null);
-  const [allowed, setAllowed] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [userPaused, setUserPaused] = useState(false);
+  const [skip, setSkip] = useState(true);
+  const userPausedRef = useRef(false);
 
   useEffect(() => {
     const conn = (navigator as Navigator & { connection?: NetworkInformation }).connection;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const slow = conn?.saveData || /(^|-)2g$/.test(conn?.effectiveType ?? '');
     if (reduced || slow) return;
-    // Start only after the page has fully loaded and the browser is idle, so the video never
-    // competes with the poster (the LCP image), fonts or scripts for bandwidth.
-    let idle = 0;
-    let timer = 0;
-    const start = () => {
-      timer = window.setTimeout(() => {
-        idle = window.requestIdleCallback ? window.requestIdleCallback(() => setAllowed(true), { timeout: 2000 }) : window.setTimeout(() => setAllowed(true), 0);
-      }, 800);
-    };
-    if (document.readyState === 'complete') start();
-    else window.addEventListener('load', start, { once: true });
-    return () => {
-      window.removeEventListener('load', start);
-      window.clearTimeout(timer);
-      if (window.cancelIdleCallback) window.cancelIdleCallback(idle);
-      else window.clearTimeout(idle);
-    };
+    setSkip(false);
   }, []);
 
-  // Load once, when allowed. Kept separate from play/pause so pausing never reloads (and rewinds) the video.
-  const userPausedRef = useRef(false);
   useEffect(() => {
     const video = ref.current;
-    if (!allowed || !video) return;
-    video.load();
+    if (skip || !video) return;
+
     const io = new IntersectionObserver(([entry]) => {
       if (!entry) return;
-      if (entry.isIntersecting && !userPausedRef.current) video.play().catch(() => {});
-      else video.pause();
+      if (entry.isIntersecting && !userPausedRef.current) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
     });
     io.observe(video);
     return () => io.disconnect();
-  }, [allowed]);
+  }, [skip]);
 
-  if (!allowed) return null;
+  if (skip) return null;
 
   const toggle = () => {
     const video = ref.current;
@@ -86,7 +65,8 @@ export function HeroVideo({ sources }: { sources: VideoSource[] }) {
         muted
         loop
         playsInline
-        preload="none"
+        autoPlay
+        preload="auto"
         disablePictureInPicture
         onPlaying={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
