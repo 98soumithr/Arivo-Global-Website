@@ -27,7 +27,7 @@ export default function Home() {
     <Sections>
       {/* 1 · Hero — dark, full-bleed process photograph behind the headline; no carousel */}
       <Section level={5} labelledBy="hero-heading" className="surface-hero flex min-h-[560px] items-center overflow-hidden lg:min-h-[min(84vh,760px)]">
-        <HeroBackdrop image={home.hero.image} />
+        <HeroBackdrop image={home.hero.image} video={home.hero.video} />
         <Container className="relative">
           <div className="max-w-[760px]">
             <div className="reveal" style={i(0)}>

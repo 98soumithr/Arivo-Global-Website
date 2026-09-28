@@ -2,20 +2,28 @@ import Image from 'next/image';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ImageSlot } from '@/lib/schema';
+import { HeroVideo, type VideoSource } from './HeroVideo';
+
+const inPublic = (src: string) => existsSync(join(process.cwd(), 'public', src));
 
 /**
- * Full-bleed backdrop for a dark hero. With a photograph: the image fills the section under a
- * left-to-right navy tint (dark behind the headline, lighter where the photo carries the frame).
- * Without one: the section's own gradient shows, with a discreet note of the photograph to supply.
+ * Full-bleed backdrop for a dark hero, in layers:
+ *   1. the photograph (or the video's poster = its first frame) — the LCP image
+ *   2. an optional background video that fades in over it once playing
+ *   3. a left-to-right navy tint: dark behind the headline, lighter where the picture carries the frame
+ * Without a photograph the section's own gradient shows, with a discreet note of what to supply.
  */
-export function HeroBackdrop({ image }: { image: ImageSlot }) {
-  const exists = existsSync(join(process.cwd(), 'public', image.src));
-
-  if (exists) {
+export function HeroBackdrop({ image, video }: { image: ImageSlot; video?: VideoSource[] }) {
+  if (inPublic(image.src)) {
+    const sources = video?.filter((s) => inPublic(s.src)) ?? [];
     return (
-      <div aria-hidden className="absolute inset-0">
-        <Image src={image.src} alt="" fill sizes="100vw" quality={80} loading="eager" fetchPriority="high" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(15_28_58/0.9)_0%,rgb(15_28_58/0.62)_50%,rgb(15_28_58/0.25)_100%)]" />
+      <div className="absolute inset-0 overflow-hidden">
+        <Image src={image.src} alt="" fill sizes="100vw" quality={70} loading="eager" fetchPriority="high" className="object-cover" />
+        {sources.length > 0 && <HeroVideo sources={sources} />}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgb(15_28_58/0.9)_0%,rgb(15_28_58/0.62)_50%,rgb(15_28_58/0.25)_100%)]"
+        />
       </div>
     );
   }

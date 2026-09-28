@@ -44,6 +44,12 @@ The script crops to the slot's shape (keeping the product in frame), resizes, re
 
 The build rejects images under 1000 px wide. Product photographs must be of the product Arivo supplies — no stock, AI-generated or competitor images (see design system §9).
 
+## Home page video
+
+The home hero plays a background loop (`public/videos/hero-1080.mp4` for desktop, `hero-720.mp4` for phones) over its poster `public/images/home/hero.jpg`, which is the loop's first frame. The video loads only after the page has finished loading, never for visitors with reduced motion or data saving on, pauses when scrolled out of view, and has a pause button. Source and licence: [`docs/media-licences.md`](docs/media-licences.md) — add every licensed asset there.
+
+To replace it, keep the new clip to about 12–15 s, without audio, around 4–5 MB at 1080p and 2 MB at 720p, and update the poster to its first frame.
+
 ## Adding a product
 
 1. Copy a file in `content/products/` and rename it to the new slug.

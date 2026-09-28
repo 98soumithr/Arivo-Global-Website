@@ -1,4 +1,5 @@
 import type { ImageSlot } from '@/lib/schema';
+import type { VideoSource } from '@/components/ui/HeroVideo';
 
 export const home = {
   hero: {
@@ -6,14 +7,20 @@ export const home = {
     headline: 'Ceramic fibre and foundry consumables, specified to the process',
     standfirst:
       'Filter candles, boards, burner shapes, gaskets, pipe sections and foundry consumables for industrial plants in Europe, the USA, the Gulf, Southeast Asia and beyond. Quoted from your drawing, your sample or the part already in service.',
-    /** Full-bleed backdrop behind the headline: the dark, hot "context" register — never a studio product shot. */
+    /** Full-bleed backdrop behind the headline — trade and logistics, not a single product line.
+     *  The image is the video's poster (its first frame); licence record in docs/media-licences.md. */
     image: {
       slot: 'backdrop',
       src: '/images/home/hero.jpg',
       ratio: '16:9',
-      shot: 'Dark melt-shop scene: molten metal pouring from a ladle, or a furnace mouth glowing. Deep shadows, cool grade, the bright point right of centre so the left third stays dark for the headline. Licensed stock is acceptable.',
-      alt: 'Molten metal pouring in a dark foundry melt shop',
+      shot: 'Aerial view of a container ship guided into port by tugs, early light. Poster frame of the hero video.',
+      alt: 'A container ship being guided into port by tugs',
     } satisfies ImageSlot,
+    /** Seamless 14 s loop. Desktop gets 1080p; phones get 720p. */
+    video: [
+      { src: '/videos/hero-1080.mp4', type: 'video/mp4', media: '(min-width: 768px)' },
+      { src: '/videos/hero-720.mp4', type: 'video/mp4' },
+    ] satisfies VideoSource[],
   },
   categories: {
     eyebrow: 'Products',
