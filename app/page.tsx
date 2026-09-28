@@ -13,6 +13,7 @@ import { ScrollParallax } from '@/components/ui/ScrollParallax';
 import { Timeline } from '@/components/ui/Timeline';
 import { WorldMap } from '@/components/ui/WorldMap';
 import { ParticleGrid } from '@/components/ui/ParticleGrid';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 import { EnquiryBand } from '@/components/product/EnquiryBand';
 import { SectionHeading } from '@/components/product/SectionHeading';
 
@@ -131,49 +132,71 @@ export default function Home() {
         </Container>
       </Section>
 
-      {/* ── 4 · Markets — world map background + region list ── */}
-      <Section level={3} labelledBy="markets-heading" className="relative overflow-hidden">
-        <WorldMap />
+      {/* ── 4 · Markets — dark immersive section with animated map ── */}
+      <Section level={3} labelledBy="markets-heading" className="markets-immersive relative overflow-hidden">
+        {/* Ship at sea as subtle full-bleed background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/home/ship-at-sea.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-[center_40%] opacity-[0.08]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a1225] via-[#0a1225]/95 to-[#0a1225]" />
+        </div>
+
         <Container className="relative">
-          <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div data-reveal className="lg:col-span-7 lg:pr-10">
-              <SectionHeading id="markets-heading" eyebrow={home.markets.eyebrow}>
-                {home.markets.heading}
-              </SectionHeading>
-              <p className="t-body mt-(--space-group) max-w-(--container-prose) text-ink">{home.markets.body}</p>
-              <p className="t-small mt-5">
-                <Link href={home.markets.link.href} className="link">
-                  {home.markets.link.label}
-                </Link>
-              </p>
-            </div>
-            <div data-reveal style={i(1)} className="self-end lg:col-span-5">
-              <p className="t-label mb-4 text-slate">{home.markets.regionsLabel}</p>
-              <ul>
-                {home.markets.regions.map((region, n) => (
-                  <li key={region} className="flex items-baseline gap-5 border-b border-border py-5 first:border-t">
-                    <span className="t-data text-slate">{String(n + 1).padStart(2, '0')}</span>
-                    <span className="t-h3 text-navy">{region}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Header — centered */}
+          <div className="mx-auto max-w-[680px] text-center" data-reveal>
+            <p className="t-label text-light-steel">{home.markets.eyebrow}</p>
+            <h2 id="markets-heading" className="t-h1 mt-5 text-white">
+              {home.markets.heading}
+            </h2>
+            <p className="t-body mt-5 text-on-navy">{home.markets.body}</p>
           </div>
 
-          {/* Ship at sea — contextual, represents global reach */}
-          <div data-reveal style={i(2)} className="mt-(--space-block)">
-            <ScrollParallax speed={0.1}>
-              <figure className="overflow-hidden rounded-brand">
-                <Image
-                  src="/images/home/ship-at-sea.jpg"
-                  alt="Loaded container ship crossing open ocean"
-                  width={1600}
-                  height={894}
-                  className="aspect-[21/9] w-full object-cover object-[center_40%]"
-                  sizes="(min-width: 1024px) 80vw, 100vw"
-                />
-              </figure>
-            </ScrollParallax>
+          {/* Animated stat counters */}
+          <div data-reveal style={i(1)} className="mt-(--space-block) grid grid-cols-2 gap-6 lg:grid-cols-4">
+            {[
+              { value: 4, suffix: '', label: 'Continents' },
+              { value: 15, suffix: '+', label: 'Countries' },
+              { value: 2, suffix: '', label: 'Shipping modes' },
+              { value: 100, suffix: '%', label: 'Documented' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="font-serif text-[48px] leading-none text-white lg:text-[64px]">
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="t-label mt-3 text-light-steel">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* World map with shipping routes */}
+          <div data-reveal style={i(2)} className="mx-auto mt-(--space-block) max-w-[900px]">
+            <WorldMap />
+          </div>
+
+          {/* Region cards */}
+          <div className="mt-(--space-group) grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {home.markets.regions.map((region, n) => (
+              <div
+                key={region}
+                data-reveal
+                style={i(n + 3)}
+                className="group rounded-brand border border-light-steel/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-harbour/30 hover:bg-white/[0.07]"
+              >
+                <p className="t-data text-harbour">{String(n + 1).padStart(2, '0')}</p>
+                <h3 className="t-h3 mt-2 text-white">{region}</h3>
+              </div>
+            ))}
+          </div>
+
+          <div data-reveal style={i(7)} className="mt-(--space-group) text-center">
+            <Link href={home.markets.link.href} className="t-small font-semibold text-light-steel underline decoration-1 underline-offset-4 transition-colors hover:text-white">
+              {home.markets.link.label}
+            </Link>
           </div>
         </Container>
       </Section>

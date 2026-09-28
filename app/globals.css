@@ -332,6 +332,14 @@
 }
 .hero-legible > :not([data-backdrop]) { position: relative; z-index: 2; }
 
+/* Markets immersive — override surface-3 to dark for the map section */
+.markets-immersive {
+  --tw-bg-opacity: 1;
+  background: #0a1225 !important;
+  color: rgb(200 210 230) !important;
+  border-color: transparent !important;
+}
+
 /* Full-bleed image break — a cinematic strip between sections */
 .image-break {
   position: relative;
