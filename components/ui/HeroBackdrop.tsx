@@ -18,7 +18,7 @@ export function HeroBackdrop({ image, video }: { image: ImageSlot; video?: Video
   if (inPublic(image.src)) {
     const sources = video?.filter((s) => inPublic(s.src)).map((s) => ({ ...s, src: `${basePath}${s.src}` })) ?? [];
     return (
-      <div className="absolute inset-0 overflow-hidden">
+      <div data-backdrop className="absolute inset-0 overflow-hidden">
         <Image src={image.src} alt="" fill sizes="100vw" quality={70} loading="eager" fetchPriority="high" className="object-cover" />
         {sources.length > 0 && <HeroVideo sources={sources} />}
         <div
@@ -30,7 +30,7 @@ export function HeroBackdrop({ image, video }: { image: ImageSlot; video?: Video
   }
 
   return (
-    <div aria-hidden className="absolute inset-0 overflow-hidden">
+    <div aria-hidden data-backdrop className="absolute inset-0 overflow-hidden">
       <p className="absolute right-(--gutter) bottom-5 hidden max-w-[46ch] text-right text-[12px] leading-[18px] text-light-steel/80 lg:block">
         <span className="t-label block text-[11px]">Photograph to supply</span>
         {image.shot}

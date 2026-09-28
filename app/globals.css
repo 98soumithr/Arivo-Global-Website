@@ -320,7 +320,7 @@
     rgb(15 28 58 / 0.18) 100%
   );
 }
-.hero-legible > * { position: relative; z-index: 2; }
+.hero-legible > :not([data-backdrop]) { position: relative; z-index: 2; }
 
 /* Full-bleed image break — a cinematic strip between sections */
 .image-break {
