@@ -51,18 +51,18 @@ function ProductCard({ image, alt, label, name, meta, badges }: {
   meta?: string | null; badges?: string[];
 }) {
   return (
-    <div className="group overflow-hidden rounded-[4px] border border-border bg-white transition-all duration-200 hover:shadow-[0_4px_16px_rgb(0_0_0/0.06)]">
+    <div className="group overflow-hidden rounded-[3px] border border-border bg-white">
       <div className="relative aspect-[3/2] overflow-hidden bg-mist">
-        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw" className="object-cover transition-transform duration-300 group-hover:scale-105" />
+        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw" className="object-cover" />
       </div>
-      <div className="px-2 py-1.5">
-        <p className="text-[10px] font-medium uppercase tracking-wider text-harbour">{label}</p>
-        <h4 className="text-[13px] font-semibold leading-tight text-navy">{name}</h4>
-        {meta && <p className="text-[10px] uppercase tracking-wider text-ink/40">{meta}</p>}
+      <div className="px-1.5 py-1">
+        <p className="text-[9px] font-medium uppercase tracking-wider text-harbour">{label}</p>
+        <h4 className="text-[12px] font-semibold leading-tight text-navy">{name}</h4>
+        {meta && <p className="text-[9px] uppercase tracking-wider text-ink/40">{meta}</p>}
         {badges && badges.length > 0 && (
-          <div className="mt-0.5 flex flex-wrap gap-0.5">
+          <div className="flex flex-wrap gap-px">
             {badges.slice(0, 2).map((b) => (
-              <span key={b} className="rounded-full bg-harbour/[0.06] px-1.5 py-px text-[9px] font-medium text-harbour">{b}</span>
+              <span key={b} className="rounded-full bg-harbour/[0.06] px-1 text-[8px] font-medium text-harbour">{b}</span>
             ))}
           </div>
         )}
@@ -81,13 +81,13 @@ function SustainablePackagingPage({ industry }: { industry: { name: string; intr
         <Container className="relative">
           <div data-reveal className="mx-auto max-w-[600px] text-center">
             <Eyebrow onNavy>Industries</Eyebrow>
-            <h1 id="page-title" className="t-h1 mt-2 text-white">{industry.name}</h1>
-            <p className="t-body mt-2 text-on-navy">{industry.intro[0]}</p>
+            <h1 id="page-title" className="t-h1 mt-1 text-white">{industry.name}</h1>
+            <p className="t-small mt-1 text-on-navy">{industry.intro[0]}</p>
           </div>
-          <div data-reveal style={i(1)} className="mx-auto mt-3 grid max-w-[600px] grid-cols-4 gap-1.5">
+          <div data-reveal style={i(1)} className="mx-auto mt-2 grid max-w-[500px] grid-cols-4 gap-1">
             {['Biodegradable', 'Compostable', 'Food Safe', 'Microwave Safe'].map((prop) => (
-              <div key={prop} className="rounded-[4px] border border-light-steel/10 bg-white/[0.04] px-2 py-1 text-center">
-                <p className="text-[9px] font-medium uppercase tracking-widest text-light-steel">{prop}</p>
+              <div key={prop} className="rounded-[3px] border border-light-steel/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
+                <p className="text-[8px] font-medium uppercase tracking-widest text-light-steel">{prop}</p>
               </div>
             ))}
           </div>
@@ -101,9 +101,9 @@ function SustainablePackagingPage({ industry }: { industry: { name: string; intr
             const products = packagingProducts.filter((p) => p.category === category);
             if (products.length === 0) return null;
             return (
-              <div key={category} className={catIdx > 0 ? 'mt-4' : ''}>
-                <h3 className="text-[15px] font-semibold text-navy">{category}</h3>
-                <div className="mt-2 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+              <div key={category} className={catIdx > 0 ? 'mt-2' : ''}>
+                <h3 className="text-[13px] font-semibold text-navy">{category}</h3>
+                <div className="mt-1 grid gap-1 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
                   {products.map((product, n) => (
                     <div key={product.slug} data-reveal style={i(n + 1)}>
                       <ProductCard
@@ -117,12 +117,12 @@ function SustainablePackagingPage({ industry }: { industry: { name: string; intr
             );
           })}
 
-          <div data-reveal className="mt-6 flex items-center justify-between rounded-[6px] bg-gradient-to-r from-[#0f1c3a] to-[#162450] px-5 py-3">
+          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#0f1c3a] to-[#162450] px-3 py-2">
             <div>
-              <h3 className="text-[15px] font-semibold text-white">100% Sugarcane Bagasse</h3>
-              <p className="text-[12px] text-light-steel/70">Biodegradable in 60–90 days · No plastic, no PFAS · Microwave & food safe</p>
+              <h3 className="text-[13px] font-semibold text-white">100% Sugarcane Bagasse</h3>
+              <p className="text-[11px] text-light-steel/70">Biodegradable in 60–90 days · No plastic, no PFAS · Microwave & food safe</p>
             </div>
-            <div className="flex shrink-0 gap-2">
+            <div className="flex shrink-0 gap-1.5">
               <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
               <Button href="/contact" variant="ghost-navy">Contact us</Button>
             </div>
@@ -145,13 +145,13 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
         <Container className="relative">
           <div data-reveal className="mx-auto max-w-[600px] text-center">
             <Eyebrow onNavy>Industries</Eyebrow>
-            <h1 id="nhc-title" className="t-h1 mt-2 text-white">{industry.name}</h1>
-            <p className="t-body mt-2 text-emerald-100/80">{industry.intro[0]}</p>
+            <h1 id="nhc-title" className="t-h1 mt-1 text-white">{industry.name}</h1>
+            <p className="t-small mt-1 text-emerald-100/80">{industry.intro[0]}</p>
           </div>
-          <div data-reveal style={i(1)} className="mx-auto mt-3 grid max-w-[700px] grid-cols-5 gap-1.5">
+          <div data-reveal style={i(1)} className="mx-auto mt-2 grid max-w-[600px] grid-cols-5 gap-1">
             {['Plant-Powered', 'No Harsh Chemicals', 'Kids & Pet Safe', 'No Artificial Colours', 'Skin Safe'].map((attr) => (
-              <div key={attr} className="rounded-[4px] border border-emerald-200/10 bg-white/[0.04] px-2 py-1 text-center">
-                <p className="text-[9px] font-medium uppercase tracking-widest text-emerald-100/70">{attr}</p>
+              <div key={attr} className="rounded-[3px] border border-emerald-200/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
+                <p className="text-[8px] font-medium uppercase tracking-widest text-emerald-100/70">{attr}</p>
               </div>
             ))}
           </div>
@@ -165,9 +165,9 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
             const products = homeCareProducts.filter((p) => p.category === category);
             if (products.length === 0) return null;
             return (
-              <div key={category} className={catIdx > 0 ? 'mt-4' : ''}>
-                <h3 className="text-[15px] font-semibold text-navy">{category}</h3>
-                <div className="mt-2 grid gap-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+              <div key={category} className={catIdx > 0 ? 'mt-2' : ''}>
+                <h3 className="text-[13px] font-semibold text-navy">{category}</h3>
+                <div className="mt-1 grid gap-1 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
                   {products.map((product, n) => (
                     <div key={product.slug} data-reveal style={i(n + 1)}>
                       <ProductCard
@@ -181,12 +181,12 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
             );
           })}
 
-          <div data-reveal className="mt-6 flex items-center justify-between rounded-[6px] bg-gradient-to-r from-[#0a2e1a] to-[#0f3d24] px-5 py-3">
+          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#0a2e1a] to-[#0f3d24] px-3 py-2">
             <div>
-              <h3 className="text-[15px] font-semibold text-white">Plant-Powered, Chemical-Free</h3>
-              <p className="text-[12px] text-emerald-100/70">Coconut & corn-derived surfactants · Bio enzymes · No bleach or ammonia · Kids & pet safe</p>
+              <h3 className="text-[13px] font-semibold text-white">Plant-Powered, Chemical-Free</h3>
+              <p className="text-[11px] text-emerald-100/70">Coconut & corn-derived surfactants · Bio enzymes · No bleach or ammonia · Kids & pet safe</p>
             </div>
-            <div className="flex shrink-0 gap-2">
+            <div className="flex shrink-0 gap-1.5">
               <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
               <Button href="/contact" variant="ghost-navy">Contact us</Button>
             </div>

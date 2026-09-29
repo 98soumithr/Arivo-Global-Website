@@ -45,23 +45,23 @@
   --breakpoint-lg: 1024px;
 }
 
-/* Space scale — tight */
+/* Space scale — ultra-tight (50% of previous) */
 :root {
-  --space-section: 28px;
-  --space-block: 20px;
-  --space-group: 14px;
-  --space-element: 8px;
-  --space-tight: 6px;
-  --gutter: 14px;
-  --header-h: 56px;
+  --space-section: 14px;
+  --space-block: 10px;
+  --space-group: 7px;
+  --space-element: 4px;
+  --space-tight: 3px;
+  --gutter: 10px;
+  --header-h: 48px;
 }
 @media (min-width: 1024px) {
   :root {
-    --space-section: 40px;
-    --space-block: 28px;
-    --space-group: 18px;
-    --space-element: 10px;
-    --gutter: 24px;
+    --space-section: 20px;
+    --space-block: 14px;
+    --space-group: 9px;
+    --space-element: 5px;
+    --gutter: 16px;
   }
 }
 
