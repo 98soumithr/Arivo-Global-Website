@@ -93,8 +93,7 @@ export function WorldMap() {
         y="0"
         width={VB_W}
         height={VB_H}
-        opacity="0.15"
-        style={{ filter: 'brightness(2)' }}
+        opacity="0.18"
       />
 
       {/* Shipping route arcs from India to each region */}
