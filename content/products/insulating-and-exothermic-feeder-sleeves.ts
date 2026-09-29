@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Feeder sleeves for sand and investment casting',
   range: 'Insulating and exothermic sleeves — open, blind, oval and neck-down forms',
   category: 'foundry-consumables',
-  industries: ['foundry-and-casting', 'aluminium-and-non-ferrous'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'Metal contracts as it solidifies. Without a reservoir of liquid metal feeding the casting through that contraction, the shrinkage appears inside the part as porosity, and the casting is scrap.',
     'A feeder only works while it is still liquid. A sand feeder of the same size solidifies at roughly the same rate as the section it is meant to feed, which is why unsleeved feeders have to be so large. An insulating sleeve slows heat loss from the feeder; an exothermic sleeve ignites on contact with the metal and adds heat. Either way the feeder stays liquid longer, which means a smaller feeder does the same work — and feeder metal that does not go into the casting is metal that has to be remelted.',

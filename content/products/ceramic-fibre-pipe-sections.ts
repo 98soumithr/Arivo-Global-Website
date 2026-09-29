@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Pre-formed insulation for hot pipework',
   range: 'Rigid half-sections and multi-segment forms — made to pipe diameter and wall thickness',
   category: 'thermal-insulation',
-  industries: ['furnaces-and-process-heat'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'Hot pipework loses heat and heats its surroundings, and both cost money — the first in fuel, the second in personnel protection, in derated equipment and in the cooling load of the space around it. Conventional pipe insulation handles most duty. Above its range, the choices are a fibre blanket wrapped and banded in place, or pre-formed rigid sections.',
     'The case for pre-formed sections is fit and consistency. A vacuum-formed section is made to a fixed inner diameter and wall thickness, so the insulation thickness is the same the whole way round the pipe and the same on every length. Wrapped blanket compresses unevenly, particularly at the overlap, and thin spots are where the surface temperature shows up. Pre-formed sections also present a regular outer surface for cladding.',

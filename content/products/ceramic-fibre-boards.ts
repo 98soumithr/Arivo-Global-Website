@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Rigid board for hot-face and back-up lining',
   range: 'Ceramic fibre board — a range of densities, hot face and back-up, flat or machined to drawing',
   category: 'thermal-insulation',
-  industries: ['furnaces-and-process-heat', 'foundry-and-casting', 'aluminium-and-non-ferrous'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'A furnace lining is a compromise between thermal performance and mechanical duty. Blanket insulates well but carries no load and erodes in high-velocity gas. Dense brick carries load but stores heat, which is paid for on every heat-up.',
     'Board sits between the two: low enough in thermal mass to cycle economically, rigid enough to span an opening, hold an edge and take a fixing. That combination is why board ends up in the positions that move — doors, covers, kiln car decks — and in back-up positions behind brick where the lining has to stay dimensionally stable for years.',

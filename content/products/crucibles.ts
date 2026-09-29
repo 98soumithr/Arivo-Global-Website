@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Crucibles for non-ferrous melting and holding',
   range: 'Clay-graphite and silicon carbide grades — laboratory to production capacities',
   category: 'foundry-consumables',
-  industries: ['aluminium-and-non-ferrous', 'foundry-and-casting'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'Crucible selection is not a single-number decision, and suppliers who present it as one cause their customers problems. Three things decide the right crucible: the metal, the furnace, and where in the temperature range the operation actually runs.',
     "A crucible optimised for aluminium held at moderate temperature for long periods is built for oxidation resistance, because that is what destroys it. A crucible melting copper alloys at high temperature is built for refractoriness and erosion resistance. Run either one in the other's duty and it fails early. Furnace type matters for the same reason — induction heating requires controlled electrical resistivity through the crucible wall, which a gas-fired crucible does not.",

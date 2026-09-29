@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Rigid filter elements for hot gas dust separation',
   range: 'Alumino-silicate and AES elements — new vessels and replacements for installed housings',
   category: 'hot-gas-filtration',
-  industries: ['waste-to-energy', 'glass', 'foundry-and-casting', 'cement-and-lime', 'furnaces-and-process-heat'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'Fabric filter media has a temperature ceiling. Above it, a plant either cools the gas before filtration — adding a heat exchanger or a quench, and the capital and running cost that go with them — or filters hot.',
     'Candle filtration is the second route. Rigid ceramic fibre elements hang from a tubesheet in a filter vessel, dust collects on the outer surface, and the cake is released by a reverse pulse of compressed air. Each element is self-supporting, so no internal cage is needed, and each is independent, so a filter bank is maintained element by element rather than rebuilt.',

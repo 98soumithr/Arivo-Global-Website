@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Sampling spoons for molten metal',
   range: 'Ceramic fibre bowl, steel handle — bowl capacities and handle lengths to suit the furnace',
   category: 'foundry-consumables',
-  industries: ['foundry-and-casting', 'aluminium-and-non-ferrous'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'A melt analysis is only as good as the sample. Two things spoil a sample, and both come from the spoon rather than the metal.',
     'The first is contamination. A steel or cast iron spoon is itself an alloy, and it gives up some of itself to the sample — which shows up in the analysis as an alloy content the melt does not actually have.',

@@ -1,12 +1,10 @@
 export type CategorySlug = 'foundry-consumables' | 'hot-gas-filtration' | 'thermal-insulation';
 
 export type IndustrySlug =
-  | 'waste-to-energy'
-  | 'foundry-and-casting'
-  | 'aluminium-and-non-ferrous'
-  | 'glass'
-  | 'cement-and-lime'
-  | 'furnaces-and-process-heat';
+  | 'industrial-and-manufacturing'
+  | 'agro-products'
+  | 'sustainable-packaging'
+  | 'natural-home-care';
 
 /** Typed attribute slots. Render nothing while empty. Present from day one so that
  *  filtering, comparison and spec tables are later additions rather than rewrites. */

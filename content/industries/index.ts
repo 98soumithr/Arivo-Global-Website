@@ -1,79 +1,57 @@
 import type { IndustryContent } from '@/lib/schema';
 
-/** Industries are tags, not a second taxonomy. Each renders a pre-filtered product view. */
+/** Four industry verticals that Arivo Global serves. */
 export const industries: IndustryContent[] = [
   {
-    slug: 'foundry-and-casting',
-    name: 'Foundry and casting',
+    slug: 'industrial-and-manufacturing',
+    name: 'Industrial & Manufacturing',
     intro: [
-      'In a foundry the thermal problems are short and violent: metal has to stay liquid long enough to feed the casting, enter the mould without tearing its own oxide film, and be sampled without the spoon changing the reading.',
-      'Each of those is a consumable decision made every shift. The parts below are the ones that decide yield, inclusion rate and the accuracy of melt analysis.',
+      'From foundries and glass furnaces to cement kilns and waste-to-energy plants — industrial operations depend on consumables and insulation products that perform under extreme heat, pressure and chemical exposure.',
+      'We source filter candles, crucibles, refractory boards, gaskets, burner shapes and other thermal products to specification, inspect before dispatch and ship with full documentation.',
     ],
     seo: {
-      title: 'Consumables for foundries and casting',
+      title: 'Industrial & manufacturing products',
       description:
-        'Feeder sleeves, pouring cups, crucibles, tap-out cones and sampling spoons for sand, investment and lost foam foundries.',
+        'Refractory consumables, thermal insulation and hot gas filtration products for foundries, glass, cement, aluminium, waste-to-energy and process heat industries.',
     },
   },
   {
-    slug: 'aluminium-and-non-ferrous',
-    name: 'Aluminium and non-ferrous',
+    slug: 'agro-products',
+    name: 'Agro Products',
     intro: [
-      'Aluminium and copper-base melt shops fight oxidation, dross and metal pick-up. Materials that the metal does not wet, and crucibles specified to the actual operating window, are what keep the melt clean and the furnace running.',
-      'The products below cover melting, holding, tapping, pouring and sampling in non-ferrous work.',
+      'Agricultural commodities move in bulk and on tight seasonal windows. Quality grading, phytosanitary compliance and export-standard packing are non-negotiable for international buyers.',
+      'We handle sourcing, quality checks, fumigation certificates and shipping for a range of agro products — grains, spices, oilseeds and pulses — so buyers receive documented, export-ready consignments.',
     ],
     seo: {
-      title: 'Products for aluminium and non-ferrous melting',
+      title: 'Agro product sourcing and export',
       description:
-        'Crucibles, tap-out cones, pouring cups, sampling spoons and board for aluminium, copper alloy and zinc melting and holding.',
+        'Export-quality agricultural commodities — grains, spices, oilseeds and pulses — sourced, inspected and shipped with full phytosanitary documentation.',
     },
   },
   {
-    slug: 'waste-to-energy',
-    name: 'Waste to energy',
+    slug: 'sustainable-packaging',
+    name: 'Sustainable Packaging',
     intro: [
-      'Incineration and biomass plants have to remove particulate from flue gas that is hot, acidic and variable. Filtering before heat recovery keeps the heat available, but only a rigid ceramic element survives there.',
-      'Burner openings and combustion chambers in the same plants use formed shapes that are lighter and quicker to replace than fired hard blocks.',
+      'The shift from single-use plastics to biodegradable alternatives is creating demand for compostable tableware and food packaging made from sugarcane bagasse, rice husk and other natural fibres.',
+      'We source eco-friendly plates, bowls, containers and cutlery from certified producers, ensuring food-grade compliance and export packing for international markets.',
     ],
     seo: {
-      title: 'Filter candles for waste to energy',
+      title: 'Sustainable packaging and eco-friendly tableware',
       description:
-        'Ceramic fibre filter candles for waste-to-energy, municipal incineration and biomass flue gas cleaning, plus burner shapes for incinerator openings.',
+        'Biodegradable food packaging and compostable tableware — plates, bowls and containers from sugarcane bagasse and natural fibres, export-ready.',
     },
   },
   {
-    slug: 'glass',
-    name: 'Glass',
+    slug: 'natural-home-care',
+    name: 'Natural Home Care',
     intro: [
-      'Glass furnace off-gas carries fine particulate at temperatures that rule out fabric filters without first cooling the gas. Hot gas filtration with ceramic candles removes the dust while the heat is still usable.',
+      'Plant-based, chemical-free cleaning products are growing fast as consumers and retailers move toward safer, sustainable alternatives for home and commercial use.',
+      'We source natural floor cleaners, dishwash liquids, bathroom cleaners and fabric care products from formulation-certified producers, with labelling and packaging suited to the destination market.',
     ],
     seo: {
-      title: 'Hot gas filtration for glass furnaces',
-      description: 'Ceramic fibre filter candles for glass furnace off-gas treatment, supplied new or as replacements for installed housings.',
-    },
-  },
-  {
-    slug: 'cement-and-lime',
-    name: 'Cement and lime',
-    intro: [
-      'Kiln bypass gas is hot and dust-laden, and burner mountings on rotary kilns see heavy thermal duty. Both are places where a ceramic fibre part does a job that metal or fabric cannot.',
-    ],
-    seo: {
-      title: 'Products for cement and lime kilns',
-      description: 'Filter candles for cement and lime kiln bypass gas, and vacuum-formed burner shapes for rotary kiln burner mountings.',
-    },
-  },
-  {
-    slug: 'furnaces-and-process-heat',
-    name: 'Furnaces and process heat',
-    intro: [
-      'Industrial furnaces, kilns, boilers and hot pipework lose money in two ways: heat that escapes, and downtime when a lining, seal or burner block fails. The right rigid or formed insulation answers both.',
-      'The products below cover linings, doors, joints, burner openings and hot lines across heat treatment, ceramics, petrochemical and power.',
-    ],
-    seo: {
-      title: 'Insulation for furnaces and process heat',
+      title: 'Natural home care products for export',
       description:
-        'Ceramic fibre boards, gaskets, burner shapes, pipe sections and filter candles for furnaces, kilns, boilers and process pipework.',
+        'Plant-based cleaning products — floor cleaners, dishwash, bathroom and fabric care — sourced from certified producers and shipped export-ready.',
     },
   },
 ];

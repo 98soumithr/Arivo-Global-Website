@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Pouring cups and pour cones for casting',
   range: 'Investment casting cups and vacuum-formed pour cones and conduits',
   category: 'foundry-consumables',
-  industries: ['foundry-and-casting', 'aluminium-and-non-ferrous'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     "What happens in the first two seconds of a pour determines a good part of the casting's quality. Metal falling into an unprotected sprue breaks up, entrains air, and tears oxide film off its own surface — and those oxides end up in the casting as inclusions and cold shuts.",
     'A pouring cup gives the stream a controlled entry. It presents a target the operator can hit, keeps the sprue full so air is not drawn down with the metal, and calms the stream before it enters the gating system. Because it is the first thing the metal touches, it also has to resist thermal shock at full pouring temperature and must not itself shed material into the stream.',

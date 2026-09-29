@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'High-temperature gaskets and seals',
   range: 'Paper, millboard and vacuum-formed seals — cut to profile from a drawing, DXF or old gasket',
   category: 'thermal-insulation',
-  industries: ['furnaces-and-process-heat'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'Furnace and kiln joints are a harder sealing problem than they look. The two faces expand and contract at different rates, they are seldom machined flat, and the joint opens and closes through every thermal cycle. A gasket in that position needs enough compliance to take up the irregularity and enough resilience to keep sealing as the joint works.',
     'The substrate choice follows from that. Where the joint needs compliance at low bolt load — a furnace door, an inspection hatch — a soft paper gasket is right. Where the joint is bolted and the gasket has to resist crushing, a denser millboard or thin rigid board carries the load. Where the seal is a moulded component rather than a flat cut part, a vacuum-formed shape does the job. Suppliers who offer only one substrate end up recommending it for all three.',

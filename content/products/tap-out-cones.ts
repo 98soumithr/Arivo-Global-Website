@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Vacuum-formed plugs for furnace tap holes',
   range: 'Vacuum-formed cones — standard sizes, or made to a specific tap-hole geometry',
   category: 'foundry-consumables',
-  industries: ['aluminium-and-non-ferrous', 'foundry-and-casting'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'The tap hole is the one part of a holding furnace that has to be opened and resealed every cast. Whatever plugs it has to seal reliably against a head of molten aluminium, release cleanly when the furnace is tapped, and neither contaminate the metal nor generate dross on the way out.',
     'Graphite and calcium silicate plugs were the earlier answer and both have drawbacks — graphite wets and is consumed, calcium silicate is heavy and seals less well as it wears. A vacuum-formed ceramic fibre cone is light, is not wetted by aluminium, seats tightly because the material has some give, and leaves the tap hole clean. It is also a consumable at a low enough unit cost to be replaced every tap rather than nursed.',

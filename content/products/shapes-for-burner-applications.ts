@@ -9,7 +9,7 @@ export const product: ProductContent = {
   descriptor: 'Vacuum-formed burner blocks, quarls and flame tunnels',
   range: 'Burner blocks, quarls, flame tunnels, throat inserts and tip rings — made to the burner',
   category: 'thermal-insulation',
-  industries: ['furnaces-and-process-heat', 'cement-and-lime', 'waste-to-energy'],
+  industries: ['industrial-and-manufacturing'],
   roleInProcess: [
     'A burner block is a shaped void as much as a shaped part. Its internal profile determines how the flame develops — the angle of the quarl, the length of the tunnel and the throat diameter all affect flame shape, stability and how heat is distributed into the chamber. Get the profile wrong and the flame impinges where it should not, or lifts off, or burns unstably.',
     'Cast and kiln-fired hard blocks have traditionally done this job and still suit the hottest direct-flame duty. Their disadvantages are weight, thermal mass, long lead times for a fired shape, and a tendency to crack at mortar joints. A vacuum-formed block is a fraction of the weight, stores far less heat, and comes from tooling in weeks rather than months. It is also removable and replaceable without disturbing the surrounding lining, which matters on a retrofit.',
