@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 const VB_W = 494.7;
 const VB_H = 265.7;
 
-const INDIA = { cx: 347.7, cy: 104.8 };
+const INDIA = { cx: 349.5, cy: 115.5 };
 
 const REGIONS = [
   { name: 'Europe', cx: 261.1, cy: 57.6 },
