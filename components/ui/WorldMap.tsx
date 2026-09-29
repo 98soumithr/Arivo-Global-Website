@@ -110,9 +110,9 @@ export function WorldMap() {
         />
       ))}
 
-      {/* India origin dot with ping */}
+      {/* India origin dot with soft glow */}
+      <circle cx={INDIA.cx} cy={INDIA.cy} r="6" className="fill-harbour/15" />
       <circle cx={INDIA.cx} cy={INDIA.cy} r="3" className="fill-harbour" />
-      <circle cx={INDIA.cx} cy={INDIA.cy} r="6" className="fill-harbour/20 animate-[ping_3s_ease-in-out_infinite]" />
 
       {/* Region destination dots */}
       {REGIONS.map((r) => (
