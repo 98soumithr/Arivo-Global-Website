@@ -20,10 +20,10 @@ export function EnquiryBand({
         <div data-reveal className="grid gap-(--space-group) lg:grid-cols-12 lg:items-end lg:gap-6">
           <div className="lg:col-span-7">
             <Eyebrow onNavy>Enquiries</Eyebrow>
-            <h2 id="enquiry-heading" className="t-h2 mt-5 text-white">
+            <h2 id="enquiry-heading" className="t-h2 mt-3 text-white">
               {heading}
             </h2>
-            <p className="t-lead mt-4 text-on-navy">{body}</p>
+            <p className="t-body mt-2 text-on-navy">{body}</p>
           </div>
           <div data-reveal-item className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
             <Button href={href} variant="primary-navy">

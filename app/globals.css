@@ -30,9 +30,9 @@
   --color-harbour-hover: var(--color-navy);
 
   /* Type — the loaded faces come first, named fallbacks after */
-  --font-display: var(--font-display-loaded), "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-sans-loaded), "IBM Plex Sans", Arial, "Helvetica Neue", sans-serif;
-  --font-mono: var(--font-mono-loaded), "IBM Plex Mono", Consolas, Menlo, monospace;
+  --font-display: var(--font-display-loaded), "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-sans-loaded), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-loaded), "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Radius */
   --radius-brand: 2px;
@@ -45,23 +45,23 @@
   --breakpoint-lg: 1024px;
 }
 
-/* Space scale — desktop / mobile (section and block tightened ~25% from design system §5 at the owner's request) */
+/* Space scale — condensed for less scrolling */
 :root {
-  --space-section: 56px;
-  --space-block: 40px;
-  --space-group: 28px;
-  --space-element: 16px;
-  --space-tight: 12px;
-  --gutter: 20px;
-  --header-h: 72px;
+  --space-section: 40px;
+  --space-block: 28px;
+  --space-group: 20px;
+  --space-element: 12px;
+  --space-tight: 8px;
+  --gutter: 16px;
+  --header-h: 64px;
 }
 @media (min-width: 1024px) {
   :root {
-    --space-section: 96px;
-    --space-block: 64px;
-    --space-group: 40px;
-    --space-element: 20px;
-    --gutter: 32px;
+    --space-section: 64px;
+    --space-block: 40px;
+    --space-group: 28px;
+    --space-element: 16px;
+    --gutter: 28px;
   }
 }
 
@@ -75,12 +75,12 @@
     background: var(--color-white);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
+    line-height: 22px;
     -webkit-font-smoothing: antialiased;
   }
   @media (min-width: 1024px) {
-    body { font-size: 17px; line-height: 28px; }
+    body { font-size: 15px; line-height: 24px; }
   }
 
   /* Focus: 2px Harbour ring on every interactive element, never removed */
@@ -96,41 +96,41 @@
   ::selection { background: var(--color-mist); color: var(--color-navy); }
 }
 
-/* ── Type scale (design system §4.3) ─────────────────────────── */
+/* ── Type scale — Inter + Fraunces, tight tracking ───────────── */
 @layer components {
   .t-display, .t-h1, .t-h2, .t-h3 {
     font-family: var(--font-display);
     font-weight: 600;
     text-wrap: balance;
   }
-  .t-display { font-size: 40px; line-height: 44px; letter-spacing: -0.01em; }
-  .t-h1 { font-size: 34px; line-height: 40px; letter-spacing: -0.01em; }
-  .t-h2 { font-size: 28px; line-height: 34px; letter-spacing: -0.005em; }
-  .t-h3 { font-size: 22px; line-height: 28px; }
-  .t-h4 { font-family: var(--font-sans); font-weight: 600; font-size: 18px; line-height: 26px; }
-  .t-lead { font-size: 17px; line-height: 28px; }
-  .t-body { font-size: 16px; line-height: 26px; }
-  .t-small { font-size: 14px; line-height: 22px; }
+  .t-display { font-size: 36px; line-height: 40px; letter-spacing: -0.028em; }
+  .t-h1 { font-size: 30px; line-height: 36px; letter-spacing: -0.022em; }
+  .t-h2 { font-size: 24px; line-height: 30px; letter-spacing: -0.014em; }
+  .t-h3 { font-size: 20px; line-height: 26px; letter-spacing: -0.008em; }
+  .t-h4 { font-family: var(--font-sans); font-weight: 600; font-size: 15px; line-height: 22px; letter-spacing: -0.008em; }
+  .t-lead { font-size: 15px; line-height: 24px; }
+  .t-body { font-size: 14px; line-height: 22px; }
+  .t-small { font-size: 13px; line-height: 20px; }
   .t-label {
     font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 0.14em;
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
   }
-  .t-data { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-variant-numeric: tabular-nums; }
+  .t-data { font-family: var(--font-mono); font-size: 12px; line-height: 18px; font-variant-numeric: tabular-nums; }
 
   @media (min-width: 1024px) {
-    .t-display { font-size: 64px; line-height: 68px; }
-    .t-h1 { font-size: 48px; line-height: 54px; }
-    .t-h2 { font-size: 36px; line-height: 42px; }
-    .t-h3 { font-size: 26px; line-height: 32px; }
-    .t-h4 { font-size: 20px; line-height: 28px; }
-    .t-lead { font-size: 19px; line-height: 30px; }
-    .t-body { font-size: 17px; line-height: 28px; }
-    .t-label { font-size: 12px; }
-    .t-data { font-size: 14px; line-height: 22px; }
+    .t-display { font-size: 52px; line-height: 56px; letter-spacing: -0.035em; }
+    .t-h1 { font-size: 40px; line-height: 46px; letter-spacing: -0.028em; }
+    .t-h2 { font-size: 30px; line-height: 36px; letter-spacing: -0.02em; }
+    .t-h3 { font-size: 22px; line-height: 28px; letter-spacing: -0.014em; }
+    .t-h4 { font-size: 17px; line-height: 24px; }
+    .t-lead { font-size: 17px; line-height: 26px; }
+    .t-body { font-size: 15px; line-height: 24px; }
+    .t-label { font-size: 11px; line-height: 16px; }
+    .t-data { font-size: 13px; line-height: 20px; }
   }
 
   /* Prose rhythm inside content columns */
