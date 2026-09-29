@@ -67,37 +67,57 @@ export default function Home() {
         <ScrollIndicator />
       </Section>
 
-      {/* ── 2 · Why Arivo — heading + parallax image + pillars ── */}
+      {/* ── 2 · Why Arivo — editorial spread with full-bleed image ── */}
       <Section level={1} labelledBy="why-heading">
+        {/* Headline + body — contained */}
         <Container>
-          <div className="grid gap-(--space-group) lg:grid-cols-12 lg:gap-6">
-            <div data-reveal className="flex flex-col justify-center lg:col-span-5">
-              <SectionHeading id="why-heading" eyebrow={home.intro.eyebrow}>
-                {home.intro.heading}
-              </SectionHeading>
-              <p className="t-body mt-5 text-ink">{home.intro.body}</p>
-            </div>
-            <div data-reveal style={i(1)} className="lg:col-span-7">
-              <ScrollParallax speed={0.15}>
-                <figure className="overflow-hidden rounded-brand">
-                  <Image
-                    src="/images/home/port-golden-hour.jpg"
-                    alt="Aerial view of a busy container port at golden hour"
-                    width={1600}
-                    height={894}
-                    className="aspect-[16/9] w-full object-cover"
-                    sizes="(min-width: 1024px) 58vw, 100vw"
-                  />
-                </figure>
-              </ScrollParallax>
-            </div>
+          <div data-reveal className="mx-auto max-w-[780px] text-center">
+            <Eyebrow>{home.intro.eyebrow}</Eyebrow>
+            <h2 id="why-heading" className="t-display mt-6 text-navy">
+              {home.intro.heading}
+            </h2>
+            <p className="t-lead mt-6 text-slate">{home.intro.body}</p>
           </div>
+        </Container>
 
+        {/* Full-bleed cinematic image */}
+        <div data-reveal style={i(1)} className="mt-(--space-block)">
+          <ScrollParallax speed={0.12}>
+            <figure className="overflow-hidden">
+              <Image
+                src="/images/home/port-golden-hour.jpg"
+                alt="Aerial view of a busy container port at golden hour"
+                width={1600}
+                height={894}
+                className="aspect-[2.4/1] w-full object-cover"
+                sizes="100vw"
+              />
+            </figure>
+          </ScrollParallax>
+        </div>
+
+        {/* Gradient divider */}
+        <Container>
+          <div className="mx-auto mt-(--space-block) h-px w-full max-w-[600px] bg-gradient-to-r from-transparent via-harbour/30 to-transparent" />
+        </Container>
+
+        {/* Pillar cards with oversized numbers */}
+        <Container>
           <ul className="mt-(--space-block) grid gap-6 sm:grid-cols-3">
             {home.intro.pillars.map((p, n) => (
-              <li key={p.title} data-reveal style={i(n + 2)} className="border-t border-border pt-5">
-                <h3 className="t-h4 text-navy">{p.title}</h3>
-                <p className="t-small mt-3 text-slate">{p.body}</p>
+              <li
+                key={p.title}
+                data-reveal
+                style={i(n + 2)}
+                className="group relative overflow-hidden rounded-brand border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0_0_0/0.06)] lg:p-8"
+              >
+                <span className="absolute -right-2 -top-4 font-serif text-[96px] leading-none text-navy/[0.04] transition-colors duration-300 group-hover:text-navy/[0.08] lg:text-[120px]">
+                  {String(n + 1).padStart(2, '0')}
+                </span>
+                <div className="relative">
+                  <h3 className="t-h4 text-navy">{p.title}</h3>
+                  <p className="t-small mt-3 text-slate">{p.body}</p>
+                </div>
               </li>
             ))}
           </ul>
