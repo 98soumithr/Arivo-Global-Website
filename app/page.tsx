@@ -101,7 +101,7 @@ export default function Home() {
           <div className="mx-auto mt-(--space-block) h-px w-full max-w-[600px] bg-gradient-to-r from-transparent via-harbour/30 to-transparent" />
         </Container>
 
-        {/* Pillar cards with oversized numbers */}
+        {/* Pillar cards — dark gradient with accent glow */}
         <Container>
           <ul className="mt-(--space-block) grid gap-6 sm:grid-cols-3">
             {home.intro.pillars.map((p, n) => (
@@ -109,14 +109,19 @@ export default function Home() {
                 key={p.title}
                 data-reveal
                 style={i(n + 2)}
-                className="group relative overflow-hidden rounded-brand border border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0_0_0/0.06)] lg:p-8"
+                className="group relative overflow-hidden rounded-[8px] bg-gradient-to-br from-[#0f1c3a] to-[#162450] p-6 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgb(10_18_37/0.5)] lg:p-8"
               >
-                <span className="absolute -right-2 -top-4 font-serif text-[96px] leading-none text-navy/[0.04] transition-colors duration-300 group-hover:text-navy/[0.08] lg:text-[120px]">
+                {/* Top accent line */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-harbour/0 via-harbour to-harbour/0 opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
+                {/* Oversized faded number */}
+                <span className="absolute -right-2 -top-4 font-serif text-[96px] leading-none text-white/[0.04] transition-colors duration-500 group-hover:text-white/[0.08] lg:text-[120px]">
                   {String(n + 1).padStart(2, '0')}
                 </span>
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -right-12 -top-12 size-40 rounded-full bg-harbour/0 blur-[60px] transition-all duration-700 group-hover:bg-harbour/10" />
                 <div className="relative">
-                  <h3 className="t-h4 text-navy">{p.title}</h3>
-                  <p className="t-small mt-3 text-slate">{p.body}</p>
+                  <h3 className="t-h4 text-white">{p.title}</h3>
+                  <p className="t-small mt-3 text-light-steel/80">{p.body}</p>
                 </div>
               </li>
             ))}
