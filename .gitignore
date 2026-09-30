@@ -16,4 +16,4 @@ next-env.d.ts
 agentdb.rvf
 agentdb.rvf.lock
 ruvector.db
-Images/
+/Images/

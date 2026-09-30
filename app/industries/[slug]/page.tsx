@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/Button';
 import { EnquiryBand } from '@/components/product/EnquiryBand';
 import { packagingProducts, packagingCategories } from '@/content/sustainable-packaging-products';
 import { homeCareProducts, homeCareCategories } from '@/content/natural-home-care-products';
+import { agroProducts, agroCategories } from '@/content/agro-products';
 
 export const dynamicParams = false;
 
@@ -39,6 +40,10 @@ export default async function Page({ params }: PageProps<'/industries/[slug]'>) 
     return <NaturalHomeCarePage industry={industry} />;
   }
 
+  if (slug === 'agro-products') {
+    return <AgroProductsPage industry={industry} />;
+  }
+
   return (
     <ListingPage eyebrow="Industries" title={industry.name} intro={industry.intro} products={productsByIndustry(industry.slug)} showCategory />
   );
@@ -53,7 +58,7 @@ function ProductCard({ image, alt, label, name, meta, badges }: {
   return (
     <div className="group overflow-hidden rounded-[3px] border border-border bg-white">
       <div className="relative aspect-[3/2] overflow-hidden bg-mist">
-        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw" className="object-cover" />
+        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw" className="object-cover" unoptimized />
       </div>
       <div className="px-1.5 py-1">
         <p className="text-[9px] font-medium uppercase tracking-wider text-harbour">{label}</p>
@@ -185,6 +190,71 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
             <div>
               <h3 className="text-[13px] font-semibold text-white">Plant-Powered, Chemical-Free</h3>
               <p className="text-[11px] text-emerald-100/70">Coconut & corn-derived surfactants · Bio enzymes · No bleach or ammonia · Kids & pet safe</p>
+            </div>
+            <div className="flex shrink-0 gap-1.5">
+              <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
+              <Button href="/contact" variant="ghost-navy">Contact us</Button>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <EnquiryBand />
+    </Sections>
+  );
+}
+
+/* ── Agro Products ── */
+
+function AgroProductsPage({ industry }: { industry: { name: string; intro: string[] } }) {
+  return (
+    <Sections>
+      <Section level={5} labelledBy="agro-title" className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2d5016] via-[#3a6b1e] to-[#4a7f28]" />
+        <Container className="relative">
+          <div data-reveal className="mx-auto max-w-[600px] text-center">
+            <Eyebrow onNavy>Industries</Eyebrow>
+            <h1 id="agro-title" className="t-h1 mt-1 text-white">{industry.name}</h1>
+            <p className="t-small mt-1 text-green-100/80">{industry.intro[0]}</p>
+          </div>
+          <div data-reveal style={i(1)} className="mx-auto mt-2 grid max-w-[600px] grid-cols-5 gap-1">
+            {['FSSAI', 'APEDA', 'Spices Board', 'ISO 22000', 'Export Grade'].map((cert) => (
+              <div key={cert} className="rounded-[3px] border border-green-200/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
+                <p className="text-[8px] font-medium uppercase tracking-widest text-green-100/70">{cert}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section level={1} labelledBy="agro-catalogue">
+        <Container>
+          <h2 id="agro-catalogue" className="sr-only">Product catalogue</h2>
+          {agroCategories.map((category, catIdx) => {
+            const products = agroProducts.filter((p) => p.category === category);
+            if (products.length === 0) return null;
+            return (
+              <div key={category} className={catIdx > 0 ? 'mt-2' : ''}>
+                <h3 className="text-[13px] font-semibold text-navy">{category}</h3>
+                <div className="mt-1 grid gap-1 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+                  {products.map((product, n) => (
+                    <div key={product.slug} data-reveal style={i(n + 1)}>
+                      <ProductCard
+                        image={product.image} alt={product.name} label={product.label}
+                        name={product.name} meta={product.meta}
+                        badges={product.badges}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+
+          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#2d5016] to-[#3a6b1e] px-3 py-2">
+            <div>
+              <h3 className="text-[13px] font-semibold text-white">Premium Indian Agro Exports</h3>
+              <p className="text-[11px] text-green-100/70">FSSAI · APEDA · Spices Board certified · Phytosanitary compliant · Custom packaging available</p>
             </div>
             <div className="flex shrink-0 gap-1.5">
               <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
