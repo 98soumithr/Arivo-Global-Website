@@ -61,7 +61,7 @@ export const product: ProductContent = {
       a: 'No. The scope is filter elements. We work with the system builders and plant operators who own the vessel.',
     },
   ],
-  related: ['ceramic-fibre-boards', 'ceramic-fibre-gaskets', 'shapes-for-burner-applications'],
+  related: [],
   attributes: {
     fibreChemistry: ['alumino-silicate', 'aes-bio-soluble'],
     formFactor: ['filter element', 'flanged candle'],
