@@ -58,7 +58,7 @@ function ProductCard({ image, alt, label, name, meta, badges }: {
   return (
     <div className="group overflow-hidden rounded-[3px] border border-border bg-white">
       <div className="relative aspect-[3/2] overflow-hidden bg-mist">
-        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw" className="object-cover" unoptimized />
+        <Image src={image} alt={alt} fill sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw" className="object-cover" />
       </div>
       <div className="px-1.5 py-1">
         <p className="text-[9px] font-medium uppercase tracking-wider text-harbour">{label}</p>
@@ -146,17 +146,17 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
   return (
     <Sections>
       <Section level={5} labelledBy="nhc-title" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a2e1a] via-[#0f3d24] to-[#14492e]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f1c3a] via-[#162450] to-[#1a3060]" />
         <Container className="relative">
           <div data-reveal className="mx-auto max-w-[600px] text-center">
             <Eyebrow onNavy>Industries</Eyebrow>
             <h1 id="nhc-title" className="t-h1 mt-1 text-white">{industry.name}</h1>
-            <p className="t-small mt-1 text-emerald-100/80">{industry.intro[0]}</p>
+            <p className="t-small mt-1 text-on-navy">{industry.intro[0]}</p>
           </div>
           <div data-reveal style={i(1)} className="mx-auto mt-2 grid max-w-[600px] grid-cols-5 gap-1">
             {['Plant-Powered', 'No Harsh Chemicals', 'Kids & Pet Safe', 'No Artificial Colours', 'Skin Safe'].map((attr) => (
-              <div key={attr} className="rounded-[3px] border border-emerald-200/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
-                <p className="text-[8px] font-medium uppercase tracking-widest text-emerald-100/70">{attr}</p>
+              <div key={attr} className="rounded-[3px] border border-light-steel/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
+                <p className="text-[8px] font-medium uppercase tracking-widest text-light-steel">{attr}</p>
               </div>
             ))}
           </div>
@@ -186,10 +186,10 @@ function NaturalHomeCarePage({ industry }: { industry: { name: string; intro: st
             );
           })}
 
-          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#0a2e1a] to-[#0f3d24] px-3 py-2">
+          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#0f1c3a] to-[#162450] px-3 py-2">
             <div>
               <h3 className="text-[13px] font-semibold text-white">Plant-Powered, Chemical-Free</h3>
-              <p className="text-[11px] text-emerald-100/70">Coconut & corn-derived surfactants · Bio enzymes · No bleach or ammonia · Kids & pet safe</p>
+              <p className="text-[11px] text-light-steel/70">Coconut & corn-derived surfactants · Bio enzymes · No bleach or ammonia · Kids & pet safe</p>
             </div>
             <div className="flex shrink-0 gap-1.5">
               <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
@@ -210,17 +210,17 @@ function AgroProductsPage({ industry }: { industry: { name: string; intro: strin
   return (
     <Sections>
       <Section level={5} labelledBy="agro-title" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#2d5016] via-[#3a6b1e] to-[#4a7f28]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f1c3a] via-[#162450] to-[#1a3060]" />
         <Container className="relative">
           <div data-reveal className="mx-auto max-w-[600px] text-center">
             <Eyebrow onNavy>Industries</Eyebrow>
             <h1 id="agro-title" className="t-h1 mt-1 text-white">{industry.name}</h1>
-            <p className="t-small mt-1 text-green-100/80">{industry.intro[0]}</p>
+            <p className="t-small mt-1 text-on-navy">{industry.intro[0]}</p>
           </div>
           <div data-reveal style={i(1)} className="mx-auto mt-2 grid max-w-[600px] grid-cols-5 gap-1">
             {['FSSAI', 'APEDA', 'Spices Board', 'ISO 22000', 'Export Grade'].map((cert) => (
-              <div key={cert} className="rounded-[3px] border border-green-200/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
-                <p className="text-[8px] font-medium uppercase tracking-widest text-green-100/70">{cert}</p>
+              <div key={cert} className="rounded-[3px] border border-light-steel/10 bg-white/[0.04] px-1.5 py-0.5 text-center">
+                <p className="text-[8px] font-medium uppercase tracking-widest text-light-steel">{cert}</p>
               </div>
             ))}
           </div>
@@ -251,10 +251,10 @@ function AgroProductsPage({ industry }: { industry: { name: string; intro: strin
             );
           })}
 
-          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#2d5016] to-[#3a6b1e] px-3 py-2">
+          <div data-reveal className="mt-3 flex items-center justify-between rounded-[4px] bg-gradient-to-r from-[#0f1c3a] to-[#162450] px-3 py-2">
             <div>
               <h3 className="text-[13px] font-semibold text-white">Premium Indian Agro Exports</h3>
-              <p className="text-[11px] text-green-100/70">FSSAI · APEDA · Spices Board certified · Phytosanitary compliant · Custom packaging available</p>
+              <p className="text-[11px] text-light-steel/70">FSSAI · APEDA · Spices Board certified · Phytosanitary compliant · Custom packaging available</p>
             </div>
             <div className="flex shrink-0 gap-1.5">
               <Button href="/contact#rfq" variant="primary-navy">Request a quote</Button>
