@@ -22,8 +22,8 @@ export const product: ProductContent = {
     'Die casting and sand casting melt shops',
   ],
   available: [
-    'Cones vacuum formed from alumino-silicate fibre, including higher-alumina grades for hotter duty. [CONFIRM: which grades are offered]',
-    'A range of standard cone sizes covering common tap-hole diameters, and cones made to the tap-hole geometry of a specific furnace. [CONFIRM: standard size range]',
+    'Cones vacuum formed from alumino-silicate fibre, including higher-alumina grades for hotter duty.',
+    'A range of standard cone sizes covering common tap-hole diameters, and cones made to the tap-hole geometry of a specific furnace.',
     'Related vacuum-formed shapes for the same systems — launder components, filter box parts, distribution plates — on request.',
   ],
   customNote:

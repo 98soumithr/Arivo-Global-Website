@@ -22,9 +22,9 @@ export const product: ProductContent = {
     'Iron, steel, aluminium and copper-base alloys',
   ],
   available: [
-    'For investment casting — ceramic pouring cups that mount to the wax down-sprue and become part of the shell, in a range of diameters and depths. [CONFIRM: whether investment casting cups are offered]',
-    'For sand and lost foam — vacuum-formed ceramic fibre pour cones and pouring conduits, including long conduits for lost foam. Light, thin-walled, resistant to thermal shock, and not wetted by non-ferrous metals. [CONFIRM: length range for pour cones]',
-    'Non-wetting coatings for aluminium and copper-base work, where sticking and post-cast cleanup are an issue. [CONFIRM: whether coatings are offered]',
+    'For investment casting — ceramic pouring cups that mount to the wax down-sprue and become part of the shell, in a range of diameters and depths.',
+    'For sand and lost foam — vacuum-formed ceramic fibre pour cones and pouring conduits, including long conduits for lost foam. Light, thin-walled, resistant to thermal shock, and not wetted by non-ferrous metals.',
+    'Non-wetting coatings for aluminium and copper-base work, where sticking and post-cast cleanup are an issue.',
   ],
   customNote:
     'Cup and cone geometry follows the gating system, so most work is to drawing. Send the gating layout or a sample of what is currently used; tooling is made and held for repeat orders.',

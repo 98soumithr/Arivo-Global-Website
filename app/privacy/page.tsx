@@ -23,7 +23,7 @@ export default function Page() {
             {privacy.title}
           </h1>
           <p className="t-small mt-4 text-slate">
-            Last updated <span className="t-data">{privacy.updated}</span> <Rich text={privacy.reviewNote} />
+            Last updated <span className="t-data">{privacy.updated}</span>
           </p>
           <p className="t-lead mt-(--space-group) text-ink">{privacy.intro}</p>
 

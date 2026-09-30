@@ -24,8 +24,8 @@ export const product: ProductContent = {
     'Personnel protection on accessible hot lines',
   ],
   available: [
-    'Pipe sections vacuum formed in alumino-silicate and bio-soluble AES fibre, in half-sections or multi-segment forms depending on diameter. [CONFIRM: which grades are offered]',
-    'Made to the pipe outside diameter and the wall thickness the heat loss or surface temperature target requires, in standard segment lengths. [CONFIRM: diameter range and standard segment length]',
+    'Pipe sections vacuum formed in alumino-silicate and bio-soluble AES fibre, in half-sections or multi-segment forms depending on diameter.',
+    'Made to the pipe outside diameter and the wall thickness the heat loss or surface temperature target requires, in standard segment lengths.',
     'For elbows, tees, flanges and valve bodies, either shaped sections made to drawing or blanket and board for site fabrication, whichever is more economical for the run.',
   ],
   customNote:

@@ -1,15 +1,14 @@
 import Link from 'next/link';
-import { industries, products } from '@/lib/content';
+import { industries } from '@/lib/content';
 import { contact, site } from '@/content/site';
 import { company } from '@/content/company';
-import { Rich } from '@/components/ui/Rich';
 import { Container } from './Container';
 import { Wordmark } from './Wordmark';
 
 const heading = 't-label mb-1.5 text-light-steel';
 const link = 'text-on-navy decoration-1 underline-offset-4 hover:underline';
 
-/** Deep Navy. Products · Industries · Company · Contact. No registration numbers, address or phone by decision. */
+/** Deep Navy. Industries · Company · Contact. No registration numbers, address or phone by decision. */
 export function Footer() {
   return (
     <footer className="on-navy surface-footer grain pt-3 pb-3 text-on-navy">
@@ -17,21 +16,8 @@ export function Footer() {
         <Wordmark onNavy />
         <p className="t-small mt-1.5 max-w-[46ch] text-light-steel">{site.tagline}.</p>
 
-        <div className="mt-2 grid gap-3 border-t border-navy-border pt-2 sm:grid-cols-2 lg:grid-cols-12 lg:gap-2">
-          <div className="lg:col-span-3">
-            <h2 className={heading}>Products</h2>
-            <ul className="t-small space-y-0.5">
-              {products.map((p) => (
-                <li key={p.slug}>
-                  <Link href={`/products/${p.slug}`} className={link}>
-                    {p.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="lg:col-span-3">
+        <div className="mt-2 grid gap-3 border-t border-navy-border pt-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-2">
+          <div>
             <h2 className={heading}>Industries</h2>
             <ul className="t-small space-y-0.5">
               {industries.map((i) => (
@@ -44,7 +30,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div>
             <h2 className={heading}>Company</h2>
             <ul className="t-small space-y-0.5">
               {company.sections.map((s) => (
@@ -54,15 +40,10 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/products" className={link}>
-                  All products
-                </Link>
-              </li>
             </ul>
           </div>
 
-          <div className="sm:col-span-2 lg:col-span-4">
+          <div className="sm:col-span-2 lg:col-span-1">
             <h2 className={heading}>Contact</h2>
             <div className="rounded-brand border border-navy-border p-1.5 lg:p-2">
               <dl className="t-small space-y-1">
@@ -77,7 +58,7 @@ export function Footer() {
                 <div>
                   <dt className="text-light-steel">Office hours</dt>
                   <dd>
-                    {contact.officeHours} <Rich text={contact.officeHoursConfirm} />
+                    {contact.officeHours}
                     <span className="t-data block">{contact.timezone}</span>
                   </dd>
                 </div>

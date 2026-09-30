@@ -26,7 +26,7 @@ export const product: ProductContent = {
     'Paper gaskets — thin, flexible, compressible, die-cut or waterjet cut to profile. The usual answer for joints needing compliance at low bolt load.',
     'Millboard and rigid board gaskets — denser, for bolted flanges where the gasket must resist crushing.',
     'Vacuum-formed seals — moulded components rather than flat cut parts, where the seal has a three-dimensional geometry.',
-    'Available in alumino-silicate and bio-soluble AES chemistry. Adhesive-backed for installation during a maintenance shutdown, and pre-slit ring forms for flanged pipework. [CONFIRM: whether adhesive-backed and pre-slit forms are offered]',
+    'Available in alumino-silicate and bio-soluble AES chemistry. Adhesive-backed for installation during a maintenance shutdown, and pre-slit ring forms for flanged pipework.',
   ],
   customNote:
     'Gaskets are almost always cut to profile. Send a drawing, a DXF file, or the old gasket itself — a used gasket is a perfectly good pattern. The pattern is held for repeat supply, which matters on shutdown work where the same set is replaced every outage.',

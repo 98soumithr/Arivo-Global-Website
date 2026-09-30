@@ -25,8 +25,8 @@ export const product: ProductContent = {
   ],
   available: [
     'Elements in alumino-silicate fibre, and in bio-soluble alkaline earth silicate (AES) fibre for plants that prefer a low bio-persistence material on site.',
-    'Lengths through to three metres as a single piece, with longer assemblies jointed. [CONFIRM: maximum single-piece length] Diameters and flange forms cover the geometries common to installed filter housings; anything outside that range is made to drawing.',
-    'Catalytic-coated elements are available on request, for plants combining particulate removal with NOx or dioxin control in a single vessel. [CONFIRM: whether catalytic grades are offered]',
+    'Lengths through to three metres as a single piece, with longer assemblies jointed. Diameters and flange forms cover the geometries common to installed filter housings; anything outside that range is made to drawing.',
+    'Catalytic-coated elements are available on request, for plants combining particulate removal with NOx or dioxin control in a single vessel.',
   ],
   extraSections: [
     {

@@ -3,7 +3,7 @@ import Link from 'next/link';
 type Variant = 'primary' | 'primary-navy' | 'secondary' | 'outline' | 'ghost-navy';
 
 const base =
-  'inline-flex min-h-12 items-center justify-center gap-2 rounded-brand px-7 py-3.5 text-[15px] font-semibold leading-5 transition-colors duration-150 ease-out lg:text-base';
+  'inline-flex min-h-10 items-center justify-center gap-2 rounded-brand px-5 py-2.5 text-[13px] font-semibold leading-5 transition-colors duration-150 ease-out lg:text-[14px]';
 
 const variants: Record<Variant, string> = {
   // One primary per screen. Never burgundy on navy — use primary-navy there.

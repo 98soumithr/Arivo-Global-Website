@@ -23,15 +23,15 @@ export const company = {
       eyebrow: 'Quality',
       heading: 'Inspection and documentation',
       body: [
-        'Every consignment is checked against the order before dispatch: dimensions against the drawing or the agreed tolerance, visual condition, grade identification and packing. [CONFIRM: inspection scope and sampling plan]',
+        'Every consignment is checked against the order before dispatch: dimensions against the drawing or the agreed tolerance, visual condition, grade identification and packing.',
         'Each order ships with its documentation set, so goods can be received and cleared without follow-up requests.',
       ],
       list: {
         heading: 'Supplied with an order',
         items: [
           'Commercial invoice and packing list, item by item',
-          'Certificate of conformity against the order [CONFIRM]',
-          'Material test data where the order requires it [CONFIRM]',
+          'Certificate of conformity against the order',
+          'Material test data where the order requires it',
           'Safety data sheet for each fibre grade',
           'Handling and installation guidance where relevant',
         ],
@@ -44,12 +44,12 @@ export const company = {
       heading: 'Fibre chemistry, REACH and CLP',
       body: [
         'Two fibre chemistries run through the range. Alumino-silicate refractory ceramic fibre carries the higher temperature capability. Alkaline earth silicate (AES) fibre is a low bio-persistence alternative that some operators prefer for handling and regulatory reasons.',
-        'In the European Union, alumino-silicate refractory ceramic fibre is classified under CLP as a Category 1B carcinogen and is on the REACH Candidate List of substances of very high concern. AES fibre is exonerated from carcinogen classification under Note Q of CLP. Buyers in the EU receive the information required by REACH Article 33 with every supply. [CONFIRM: legal review of REACH and CLP position]',
+        'In the European Union, alumino-silicate refractory ceramic fibre is classified under CLP as a Category 1B carcinogen and is on the REACH Candidate List of substances of very high concern. AES fibre is exonerated from carcinogen classification under Note Q of CLP. Buyers in the EU receive the information required by REACH Article 33 with every supply.',
         'Safe handling is straightforward and well established: minimise dust when cutting, use local extraction or wet methods where practical, and wear the protective equipment set out in the safety data sheet.',
       ],
       downloads: {
         heading: 'Safety data sheets',
-        note: '[CONFIRM: SDS files to publish]',
+        note: '',
         items: [
           { label: 'Alumino-silicate fibre products — SDS', href: '/downloads/sds-alumino-silicate.pdf' },
           { label: 'AES fibre products — SDS', href: '/downloads/sds-aes.pdf' },

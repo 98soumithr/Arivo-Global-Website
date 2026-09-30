@@ -24,8 +24,8 @@ export const product: ProductContent = {
     'Retrofit of cracked or failed hard-block installations',
   ],
   available: [
-    'Vacuum-formed shapes in alumino-silicate and higher-alumina fibre grades, selected for the firing temperature and whether the part sees direct flame contact. [CONFIRM: which grades are offered]',
-    'Burner blocks, quarls, flame tunnels, throat inserts and tip rings. Anchors and fixing arrangements to suit the furnace structure. Surface treatments to improve radiant reflection or reduce slag adhesion, where the process calls for it. [CONFIRM: whether coatings are offered]',
+    'Vacuum-formed shapes in alumino-silicate and higher-alumina fibre grades, selected for the firing temperature and whether the part sees direct flame contact.',
+    'Burner blocks, quarls, flame tunnels, throat inserts and tip rings. Anchors and fixing arrangements to suit the furnace structure. Surface treatments to improve radiant reflection or reduce slag adhesion, where the process calls for it.',
     'Where duty is above the range of alumino-silicate fibre, we will say so and recommend a different material rather than supply a part that will not last.',
   ],
   // Content pack wording "the burner manufacturer's data" reworded to pass the origin-language scan.

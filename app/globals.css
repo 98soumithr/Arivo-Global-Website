@@ -397,3 +397,108 @@
 .blueprint svg .stroke-burgundy { stroke: var(--color-white); }
 .blueprint svg .stroke-border { stroke: var(--color-navy-border); }
 .blueprint svg .dg-label.fill-burgundy { font-weight: 600; }
+
+/* ── Award-winning patterns ──────────────────────────────────── */
+
+/* Gradient text heading — Linear / Stripe style */
+.gradient-text {
+  background: linear-gradient(180deg, #fff 20%, rgba(255,255,255,0.5) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient-text-navy {
+  background: linear-gradient(180deg, var(--color-navy) 20%, var(--color-harbour) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dot grid pattern — subtle engineering grid behind sections */
+.dot-grid {
+  --dot-color: rgb(64 101 162 / 0.12);
+  --dot-size: 1px;
+  --dot-gap: 24px;
+  background-image:
+    radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size));
+  background-size: var(--dot-gap) var(--dot-gap);
+  background-position: center center;
+}
+.dot-grid-navy {
+  --dot-color: rgb(157 184 207 / 0.08);
+  --dot-size: 1px;
+  --dot-gap: 24px;
+  background-image:
+    radial-gradient(circle, var(--dot-color) var(--dot-size), transparent var(--dot-size));
+  background-size: var(--dot-gap) var(--dot-gap);
+}
+
+/* Radial mask fade — dot grid fades out at edges */
+.mask-radial {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* Gradient border — wrapper technique for cards */
+.gradient-border {
+  position: relative;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-harbour), var(--color-steel), var(--color-harbour));
+}
+.gradient-border > * {
+  border-radius: 7px;
+}
+
+/* Layered smooth shadow — premium card elevation */
+.shadow-layered {
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / 0.06),
+    0 2px 2px rgb(0 0 0 / 0.06),
+    0 4px 4px rgb(0 0 0 / 0.06),
+    0 8px 8px rgb(0 0 0 / 0.06),
+    0 16px 16px rgb(0 0 0 / 0.06);
+}
+.shadow-layered-hover {
+  box-shadow:
+    0 2px 2px rgb(0 0 0 / 0.04),
+    0 4px 4px rgb(0 0 0 / 0.04),
+    0 8px 8px rgb(0 0 0 / 0.04),
+    0 16px 16px rgb(0 0 0 / 0.04),
+    0 32px 32px rgb(0 0 0 / 0.04);
+}
+
+/* Infinite marquee ticker */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Ambient glow orb — reusable */
+.glow-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(100px);
+}
+
+/* Hairline divider — gradient fade both ends */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-border) 80%, transparent 100%);
+}
+.hairline-light {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgb(157 184 207 / 0.3) 20%, rgb(157 184 207 / 0.3) 80%, transparent 100%);
+}

@@ -24,8 +24,8 @@ export const product: ProductContent = {
     'Foundry laboratories and spectrometer sample preparation',
   ],
   available: [
-    'Spoons with a vacuum-formed ceramic fibre bowl and a steel handle, in standard bowl capacities and with handle lengths to suit the furnace or ladle being sampled. [CONFIRM: standard capacities and handle length options]',
-    'Bowls in alumino-silicate fibre grades selected for the metal being sampled. [CONFIRM: which grades are offered]',
+    'Spoons with a vacuum-formed ceramic fibre bowl and a steel handle, in standard bowl capacities and with handle lengths to suit the furnace or ladle being sampled.',
+    'Bowls in alumino-silicate fibre grades selected for the metal being sampled.',
     'Bowl profiles to requirement, including profiles matched to a particular sample mould or spectrometer sample geometry.',
   ],
   customNote:

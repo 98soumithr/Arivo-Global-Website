@@ -23,9 +23,9 @@ export const product: ProductContent = {
     'Grey and ductile iron, steel, aluminium and copper-base alloys',
   ],
   available: [
-    'Insulating sleeves, exothermic-insulating sleeves, and highly exothermic sleeves — each suited to different section thickness, alloy and moulding method. [CONFIRM: which types are offered]',
+    'Insulating sleeves, exothermic-insulating sleeves, and highly exothermic sleeves — each suited to different section thickness, alloy and moulding method.',
     'Open and blind feeder forms. Cylindrical, oval and neck-down geometries, with breaker cores where the feeder has to knock off cleanly. Ram-up sleeves for automatic lines and insert sleeves for jobbing work.',
-    'A range of diameters covering small spot feeders through to heavy-section feeders for jobbing iron and steel. [CONFIRM: diameter range]',
+    'A range of diameters covering small spot feeders through to heavy-section feeders for jobbing iron and steel.',
   ],
   customNote:
     'Feeder geometry is specific to the casting. Where a standard sleeve does not suit the casting or the pattern plate, tooling is made to drawing and held for repeat orders. Neck-down forms, oval sections and breaker-core combinations are all routine.',

@@ -8,16 +8,8 @@ import { buttonClass } from '@/components/ui/Button';
 import { Chevron } from '@/components/ui/Arrow';
 import { Wordmark } from './Wordmark';
 
-export interface MobileGroup {
-  label: string;
-  href: string;
-  children: { label: string; href: string }[];
-}
-
 interface HeaderProps {
   nav: NavItem[];
-  /** Category accordions for the drawer: each category with its products. */
-  mobileProducts: MobileGroup[];
   quoteHref: string;
 }
 
@@ -26,7 +18,7 @@ interface HeaderProps {
  * Dropdowns: top-level items are real links; a separate toggle opens the panel from the keyboard;
  * Escape closes. State is keyed to the pathname, so a route change closes everything.
  */
-export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
+export function Header({ nav, quoteHref }: HeaderProps) {
   const pathname = usePathname();
   const [menu, setMenu] = useState<{ label: string; path: string } | null>(null);
   const [drawerPath, setDrawerPath] = useState<string | null>(null);
@@ -127,7 +119,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
 
         <div className="ml-auto flex items-center gap-3">
           <span className="hidden sm:block">
-            <Link href={quoteHref} className={buttonClass('primary-navy', '!min-h-11 !px-5 !py-2.5')}>
+            <Link href={quoteHref} className={buttonClass('primary-navy')}>
               Request a quote
             </Link>
           </span>
@@ -147,7 +139,7 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
       </div>
 
       {drawerOpen && (
-        <MobileDrawer nav={nav} mobileProducts={mobileProducts} quoteHref={quoteHref} onClose={() => setDrawerPath(null)} />
+        <MobileDrawer nav={nav} quoteHref={quoteHref} onClose={() => setDrawerPath(null)} />
       )}
     </header>
   );
@@ -155,12 +147,10 @@ export function Header({ nav, mobileProducts, quoteHref }: HeaderProps) {
 
 function MobileDrawer({
   nav,
-  mobileProducts,
   quoteHref,
   onClose,
-}: Omit<HeaderProps, never> & { onClose: () => void }) {
+}: HeaderProps & { onClose: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [expanded, setExpanded] = useState<string | null>(null);
 
   const trap = useCallback(
     (e: KeyboardEvent) => {
@@ -196,8 +186,6 @@ function MobileDrawer({
     };
   }, [trap]);
 
-  const rest = nav.filter((n) => n.href !== '/products');
-
   return (
     <div
       id="mobile-drawer"
@@ -222,52 +210,23 @@ function MobileDrawer({
       </div>
 
       <nav aria-label="Main" className="flex-1 overflow-y-auto px-(--gutter) py-4">
-        <p className="t-label py-3 text-slate">Products</p>
         <ul className="border-t border-border">
-          {mobileProducts.map((group) => {
-            const open = expanded === group.label;
-            const id = `drawer-${group.href.split('/').pop()}`;
-            return (
-              <li key={group.label} className="border-b border-border">
-                <div className="flex items-center">
-                  <Link href={group.href} onClick={onClose} className="flex-1 py-4 text-[17px] font-semibold text-navy">
-                    {group.label}
-                  </Link>
-                  <button
-                    type="button"
-                    aria-expanded={open}
-                    aria-controls={id}
-                    aria-label={`${group.label} products`}
-                    onClick={() => setExpanded(open ? null : group.label)}
-                    className="flex size-11 items-center justify-center text-harbour"
-                  >
-                    <Chevron className={`size-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
-                  </button>
-                </div>
-                <ul id={id} hidden={!open} className="pb-3">
-                  {group.children.map((c) => (
-                    <li key={c.href}>
-                      <Link href={c.href} onClick={onClose} className="block py-2.5 pl-4 text-[16px] text-ink">
-                        {c.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            );
-          })}
-          <li className="border-b border-border">
-            <Link href="/products" onClick={onClose} className="block py-4 text-[16px] text-harbour">
-              All products
-            </Link>
-          </li>
-        </ul>
-        <ul className="mt-6 border-t border-border">
-          {rest.map((item) => (
+          {nav.map((item) => (
             <li key={item.href} className="border-b border-border">
               <Link href={item.href} onClick={onClose} className="block py-4 text-[17px] font-semibold text-navy">
                 {item.label}
               </Link>
+              {item.children && (
+                <ul className="pb-3">
+                  {item.children.map((child) => (
+                    <li key={child.href}>
+                      <Link href={child.href} onClick={onClose} className="block py-2.5 pl-4 text-[16px] text-ink">
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

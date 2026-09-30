@@ -4,7 +4,6 @@ import { contact, site } from '@/content/site';
 import { Container } from '@/components/layout/Container';
 import { Section, Sections } from '@/components/layout/Section';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { Rich } from '@/components/ui/Rich';
 import { RfqForm, type ProductOption } from '@/components/forms/RfqForm';
 
 export const metadata = buildMetadata({
@@ -36,7 +35,7 @@ export default function Page() {
               </div>
               <p className="reveal t-lead mt-5 max-w-(--container-prose) text-slate" style={{ '--i': 1 } as React.CSSProperties}>
                 Tell us the application and attach what you have — a drawing, a specification, a photograph of the part in service.{' '}
-                {site.responseCommitment} <Rich text={site.responseCommitmentConfirm} />
+                {site.responseCommitment}
               </p>
               <div className="reveal mt-(--space-group)" style={{ '--i': 2 } as React.CSSProperties}>
                 <RfqForm products={productOptions} responseCommitment={site.responseCommitment} />
@@ -60,9 +59,9 @@ export default function Page() {
                   <div>
                     <dt className={dt}>Office hours</dt>
                     <dd className="mt-1">
-                      {contact.officeHours} <Rich text={contact.officeHoursConfirm} />
+                      {contact.officeHours}
                       <span className="t-data block text-slate">
-                        {contact.timezone} <Rich text={contact.timezoneConfirm} />
+                        {contact.timezone}
                       </span>
                     </dd>
                   </div>

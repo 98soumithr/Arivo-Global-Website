@@ -25,7 +25,7 @@ export const product: ProductContent = {
     'Expansion joints and seals',
   ],
   available: [
-    'Board across the alumino-silicate range, in bio-soluble AES, and in zirconia-reinforced grades for higher-duty positions. [CONFIRM: which grades are offered]',
+    'Board across the alumino-silicate range, in bio-soluble AES, and in zirconia-reinforced grades for higher-duty positions.',
     'Standard sheet sizes and a full thickness ladder, in a range of densities. Density is selected for the mechanical duty of the position rather than for thermal performance — a back-up layer and an unsupported kiln car deck are different products in the same material family, and we will advise which applies.',
     'Supplied flat, or machined: notches, holes, rebates, bevels, curved profiles and finished components to drawing.',
   ],

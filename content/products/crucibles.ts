@@ -24,9 +24,9 @@ export const product: ProductContent = {
     'Laboratory and pilot-scale melting',
   ],
   available: [
-    'Clay-graphite and silicon carbide bonded crucibles, in grades matched to metal type and furnace. [CONFIRM: which grades and bond systems are offered]',
-    'Capacities from laboratory scale through to production sizes. [CONFIRM: capacity range]',
-    'Standard crucible forms, plus pouring spouts, tap holes and custom profiles. Ladle liners and transfer pots on request. [CONFIRM: whether ladle liners are offered]',
+    'Clay-graphite and silicon carbide bonded crucibles, in grades matched to metal type and furnace.',
+    'Capacities from laboratory scale through to production sizes.',
+    'Standard crucible forms, plus pouring spouts, tap holes and custom profiles. Ladle liners and transfer pots on request.',
   ],
   customNote:
     'Where a furnace requires a non-standard profile — a particular height-to-diameter ratio, a bottom recess, a spout position — the part is made to drawing and the pattern held for repeat supply.',

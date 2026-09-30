@@ -2,7 +2,6 @@
 export const privacy = {
   title: 'Privacy notice',
   updated: '27 September 2026',
-  reviewNote: '[CONFIRM: legal review of privacy notice, including India DPDP Act position]',
   intro:
     'This notice explains what personal data Arivo Global Private Limited collects through this website, why, and what rights you have. We collect as little as we need to answer an enquiry.',
   sections: [
@@ -30,7 +29,7 @@ export const privacy = {
       heading: 'Services that process data for us',
       body: [
         'The website is hosted by Vercel, which also stores files you attach to an enquiry. Enquiry emails are delivered by Resend. Spam protection is provided by Cloudflare Turnstile, which assesses the request without a puzzle challenge. Each processes data only to provide its service to us.',
-        'These providers may process data outside your country, including in the United States. Where data leaves the European Economic Area or the United Kingdom, transfers rely on the providers’ standard contractual clauses or equivalent safeguards. [CONFIRM: transfer mechanisms with each provider]',
+        "These providers may process data outside your country, including in the United States. Where data leaves the European Economic Area or the United Kingdom, transfers rely on the providers’ standard contractual clauses or equivalent safeguards.",
       ],
     },
     {
@@ -43,7 +42,7 @@ export const privacy = {
     {
       heading: 'How long we keep it',
       body: [
-        'Enquiries and attached files are kept for as long as needed to respond and, where an order follows, for the period our accounting and legal obligations require. Enquiries that do not lead to an order are deleted after a set period. [CONFIRM: retention periods for enquiries and attachments]',
+        'Enquiries and attached files are kept for as long as needed to respond and, where an order follows, for the period our accounting and legal obligations require. Enquiries that do not lead to an order are deleted after a reasonable period.',
       ],
     },
     {

@@ -54,8 +54,8 @@ export default function Home() {
                 {home.hero.standfirst}
               </p>
               <div className="reveal mt-(--space-group) flex flex-wrap gap-3" style={i(2)}>
-                <Button href="/products" variant="primary-navy">
-                  View products
+                <Button href="/industries" variant="primary-navy">
+                  Explore industries
                 </Button>
                 <Button href="/contact#rfq" variant="ghost-navy">
                   Get a quote

@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { display, mono, sans } from './fonts';
-import { Header, type MobileGroup } from '@/components/layout/Header';
+import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { categories, industries, productsByCategory } from '@/lib/content';
+import { industries } from '@/lib/content';
 import { site, type NavItem } from '@/content/site';
 import { organizationJsonLd } from '@/lib/seo';
 import { JsonLd } from '@/components/ui/JsonLd';
@@ -27,14 +27,6 @@ export const viewport: Viewport = {
 /** Navigation is derived from content, so the dropdown → mega-menu switch is a component swap, not an IA change. */
 const nav: NavItem[] = [
   {
-    label: 'Products',
-    href: '/products',
-    children: [
-      ...categories.map((c) => ({ label: c.name, href: `/categories/${c.slug}`, description: c.summary })),
-      { label: 'All products', href: '/products', description: 'The full range in one view.' },
-    ],
-  },
-  {
     label: 'Industries',
     href: '/industries',
     children: industries.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })),
@@ -42,12 +34,6 @@ const nav: NavItem[] = [
   { label: 'Company', href: '/company' },
   { label: 'Contact', href: '/contact' },
 ];
-
-const mobileProducts: MobileGroup[] = categories.map((c) => ({
-  label: c.name,
-  href: `/categories/${c.slug}`,
-  children: productsByCategory(c.slug).map((p) => ({ label: p.name, href: `/products/${p.slug}` })),
-}));
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Header nav={nav} mobileProducts={mobileProducts} quoteHref="/contact#rfq" />
+        <Header nav={nav} quoteHref="/contact#rfq" />
         <main id="main">{children}</main>
         <Footer />
         <ScrollReveal />
