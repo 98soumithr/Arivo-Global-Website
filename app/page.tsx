@@ -227,7 +227,7 @@ export default function Home() {
       </Section>
 
       {/* ── 5 · Enquiry band with particle grid ── */}
-      <Section level={4} labelledBy="enquiry-heading" className="relative overflow-hidden">
+      <Section level={4} labelledBy="enquiry-heading" className="relative overflow-hidden !py-12 lg:!py-20">
         <ParticleGrid />
         <Container className="relative">
           <div data-reveal className="grid gap-(--space-group) lg:grid-cols-12 lg:items-end lg:gap-6">
