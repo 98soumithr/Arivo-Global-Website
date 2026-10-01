@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { ProductContent } from '@/lib/schema';
-import { getCategory, getIndustry, relatedProducts } from '@/lib/content';
+import { getCategory, getIndustry } from '@/lib/content';
 import { Container, Prose } from '@/components/layout/Container';
 import { Section, Sections } from '@/components/layout/Section';
 import { Accordion } from '@/components/ui/Accordion';
@@ -10,7 +10,6 @@ import { Figure } from '@/components/ui/Figure';
 import { Rich } from '@/components/ui/Rich';
 import { Chip } from './Chip';
 import { EnquiryBand } from './EnquiryBand';
-import { ProductGrid } from './ProductGrid';
 import { SectionHeading } from './SectionHeading';
 
 /**
@@ -25,7 +24,6 @@ export function ProductPage({ product }: { product: ProductContent }) {
   const hero = img('hero');
   const context = img('context');
   const diagram = img('diagram');
-  const related = relatedProducts(product);
   const enquireHref = `/contact?product=${product.slug}#rfq`;
 
   return (
@@ -210,18 +208,6 @@ export function ProductPage({ product }: { product: ProductContent }) {
                 <Accordion items={product.faqs} />
               </div>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 8 · Related products */}
-      <Section level={2} labelledBy="related">
-        <Container>
-          <SectionHeading id="related" eyebrow="Related" reveal>
-            Related products
-          </SectionHeading>
-          <div className="mt-(--space-group)">
-            <ProductGrid products={related} showCategory />
           </div>
         </Container>
       </Section>
