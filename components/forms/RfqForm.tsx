@@ -2,10 +2,9 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { FILE_TYPES, extensionOf, type RfqField, type RfqResult } from '@/lib/rfq';
+import type { RfqField, RfqResult } from '@/lib/rfq';
 import { buttonClass } from '@/components/ui/Button';
-import { FileDrop } from './FileDrop';
-import { SelectField, TextArea, TextField } from './Field';
+import { TextArea, TextField } from './Field';
 import { Turnstile } from './Turnstile';
 
 export interface ProductOption {
@@ -14,7 +13,7 @@ export interface ProductOption {
   group: string;
 }
 
-type Status = 'idle' | 'uploading' | 'sending' | 'done';
+type Status = 'idle' | 'sending' | 'done';
 type Errors = Partial<Record<RfqField, string>>;
 
 const FIELD_LABELS: Record<RfqField, string> = {
@@ -39,12 +38,11 @@ function validate(values: Record<string, string>): Errors {
   return e;
 }
 
-/** Eight fields, three optional; file upload prominent; Turnstile; inline pending state, then confirmation. */
-function Form({ products, responseCommitment, defaultProduct = '' }: { products: ProductOption[]; responseCommitment: string; defaultProduct?: string }) {
+/** Six fields, one optional; Turnstile; inline pending state, then confirmation. */
+function Form({ responseCommitment, defaultProduct = '' }: { products: ProductOption[]; responseCommitment: string; defaultProduct?: string }) {
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState('');
-  const [files, setFiles] = useState<File[]>([]);
   const [token, setToken] = useState('');
   const [turnstileReset, setTurnstileReset] = useState(0);
   const startedAt = useRef(0);
@@ -59,7 +57,7 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
     if (status === 'done') done.current?.focus();
   }, [status]);
 
-  const busy = status === 'uploading' || status === 'sending';
+  const busy = status === 'sending';
   const errorList = Object.entries(errors).filter(([, v]) => v) as [RfqField, string][];
 
   async function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
@@ -67,7 +65,6 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
     const fd = new FormData(ev.currentTarget);
     const values = Object.fromEntries([...fd.entries()].filter(([, v]) => typeof v === 'string')) as Record<string, string>;
     const clientErrors = validate(values);
-    if (errors.files) clientErrors.files = errors.files;
     setErrors(clientErrors);
     setFormError('');
     if (Object.keys(clientErrors).length) {
@@ -76,26 +73,6 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
     }
 
     try {
-      let uploaded: { url: string; name: string; size: number }[] = [];
-      if (files.length) {
-        setStatus('uploading');
-        // Loaded on demand: the Blob client is large and only needed when files are attached.
-        const { upload } = await import('@vercel/blob/client');
-        uploaded = await Promise.all(
-          files.map(async (f) => {
-            const blob = await upload(`rfq/${f.name.replace(/[^\w.\-]+/g, '_')}`, f, {
-              access: 'public',
-              handleUploadUrl: '/api/rfq/upload',
-              contentType: FILE_TYPES[extensionOf(f.name)],
-              multipart: f.size > 8 * 1024 * 1024,
-            });
-            return { url: blob.url, name: f.name, size: f.size };
-          }),
-        ).catch(() => {
-          throw new Error('upload');
-        });
-      }
-
       setStatus('sending');
       const res = await fetch('/api/rfq', {
         method: 'POST',
@@ -109,7 +86,7 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
           product: values.product,
           message: values.message,
           website: values.website,
-          files: uploaded,
+          files: [],
           token,
           startedAt: startedAt.current,
         }),
@@ -124,12 +101,8 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
       setTurnstileReset((n) => n + 1);
       setStatus('idle');
       requestAnimationFrame(() => summary.current?.focus());
-    } catch (err) {
-      setFormError(
-        (err as Error).message === 'upload'
-          ? 'The files could not be uploaded. Remove them and send the enquiry, then email the drawings to us — or try again.'
-          : 'The enquiry could not be sent. Check your connection and try again, or email us directly.',
-      );
+    } catch {
+      setFormError('The enquiry could not be sent. Check your connection and try again, or email us directly.');
       setStatus('idle');
       requestAnimationFrame(() => summary.current?.focus());
     }
@@ -158,7 +131,7 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
               <ul className="mt-3 space-y-1">
                 {errorList.map(([field, msg]) => (
                   <li key={field}>
-                    <a href={`#${field === 'files' ? 'files' : field}`} className="t-small text-burgundy underline underline-offset-4">
+                    <a href={`#${field}`} className="t-small text-burgundy underline underline-offset-4">
                       {FIELD_LABELS[field]}: {msg}
                     </a>
                   </li>
@@ -179,20 +152,6 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
         <TextField id="country" label="Country" autoComplete="country-name" error={errors.country} disabled={busy} />
         <TextField id="email" label="Email" type="email" autoComplete="email" inputMode="email" error={errors.email} disabled={busy} />
         <TextField id="phone" label="Phone" type="tel" autoComplete="tel" hint="With country code" optional error={errors.phone} disabled={busy} />
-        <SelectField id="product" label="Product" optional defaultValue={defaultProduct} error={errors.product} disabled={busy}>
-          <option value="">Not sure / several products</option>
-          {[...new Set(products.map((p) => p.group))].map((group) => (
-            <optgroup key={group} label={group}>
-              {products
-                .filter((p) => p.group === group)
-                .map((p) => (
-                  <option key={p.slug} value={p.slug}>
-                    {p.name}
-                  </option>
-                ))}
-            </optgroup>
-          ))}
-        </SelectField>
       </div>
 
       <TextArea
@@ -203,17 +162,8 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
         disabled={busy}
       />
 
-      <div id="files" tabIndex={-1} className="outline-none">
-        <FileDrop
-          files={files}
-          disabled={busy}
-          error={errors.files}
-          onChange={(next, problem) => {
-            setFiles(next);
-            setErrors((e) => ({ ...e, files: problem }));
-          }}
-        />
-      </div>
+      {/* Product context from ?product=slug, carried through to the enquiry email */}
+      <input type="hidden" name="product" value={defaultProduct} />
 
       {/* Honeypot — hidden from people and assistive technology */}
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
@@ -237,11 +187,11 @@ function Form({ products, responseCommitment, defaultProduct = '' }: { products:
               <path d="M8 1.5A6.5 6.5 0 1 1 1.5 8" />
             </svg>
           )}
-          {status === 'uploading' ? 'Uploading files…' : status === 'sending' ? 'Sending…' : 'Send enquiry'}
+          {status === 'sending' ? 'Sending…' : 'Send enquiry'}
         </button>
       </div>
       <p className="sr-only" aria-live="polite">
-        {status === 'uploading' ? 'Uploading files' : status === 'sending' ? 'Sending enquiry' : ''}
+        {status === 'sending' ? 'Sending enquiry' : ''}
       </p>
     </form>
   );
@@ -254,7 +204,7 @@ function WithParams(props: { products: ProductOption[]; responseCommitment: stri
   return <Form key={valid} {...props} defaultProduct={valid} />;
 }
 
-/** Product is pre-selected from ?product=slug. The fallback is the same form, unselected, for static render. */
+/** Product is read from ?product=slug into a hidden field. The fallback is the same form, without it, for static render. */
 export function RfqForm(props: { products: ProductOption[]; responseCommitment: string }) {
   return (
     <Suspense fallback={<Form {...props} />}>

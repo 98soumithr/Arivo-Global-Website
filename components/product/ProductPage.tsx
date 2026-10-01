@@ -23,7 +23,6 @@ export function ProductPage({ product }: { product: ProductContent }) {
   const category = getCategory(product.category);
   const img = (slot: string) => product.images.find((i) => i.slot === slot);
   const hero = img('hero');
-  const detail = img('detail');
   const context = img('context');
   const diagram = img('diagram');
   const related = relatedProducts(product);
@@ -168,11 +167,6 @@ export function ProductPage({ product }: { product: ProductContent }) {
                 </div>
               ))}
             </div>
-            {detail && (
-              <div data-reveal style={{ '--i': 1 } as React.CSSProperties} className="lg:col-span-5">
-                <Figure image={detail} sizes="(min-width: 1024px) 490px, calc(100vw - 40px)" />
-              </div>
-            )}
           </div>
         </Container>
       </Section>
