@@ -15,17 +15,17 @@ export function EnquiryBand({
   href?: string;
 }) {
   return (
-    <Section level={4} labelledBy="enquiry-heading">
+    <Section level={4} labelledBy="enquiry-heading" className="!py-12 lg:!py-20">
       <Container>
-        <div data-reveal className="grid gap-(--space-group) lg:grid-cols-12 lg:items-end lg:gap-6">
+        <div data-reveal className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-6">
           <div className="lg:col-span-7">
             <Eyebrow onNavy>Enquiries</Eyebrow>
-            <h2 id="enquiry-heading" className="t-h2 mt-1.5 text-white">
+            <h2 id="enquiry-heading" className="t-h2 mt-3 text-white">
               {heading}
             </h2>
-            <p className="t-body mt-1 text-on-navy">{body}</p>
+            <p className="t-body mt-3 text-on-navy">{body}</p>
           </div>
-          <div data-reveal-item className="flex flex-wrap gap-1.5 lg:col-span-5 lg:justify-end">
+          <div data-reveal-item className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
             <Button href={href} variant="primary-navy">
               Request a quote
             </Button>

@@ -5,21 +5,21 @@ import { company } from '@/content/company';
 import { Container } from './Container';
 import { Wordmark } from './Wordmark';
 
-const heading = 't-label mb-1.5 text-light-steel';
+const heading = 't-label mb-3 text-light-steel';
 const link = 'text-on-navy decoration-1 underline-offset-4 hover:underline';
 
 /** Deep Navy. Industries · Company · Contact. No registration numbers, address or phone by decision. */
 export function Footer() {
   return (
-    <footer className="on-navy surface-footer grain pt-3 pb-3 text-on-navy">
+    <footer className="on-navy surface-footer grain pt-12 pb-8 text-on-navy lg:pt-16">
       <Container>
         <Wordmark onNavy />
-        <p className="t-small mt-1.5 max-w-[46ch] text-light-steel">{site.tagline}.</p>
+        <p className="t-small mt-3 max-w-[46ch] text-light-steel">{site.tagline}.</p>
 
-        <div className="mt-2 grid gap-3 border-t border-navy-border pt-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-2">
+        <div className="mt-8 grid gap-8 border-t border-navy-border pt-8 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-10 lg:pt-10">
           <div>
             <h2 className={heading}>Industries</h2>
-            <ul className="t-small space-y-0.5">
+            <ul className="t-small space-y-2">
               {industries.map((i) => (
                 <li key={i.slug}>
                   <Link href={`/industries/${i.slug}`} className={link}>
@@ -32,7 +32,7 @@ export function Footer() {
 
           <div>
             <h2 className={heading}>Company</h2>
-            <ul className="t-small space-y-0.5">
+            <ul className="t-small space-y-2">
               {company.sections.map((s) => (
                 <li key={s.id}>
                   <Link href={`/company#${s.id}`} className={link}>
@@ -45,8 +45,8 @@ export function Footer() {
 
           <div className="sm:col-span-2 lg:col-span-1">
             <h2 className={heading}>Contact</h2>
-            <div className="rounded-brand border border-navy-border p-1.5 lg:p-2">
-              <dl className="t-small space-y-1">
+            <div className="rounded-brand border border-navy-border p-4 lg:p-5">
+              <dl className="t-small space-y-3">
                 <div>
                   <dt className="text-light-steel">Email</dt>
                   <dd>
@@ -67,18 +67,18 @@ export function Footer() {
                   <dd>{site.responseCommitment}</dd>
                 </div>
               </dl>
-              <Link href="/contact#rfq" className="t-small mt-1.5 inline-block font-semibold text-white underline decoration-1 underline-offset-4 hover:decoration-2">
+              <Link href="/contact#rfq" className="t-small mt-4 inline-block font-semibold text-white underline decoration-1 underline-offset-4 hover:decoration-2">
                 Request a quote
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="t-small mt-2 flex flex-col gap-1 border-t border-navy-border pt-2 text-light-steel sm:flex-row sm:justify-between">
+        <div className="t-small mt-10 flex flex-col gap-2 border-t border-navy-border pt-6 lg:mt-12 text-light-steel sm:flex-row sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.legalName}
           </p>
-          <ul className="flex gap-2">
+          <ul className="flex gap-6">
             <li>
               <Link href="/terms" className="text-light-steel decoration-1 underline-offset-4 hover:underline">
                 Terms of use
