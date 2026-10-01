@@ -1,5 +1,3 @@
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
 import { company } from '@/content/company';
 import { industries } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
@@ -18,7 +16,6 @@ export const metadata = buildMetadata({
 });
 
 const i = (n: number) => ({ '--i': n }) as React.CSSProperties;
-const fileExists = (href: string) => existsSync(join(process.cwd(), 'public', href));
 
 /* ── Inline SVG icons ── */
 function CheckIcon({ className = 'size-5' }: { className?: string }) {
@@ -53,14 +50,6 @@ function GlobeIcon() {
     <svg viewBox="0 0 24 24" fill="none" className="size-6">
       <circle cx="12" cy="12" r="9" className="stroke-harbour" strokeWidth="1.2" />
       <path d="M3 12h18M12 3c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.5-4-9s1.5-6.5 4-9z" className="stroke-harbour" strokeWidth="1.2" />
-    </svg>
-  );
-}
-
-function DownloadIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" className="size-4 shrink-0">
-      <path d="M10 3v10m0 0l-3-3m3 3l3-3M4 14v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -305,33 +294,6 @@ export default function Page() {
               </p>
             </div>
 
-            {/* Downloads */}
-            {'downloads' in compliance && compliance.downloads && (
-              <div data-reveal style={i(4)} className="mx-auto mt-5 max-w-[500px]">
-                <h3 className="t-label text-center text-slate">{compliance.downloads.heading}</h3>
-                <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-center">
-                  {compliance.downloads.items.map((d) => (
-                    <div key={d.href}>
-                      {fileExists(d.href) ? (
-                        <a
-                          href={d.href}
-                          download
-                          className="shadow-layered inline-flex items-center gap-2 rounded-[6px] border border-border bg-white px-4 py-2.5 text-[13px] font-medium text-navy transition-all hover:-translate-y-0.5 hover:shadow-layered-hover"
-                        >
-                          <DownloadIcon />
-                          {d.label}
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-2 rounded-[6px] border border-border bg-white px-4 py-2.5 text-[13px] text-slate shadow-sm">
-                          <DownloadIcon />
-                          {d.label} — on request
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </Container>
         </Section>
 
