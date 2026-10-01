@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { industries, productsByIndustry } from '@/lib/content';
+import { industries, productCountByIndustry } from '@/lib/content';
 import { buildMetadata } from '@/lib/seo';
 import { Container, Prose } from '@/components/layout/Container';
 import { Section, Sections } from '@/components/layout/Section';
@@ -45,7 +45,7 @@ export default function Page() {
                   <h3 className="t-h3 text-navy decoration-1 underline-offset-4 group-hover:underline">{i.name}</h3>
                   <p className="t-small mt-3 flex-1 text-ink">{i.intro[0]}</p>
                   <p className="t-small mt-5 flex items-center justify-between border-t border-border pt-4 text-slate">
-                    <span className="t-data">{productsByIndustry(i.slug).length} products</span>
+                    <span className="t-data">{productCountByIndustry(i.slug)} products</span>
                     <ArrowRight className="size-4 text-harbour" />
                   </p>
                 </Link>

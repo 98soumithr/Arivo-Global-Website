@@ -1,6 +1,9 @@
 import { products } from '@/content/products';
 import { categories } from '@/content/categories';
 import { industries } from '@/content/industries';
+import { agroProducts } from '@/content/agro-products';
+import { packagingProducts } from '@/content/sustainable-packaging-products';
+import { homeCareProducts } from '@/content/natural-home-care-products';
 import type { CategorySlug, IndustrySlug, ProductContent } from './schema';
 
 export { products, categories, industries };
@@ -23,6 +26,16 @@ export function productsByCategory(slug: CategorySlug) {
 
 export function productsByIndustry(slug: IndustrySlug) {
   return products.filter((p) => p.industries.includes(slug));
+}
+
+const separateProductCounts: Record<string, number> = {
+  'agro-products': agroProducts.length,
+  'sustainable-packaging': packagingProducts.length,
+  'natural-home-care': homeCareProducts.length,
+};
+
+export function productCountByIndustry(slug: string) {
+  return separateProductCounts[slug] ?? productsByIndustry(slug as IndustrySlug).length;
 }
 
 export function relatedProducts(product: ProductContent) {
