@@ -8,6 +8,7 @@ import { industries } from '../content/industries';
 import { home } from '../content/home';
 import { company } from '../content/company';
 import { privacy } from '../content/privacy';
+import { terms } from '../content/terms';
 import { site, contact } from '../content/site';
 import { validateContent, renderOutstanding } from './validate';
 import { RATIO_TOLERANCE, SLOT_TARGET } from './image-spec';
@@ -23,7 +24,7 @@ const result = validateContent({
   products,
   categories,
   industries,
-  copy: { home, company, privacy, site, contact },
+  copy: { home, company, privacy, terms, site, contact },
   imageExists,
 });
 

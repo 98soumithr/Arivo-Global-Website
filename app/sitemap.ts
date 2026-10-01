@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/company',
     '/contact',
     '/privacy',
+    '/terms',
   ];
   return paths.map((path) => ({
     url: absoluteUrl(path),

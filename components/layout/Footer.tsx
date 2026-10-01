@@ -78,9 +78,18 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.legalName}
           </p>
-          <Link href="/privacy" className="text-light-steel decoration-1 underline-offset-4 hover:underline">
-            Privacy notice
-          </Link>
+          <ul className="flex gap-2">
+            <li>
+              <Link href="/terms" className="text-light-steel decoration-1 underline-offset-4 hover:underline">
+                Terms of use
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="text-light-steel decoration-1 underline-offset-4 hover:underline">
+                Privacy notice
+              </Link>
+            </li>
+          </ul>
         </div>
       </Container>
     </footer>
