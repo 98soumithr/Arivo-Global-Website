@@ -14,7 +14,7 @@ const csp = [
   "img-src 'self' data: blob:",
   "font-src 'self'",
   "media-src 'self'",
-  `connect-src 'self' https://challenges.cloudflare.com https://vercel.com https://*.blob.vercel-storage.com${isDev ? ' ws:' : ''}`,
+  `connect-src 'self' https://api.web3forms.com https://challenges.cloudflare.com https://vercel.com https://*.blob.vercel-storage.com${isDev ? ' ws:' : ''}`,
   'frame-src https://challenges.cloudflare.com',
   "frame-ancestors 'none'",
   "base-uri 'self'",

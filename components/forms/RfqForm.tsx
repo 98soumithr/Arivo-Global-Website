@@ -2,10 +2,9 @@
 
 import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import type { RfqField, RfqResult } from '@/lib/rfq';
+import type { RfqField } from '@/lib/rfq';
 import { buttonClass } from '@/components/ui/Button';
 import { TextArea, TextField } from './Field';
-import { Turnstile } from './Turnstile';
 
 export interface ProductOption {
   slug: string;
@@ -43,8 +42,6 @@ function Form({ responseCommitment, defaultProduct = '' }: { products: ProductOp
   const [status, setStatus] = useState<Status>('idle');
   const [errors, setErrors] = useState<Errors>({});
   const [formError, setFormError] = useState('');
-  const [token, setToken] = useState('');
-  const [turnstileReset, setTurnstileReset] = useState(0);
   const startedAt = useRef(0);
   const summary = useRef<HTMLDivElement>(null);
   const done = useRef<HTMLDivElement>(null);
@@ -74,31 +71,29 @@ function Form({ responseCommitment, defaultProduct = '' }: { products: ProductOp
 
     try {
       setStatus('sending');
-      const res = await fetch('/api/rfq', {
+      const body = new FormData();
+      body.append('access_key', 'caa0a156-070e-4fe2-bca0-96205b92b340');
+      body.append('subject', `New enquiry from ${values.name} — ${values.company}`);
+      body.append('from_name', 'Arivo Global Website');
+      body.append('Name', values.name ?? '');
+      body.append('Company', values.company ?? '');
+      body.append('Country', values.country ?? '');
+      body.append('Email', values.email ?? '');
+      if (values.phone) body.append('Phone', values.phone);
+      if (values.product) body.append('Product', values.product);
+      body.append('Message', values.message ?? '');
+      if (values.website) body.append('botcheck', values.website);
+
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          name: values.name,
-          company: values.company,
-          country: values.country,
-          email: values.email,
-          phone: values.phone,
-          product: values.product,
-          message: values.message,
-          website: values.website,
-          files: [],
-          token,
-          startedAt: startedAt.current,
-        }),
+        body,
       });
-      const result = (await res.json()) as RfqResult;
-      if (result.ok) {
+      const result = await res.json();
+      if (result.success) {
         setStatus('done');
         return;
       }
-      setErrors(result.fieldErrors ?? {});
-      setFormError(result.error);
-      setTurnstileReset((n) => n + 1);
+      setFormError(result.message || 'The enquiry could not be sent. Please try again.');
       setStatus('idle');
       requestAnimationFrame(() => summary.current?.focus());
     } catch {
@@ -170,8 +165,6 @@ function Form({ responseCommitment, defaultProduct = '' }: { products: ProductOp
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
-
-      <Turnstile onToken={setToken} resetKey={turnstileReset} />
 
       <div className="flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="t-small text-slate">
