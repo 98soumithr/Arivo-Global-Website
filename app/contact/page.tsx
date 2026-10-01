@@ -9,7 +9,7 @@ import { RfqForm, type ProductOption } from '@/components/forms/RfqForm';
 export const metadata = buildMetadata({
   title: 'Contact and request a quote',
   description:
-    'Request a quotation from Arivo Global. Send a drawing, a sample reference or the part in service — we reply to every enquiry within one working day.',
+    'Request a quotation from Arivo Global. Tell us the product, specification, quantity and destination — we reply to every enquiry within one working day.',
   path: '/contact',
 });
 
@@ -34,7 +34,7 @@ export default function Page() {
                 </h1>
               </div>
               <p className="reveal t-lead mt-5 max-w-(--container-prose) text-slate" style={{ '--i': 1 } as React.CSSProperties}>
-                Tell us the application and attach what you have — a drawing, a specification, a photograph of the part in service.{' '}
+                Tell us the product, the specification, the quantity and where it needs to go.{' '}
                 {site.responseCommitment}
               </p>
               <div className="reveal mt-(--space-group)" style={{ '--i': 2 } as React.CSSProperties}>

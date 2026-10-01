@@ -215,7 +215,7 @@ export function ProductPage({ product }: { product: ProductContent }) {
       {/* 9 · Enquiry */}
       <EnquiryBand
         heading={`Enquire about ${product.name.toLowerCase()}`}
-        body="Send a drawing, a sample or the part currently in service, and tell us the application."
+        body="Tell us the specification, quantity and destination, and we will come back with a quote."
         href={enquireHref}
       />
     </Sections>

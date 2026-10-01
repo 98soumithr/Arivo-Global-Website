@@ -6,8 +6,8 @@ import { contact } from '@/content/site';
 
 /** Level 4 — the one navy band per page, immediately before the footer. */
 export function EnquiryBand({
-  heading = 'Send a drawing, a sample or a part number',
-  body = 'Tell us the application and we will recommend the product and quote.',
+  heading = 'Tell us what you need',
+  body = 'Share the product, specification, quantity and destination. We will come back with a quote and a delivery timeline.',
   href = '/contact#rfq',
 }: {
   heading?: string;
