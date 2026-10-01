@@ -219,9 +219,9 @@ export default function Home() {
           </div>
 
           <div data-reveal style={i(7)} className="mt-(--space-group) text-center">
-            <Link href={home.markets.link.href} className="t-small font-semibold text-light-steel underline decoration-1 underline-offset-4 transition-colors hover:text-white">
+            <p className="t-small font-semibold text-light-steel">
               {home.markets.link.label}
-            </Link>
+            </p>
           </div>
         </Container>
       </Section>
