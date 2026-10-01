@@ -37,6 +37,7 @@ const isExport = process.env.NEXT_EXPORT === '1';
 const nextConfig: NextConfig = {
   ...(isExport ? { output: 'export' } : {}),
   images: {
+    ...(isExport ? { unoptimized: true } : {}),
     formats: ['image/avif', 'image/webp'],
     qualities: [70, 80, 90],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

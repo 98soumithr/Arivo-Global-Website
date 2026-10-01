@@ -27,24 +27,6 @@ function CheckIcon({ className = 'size-5' }: { className?: string }) {
   );
 }
 
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-6">
-      <path d="M12 2l8 4v6c0 5.25-3.4 8.25-8 10-4.6-1.75-8-4.75-8-10V6l8-4z" className="fill-harbour/10 stroke-harbour" strokeWidth="1.2" />
-      <path d="M9 12l2 2 4-4" className="stroke-harbour" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function FlaskIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="size-6">
-      <path d="M9 3h6M10 3v6.5L4.5 19a1 1 0 00.87 1.5h13.26a1 1 0 00.87-1.5L14 9.5V3" className="stroke-harbour" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M7 15h10" className="stroke-harbour/40" strokeWidth="1" strokeDasharray="2 2" />
-    </svg>
-  );
-}
-
 function GlobeIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" className="size-6">
@@ -71,21 +53,19 @@ const stats = [
 ];
 
 const marqueeItems = [
-  'Refractory Ceramics',
-  'Foundry Consumables',
   'Agro Products',
   'Sustainable Packaging',
   'Natural Home Care',
+  'Industrial Products',
   'Quality Assured',
   'Global Export',
   'Sea & Air Freight',
-  'REACH Compliant',
-  'Custom Geometries',
+  'Trusted Suppliers',
+  'End-to-End Service',
+  'Documentation Included',
 ];
 
 const about = company.sections.find((s) => s.id === 'about')!;
-const quality = company.sections.find((s) => s.id === 'quality')!;
-const compliance = company.sections.find((s) => s.id === 'compliance')!;
 const markets = company.sections.find((s) => s.id === 'markets')!;
 
 export default function Page() {
@@ -198,106 +178,7 @@ export default function Page() {
           </Container>
         </Section>
 
-        {/* ═══ 3 · QUALITY — Level 3 ═══ */}
-        <Section level={3} id="quality" labelledBy="quality-heading" className="relative overflow-hidden">
-          {/* Dot grid background */}
-          <div className="dot-grid mask-radial pointer-events-none absolute inset-0" />
-
-          <Container className="relative">
-            <div className="grid gap-4 lg:grid-cols-12 lg:gap-6">
-              {/* Left — heading + body */}
-              <div data-reveal className="lg:col-span-5">
-                <div className="shadow-layered inline-flex size-10 items-center justify-center rounded-[6px] bg-white">
-                  <ShieldIcon />
-                </div>
-                <h2 id="quality-heading" className="t-h1 mt-3 text-navy">{quality.heading}</h2>
-                <div className="mt-3">
-                  {quality.body.map((p) => (
-                    <p key={p.slice(0, 32)} className="t-body mt-2 first:mt-0 text-ink/80">
-                      <Rich text={p} />
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right — documentation checklist */}
-              <div data-reveal style={i(1)} className="lg:col-span-7">
-                {'list' in quality && quality.list && (
-                  <div className="shadow-layered rounded-[8px] border border-border bg-white p-4 lg:p-5">
-                    <h3 className="t-label text-slate">{quality.list.heading}</h3>
-                    <ul className="mt-3 space-y-0">
-                      {quality.list.items.map((item, n) => (
-                        <li key={item} className="group flex items-start gap-3 rounded-[4px] px-2 py-2.5 transition-colors hover:bg-paper">
-                          <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-harbour/[0.08] text-[11px] font-semibold text-harbour">
-                            {String(n + 1).padStart(2, '0')}
-                          </span>
-                          <span className="t-body text-ink/80">
-                            <Rich text={item} />
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* ═══ 4 · COMPLIANCE — Level 1 ═══ */}
-        <Section level={1} id="compliance" labelledBy="compliance-heading">
-          <Container>
-            <div data-reveal className="mx-auto max-w-[680px] text-center">
-              <div className="shadow-layered mx-auto inline-flex size-10 items-center justify-center rounded-[6px] bg-paper">
-                <FlaskIcon />
-              </div>
-              <h2 id="compliance-heading" className="t-h1 mt-3 text-navy">{compliance.heading}</h2>
-            </div>
-
-            {/* Two chemistry cards with gradient borders */}
-            <div className="mt-5 grid gap-3 lg:grid-cols-2">
-              <div data-reveal style={i(1)} className="gradient-border group transition-shadow duration-300 hover:shadow-layered-hover">
-                <div className="relative overflow-hidden bg-white p-5">
-                  <div className="pointer-events-none absolute -right-12 -top-12 size-32 rounded-full bg-harbour/[0.06] blur-[60px]" />
-                  <p className="t-label relative text-harbour">Alumino-silicate</p>
-                  <h3 className="t-h3 relative mt-2 text-navy">Refractory ceramic fibre</h3>
-                  <p className="t-body relative mt-2 text-ink/70">
-                    Higher temperature capability. Classified under CLP as a Category 1B carcinogen and on the REACH Candidate List in the EU.
-                  </p>
-                  <div className="relative mt-3 flex items-center gap-1.5">
-                    <span className="rounded-full bg-harbour/[0.08] px-2 py-0.5 text-[10px] font-medium text-harbour">High temp</span>
-                    <span className="rounded-full bg-harbour/[0.08] px-2 py-0.5 text-[10px] font-medium text-harbour">REACH listed</span>
-                  </div>
-                </div>
-              </div>
-
-              <div data-reveal style={i(2)} className="group overflow-hidden rounded-[8px] bg-gradient-to-br from-emerald-200/60 via-emerald-100/30 to-emerald-200/60 p-[1px] transition-shadow duration-300 hover:shadow-layered-hover">
-                <div className="relative overflow-hidden rounded-[7px] bg-white p-5">
-                  <div className="pointer-events-none absolute -right-12 -top-12 size-32 rounded-full bg-emerald-500/[0.06] blur-[60px]" />
-                  <p className="t-label relative text-emerald-700">AES — Alkaline earth silicate</p>
-                  <h3 className="t-h3 relative mt-2 text-navy">Low bio-persistence fibre</h3>
-                  <p className="t-body relative mt-2 text-ink/70">
-                    Exonerated from carcinogen classification under Note Q of CLP. Preferred by some operators for handling and regulatory reasons.
-                  </p>
-                  <div className="relative mt-3 flex items-center gap-1.5">
-                    <span className="rounded-full bg-emerald-500/[0.08] px-2 py-0.5 text-[10px] font-medium text-emerald-700">Low bio-persistence</span>
-                    <span className="rounded-full bg-emerald-500/[0.08] px-2 py-0.5 text-[10px] font-medium text-emerald-700">CLP exonerated</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Body text */}
-            <div data-reveal style={i(3)} className="mx-auto mt-5 max-w-[680px]">
-              <p className="t-body text-ink/70">
-                Buyers in the EU receive the information required by REACH Article 33 with every supply. Safe handling is straightforward and well established: minimise dust when cutting, use local extraction or wet methods where practical, and wear the protective equipment set out in the safety data sheet.
-              </p>
-            </div>
-
-          </Container>
-        </Section>
-
-        {/* ═══ 5 · MARKETS — Level 2 ═══ */}
+        {/* ═══ 3 · MARKETS — Level 2 ═══ */}
         <Section level={2} id="markets" labelledBy="markets-heading" className="relative overflow-hidden">
           <Container className="relative">
             <div data-reveal className="text-center">
