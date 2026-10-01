@@ -71,22 +71,25 @@ function Form({ responseCommitment, defaultProduct = '' }: { products: ProductOp
 
     try {
       setStatus('sending');
-      const body = new FormData();
-      body.append('access_key', 'caa0a156-070e-4fe2-bca0-96205b92b340');
-      body.append('subject', `New enquiry from ${values.name} — ${values.company}`);
-      body.append('from_name', 'Arivo Global Website');
-      body.append('Name', values.name ?? '');
-      body.append('Company', values.company ?? '');
-      body.append('Country', values.country ?? '');
-      body.append('Email', values.email ?? '');
-      if (values.phone) body.append('Phone', values.phone);
-      if (values.product) body.append('Product', values.product);
-      body.append('Message', values.message ?? '');
-      if (values.website) body.append('botcheck', values.website);
+      const payload: Record<string, string> = {
+        access_key: 'caa0a156-070e-4fe2-bca0-96205b92b340',
+        subject: `New enquiry from ${values.name} — ${values.company}`,
+        from_name: 'Arivo Global Website',
+        replyto: values.email ?? '',
+        name: values.name ?? '',
+        company: values.company ?? '',
+        country: values.country ?? '',
+        email: values.email ?? '',
+        message: values.message ?? '',
+      };
+      if (values.phone) payload.phone = values.phone;
+      if (values.product) payload.product = values.product;
+      if (values.website) payload.botcheck = values.website;
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
       });
       const result = await res.json();
       if (result.success) {
