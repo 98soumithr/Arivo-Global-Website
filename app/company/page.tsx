@@ -102,24 +102,6 @@ const markets = company.sections.find((s) => s.id === 'markets')!;
 export default function Page() {
   return (
     <>
-      {/* Sticky sub-nav */}
-      <nav aria-label="Company sections" className="sticky top-0 z-30 border-b border-border bg-white/90 backdrop-blur-sm">
-        <Container>
-          <ul className="-mx-3 flex gap-1 overflow-x-auto">
-            {company.sections.map((s) => (
-              <li key={s.id} className="shrink-0">
-                <a
-                  href={`#${s.id}`}
-                  className="block px-3 py-3 text-[13px] font-medium text-navy decoration-1 underline-offset-[6px] transition-colors hover:text-harbour hover:underline"
-                >
-                  {s.nav}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </nav>
-
       <Sections>
         {/* ═══ 1 · HERO — Level 5 ═══ */}
         <Section level={5} id="about" labelledBy="page-title" className="relative overflow-hidden">
