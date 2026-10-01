@@ -218,11 +218,6 @@ export default function Home() {
             ))}
           </div>
 
-          <div data-reveal style={i(7)} className="mt-(--space-group) text-center">
-            <p className="t-small font-semibold text-light-steel">
-              {home.markets.link.label}
-            </p>
-          </div>
         </Container>
       </Section>
 
