@@ -5,7 +5,7 @@ import type { ImageSlot } from '@/lib/schema';
 import { HeroVideo, type VideoSource } from './HeroVideo';
 
 const inPublic = (src: string) => existsSync(join(process.cwd(), 'public', src));
-const basePath = process.env.NEXT_EXPORT === '1' ? '/Arivo-Global-Website' : '';
+const basePath = '';
 
 /**
  * Full-bleed backdrop for a dark hero, in layers:
